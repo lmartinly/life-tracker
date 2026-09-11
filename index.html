@@ -521,8 +521,8 @@ const MEAS_GROUPS = [
   ['Arms', [['arm', 'Arm']]]
 ];
 const MEAS_FIELDS = MEAS_GROUPS.reduce((a, g) => a.concat(g[1]), []);
-const APP_VERSION = '1.2.0';
-const SCHEMA = 3;
+const APP_VERSION = '1.3.0';
+const SCHEMA = 4;
 const LS_KEY = 'mounjaro_tracker_data';
 
 /* ---------------- Store ---------------- */
@@ -535,6 +535,7 @@ const Store = {
       settings: {
         weekday: 5, time: '22:00',
         heightCm: null, goalKg: null, startKgOverride: null,
+        sex: null, birthMonth: null, birthYear: null, activity: 1.375,
         checklistItems: DEFAULT_CHECKLIST.slice(),
         setupDismissed: false,
         drive: { enabled: false, clientId: '', fileId: null, folderId: null, lastSync: null, lastHash: null }
@@ -583,7 +584,8 @@ const Store = {
         });
       });
       return d;
-    }
+    },
+    function v3to4(d) { return d; } /* adds sex/birth/activity via normalize() */
   ],
   migrate(d) {
     let v = (d && typeof d.schemaVersion === 'number') ? d.schemaVersion : 0;
@@ -657,6 +659,11 @@ function fmtSign(v, unit, fmt) {
   return (v < 0 ? '−' : '+') + fmt(Math.abs(v)) + ' ' + unit;
 }
 function firstInjection() { const a = injectionsSorted(false); return a[0] || null; }
+function daysSinceStart(now) {
+  const f = firstInjection();
+  if (!f) return 0;
+  return daysBetween(new Date(f.dateTime), now || new Date()) + 1;
+}
 function weeksSinceStart(now) {
   const f = firstInjection();
   if (!f) return 0;
@@ -761,6 +768,78 @@ function buildInsights() {
   if (wk >= 2) out.push({ icon: 'sun', text: 'Week ' + wk + ' of your journey.' });
   return out;
 }
+/* ---------------- trend / pace / metabolism ---------------- */
+/* least-squares slope of weight over the last `days`, in kg per week */
+function weightTrend(days) {
+  const cut = Date.now() - (days || 28) * DAY;
+  const pts = weightsSorted(false).filter(w => new Date(w.dateTime).getTime() >= cut)
+    .map(w => ({ t: new Date(w.dateTime).getTime(), y: +w.kg }));
+  if (pts.length < 2) return null;
+  const t0 = pts[0].t;
+  const xs = pts.map(p => (p.t - t0) / DAY);
+  const n = pts.length;
+  const mx = xs.reduce((a, b) => a + b, 0) / n;
+  const my = pts.reduce((a, p) => a + p.y, 0) / n;
+  let num = 0, den = 0;
+  for (let i = 0; i < n; i++) { num += (xs[i] - mx) * (pts[i].y - my); den += (xs[i] - mx) * (xs[i] - mx); }
+  if (den === 0) return null;
+  const perDay = num / den;
+  return { perWeek: perDay * 7, perDay, n, spanDays: xs[xs.length - 1] };
+}
+function goalProjection() {
+  const set = Store.state.settings;
+  const cw = currentWeight();
+  if (!set.goalKg || !cw) return null;
+  const goal = +set.goalKg, remaining = cw.kg - goal;
+  const tr = weightTrend(28) || weightTrend(56);
+  const out = { goal, remaining, perWeek: tr ? tr.perWeek : null, reached: Math.abs(remaining) < 0.1 };
+  if (out.reached) { out.status = 'reached'; return out; }
+  if (!tr || tr.n < 2) { out.status = 'nodata'; return out; }
+  const losing = tr.perWeek < -0.02, gaining = tr.perWeek > 0.02;
+  const needToLose = remaining > 0;
+  if (Math.abs(tr.perWeek) < 0.02) out.status = 'flat';
+  else if ((needToLose && gaining) || (!needToLose && losing)) out.status = 'wrongway';
+  else {
+    const weeks = Math.abs(remaining / tr.perWeek);
+    if (weeks > 260) out.status = 'slow';
+    else { out.status = 'eta'; out.weeks = weeks; out.date = new Date(Date.now() + weeks * 7 * DAY); }
+  }
+  return out;
+}
+function ageFromBirth(set) {
+  if (!set.birthYear) return null;
+  const now = new Date();
+  let a = now.getFullYear() - set.birthYear;
+  const bm = (set.birthMonth || 1) - 1;
+  if (now.getMonth() < bm) a--;
+  return a;
+}
+function metabolism(atKg) {
+  const set = Store.state.settings;
+  const cw = currentWeight();
+  const kg = atKg != null ? atKg : (cw ? cw.kg : null);
+  const age = ageFromBirth(set);
+  if (!kg || !set.heightCm || age == null || !set.sex) return null;
+  const s = set.sex === 'male' ? 5 : -161;
+  const bmr = 10 * kg + 6.25 * set.heightCm - 5 * age + s;
+  return { bmr, tdee: bmr * (set.activity || 1.375), kg, age };
+}
+const ACTIVITY_LEVELS = [
+  [1.2, 'Sedentary', 'little or no exercise'],
+  [1.375, 'Light', 'exercise 1-3 days/week'],
+  [1.55, 'Moderate', 'exercise 3-5 days/week'],
+  [1.725, 'Very active', 'exercise 6-7 days/week'],
+  [1.9, 'Athlete', 'hard training, physical job']
+];
+function kgCmRatio() {
+  const tb = totalBodyChange();
+  const sw = startWeight(), cw = currentWeight();
+  if (!tb || sw == null || !cw) return null;
+  const kgLost = sw - cw.kg;
+  if (kgLost < 1 || tb.cm >= 0) return null;
+  return { cmPerKg: Math.abs(tb.cm) / kgLost, kgLost, cmLost: Math.abs(tb.cm) };
+}
+
 function weekStats(now) {
   now = now || new Date();
   const thisW = weekIndex(now);
@@ -1272,7 +1351,7 @@ function renderDashboard() {
     const ins = buildInsights();
     html += '<div class="card press journey" data-act="open-journey">' + cardHead('sparkle', 'mint', 'Your journey', '<span class="chev-ico">' + ic('chevR', 17) + '</span>') +
       '<div class="jstats">' +
-      '<div class="jstat"><b>' + (wk || '—') + '</b><span>week' + (wk === 1 ? '' : 's') + '</span></div>' +
+      '<div class="jstat"><b>' + (wk || '—') + '</b><span>week' + (wk === 1 ? '' : 's') + ' · day ' + daysSinceStart(now) + '</span></div>' +
       '<div class="jstat"><b>' + s.injections.length + '</b><span>shot' + (s.injections.length === 1 ? '' : 's') + '</span></div>' +
       '<div class="jstat"><b>' + (lost != null ? fmtSign(-lost, '').trim() : '—') + '</b><span>kg</span></div>' +
       '<div class="jstat"><b>' + (tb ? fmtSign(tb.cm, '', fmtCm).trim() : '—') + '</b><span>cm</span></div>' +
@@ -1532,7 +1611,7 @@ function openJourneyPage() {
       h += '<div class="card journey">';
       if (fi) {
         h += '<div class="hero-num">Week ' + wk + '</div>' +
-          '<div class="hero-sub">since your first injection · ' + fmtDate(fi.dateTime) + '</div>';
+          '<div class="hero-sub">day ' + daysSinceStart(now) + ' since your first injection · ' + fmtDate(fi.dateTime) + '</div>';
       } else {
         h += '<div class="hero-num">Day one</div><div class="hero-sub">your journey starts with the first log</div>';
       }
@@ -1542,6 +1621,14 @@ function openJourneyPage() {
         '<div class="jstat"><b>' + Store.state.injections.length + '</b><span>injections</span></div>' +
         '<div class="jstat"><b>' + longestStreak(Store.state.injections) + '</b><span>best streak</span></div>' +
         '</div></div>';
+
+      /* metabolism entry */
+      const mMet = metabolism();
+      h += '<button class="card press" data-act="open-metab" style="width:100%;text-align:left">' +
+        '<div class="card-head" style="margin:0">' + iconChip('sun', 'coral') + '<h3>Metabolism</h3><span class="chev-ico">' + ic('chevR', 17) + '</span></div>' +
+        (mMet ? '<div class="kv" style="border:0;padding:6px 0 0"><span>Daily energy use (TDEE)</span><b>' + Math.round(mMet.tdee) + ' kcal</b></div>'
+          : '<div style="font-size:13.5px;color:var(--muted);margin-top:6px">Add your details to estimate BMR — it updates as you lose weight.</div>') +
+        '</button>';
 
       /* insights */
       if (ins.length) {
@@ -1556,6 +1643,41 @@ function openJourneyPage() {
           recs.map(r => '<div class="recrow"><span class="rl">' + esc(r.label) + '</span>' +
             '<span class="rv">' + esc(r.value) + '<span class="rd">' + esc(r.date) + '</span></span></div>').join('') +
           '</div>';
+      }
+
+      /* pace & goal projection */
+      const proj = goalProjection();
+      const tr = weightTrend(28) || weightTrend(56);
+      if (tr || proj) {
+        h += '<div class="sec-label">Pace &amp; goal</div><div class="card">';
+        if (tr) {
+          const dir = tr.perWeek < -0.02 ? 'down' : tr.perWeek > 0.02 ? 'up' : 'flat';
+          h += '<div class="kv"><span>Recent pace</span><b class="delta ' + dir + '">' +
+            (Math.abs(tr.perWeek) < 0.02 ? 'holding steady' : fmtSign(tr.perWeek, 'kg/wk')) + '</b></div>' +
+            '<div class="footnote" style="margin:2px 0 0">from the last ' + Math.max(1, Math.round(tr.spanDays)) + ' days · ' + tr.n + ' weigh-ins</div>';
+        }
+        if (proj) {
+          h += '<div class="divider"></div>';
+          if (proj.status === 'reached') h += '<div class="insight"><span class="ii">' + ic('trophy', 14) + '</span><span>You\u2019ve reached your goal of ' + fmtKg(proj.goal) + ' kg. 🎉</span></div>';
+          else if (proj.status === 'eta') h += '<div class="kv" style="border:0"><span>Goal ' + fmtKg(proj.goal) + ' kg · ' + fmtKg(Math.abs(proj.remaining)) + ' kg to go</span><b>' + (proj.weeks < 1.5 ? 'about a week' : Math.round(proj.weeks) + ' weeks') + '</b></div><div class="footnote" style="margin:0">at this pace, around ' + fmtDate(proj.date) + '</div>';
+          else if (proj.status === 'flat') h += '<div class="insight"><span class="ii">' + ic('flag', 14) + '</span><span>' + fmtKg(Math.abs(proj.remaining)) + ' kg from your goal. Your weight is holding steady right now — no arrival estimate yet.</span></div>';
+          else if (proj.status === 'wrongway') h += '<div class="insight"><span class="ii">' + ic('flag', 14) + '</span><span>' + fmtKg(Math.abs(proj.remaining)) + ' kg from your goal. The recent trend is moving the other way, so there\u2019s no estimate — this happens, keep going.</span></div>';
+          else if (proj.status === 'slow') h += '<div class="kv" style="border:0"><span>Goal ' + fmtKg(proj.goal) + ' kg</span><b>very gradual</b></div><div class="footnote" style="margin:0">the current pace is gentle — an estimate wouldn\u2019t be meaningful yet</div>';
+          else h += '<div class="footnote" style="margin:0">Log a few weigh-ins over a couple of weeks to project your goal date.</div>';
+        }
+        h += '</div>';
+      }
+
+      /* plateau note — a calm one, not an alarm */
+      const trShort = weightTrend(21);
+      if (trShort && trShort.n >= 3 && Math.abs(trShort.perWeek) < 0.12 && cw && Store.state.weights.length >= 5) {
+        h += '<div class="card" style="background:var(--mint-soft)"><div class="insight" style="padding:2px"><span class="ii">' + ic('sun', 14) + '</span><span>Your weight has been level for about three weeks. Plateaus are a normal part of the process — your body adjusting, not you doing anything wrong.</span></div></div>';
+      }
+
+      /* kg <-> cm relationship */
+      const ratio = kgCmRatio();
+      if (ratio) {
+        h += '<div class="card"><div class="insight" style="padding:2px"><span class="ii">' + ic('tape', 14) + '</span><span>For every kg you\u2019ve lost, you\u2019ve dropped about ' + fmtCm(ratio.cmPerKg) + ' cm across your measurements — the scale and the tape moving together.</span></div></div>';
       }
 
       /* body change highlights */
@@ -1574,6 +1696,125 @@ function openJourneyPage() {
       }
       h += '<div class="footnote">These are your own milestones, computed from your logs — nothing to collect, just progress to notice.</div>';
       body.innerHTML = h;
+    }
+  });
+}
+
+/* ---------------- metabolism page ---------------- */
+function openMetabolismPage() {
+  Pages.push({
+    title: 'Metabolism',
+    render(body) {
+      const set = Store.state.settings;
+      const m = metabolism();
+      const cw = currentWeight();
+      let h = '';
+      const missing = [];
+      if (!set.sex) missing.push('sex');
+      if (!set.birthYear) missing.push('date of birth');
+      if (!set.heightCm) missing.push('height');
+      if (!cw) missing.push('a logged weight');
+
+      if (!m) {
+        h += '<div class="card"><div class="empty"><div class="big">🔥</div>Add ' + esc(missing.join(', ')) +
+          ' to estimate your metabolism.</div>' +
+          (missing.indexOf('a logged weight') < 0 ? '<button class="btn btn-primary" style="width:100%" data-act="metab-setup">Add details</button>' :
+            '<button class="btn btn-primary" style="width:100%" data-act="add-weight">Log a weight</button>') +
+          '</div>';
+        body.innerHTML = h;
+        return;
+      }
+
+      /* hero: BMR + TDEE */
+      h += '<div class="card"><div class="hero"><div style="flex:none;width:84px;height:84px;border-radius:50%;background:var(--coral-soft);display:flex;align-items:center;justify-content:center;font-size:34px">🔥</div>' +
+        '<div><div class="hero-num">' + Math.round(m.tdee) + '<small> kcal</small></div>' +
+        '<div class="hero-sub">estimated daily energy use (TDEE) at ' + fmtKg(m.kg) + ' kg</div></div></div>' +
+        '<div class="divider"></div>' +
+        '<div class="kv"><span>Base metabolism (BMR)</span><b>' + Math.round(m.bmr) + ' kcal/day</b></div>' +
+        '<div class="kv"><span>Activity factor</span><b>' + (ACTIVITY_LEVELS.find(a => a[0] === set.activity) || [,'—'])[1] + ' ×' + (set.activity || 1.375) + '</b></div>' +
+        '<div class="kv"><span>At rest, per hour</span><b>' + Math.round(m.bmr / 24) + ' kcal</b></div>' +
+        '</div>';
+
+      /* how it moves with weight */
+      h += '<div class="sec-label">As your weight changes</div><div class="card">';
+      const sw = startWeight();
+      if (sw != null && Math.abs(sw - m.kg) >= 0.5) {
+        const mStart = metabolism(sw);
+        if (mStart) {
+          const dB = Math.round(m.bmr - mStart.bmr);
+          h += '<div class="kv"><span>BMR at start (' + fmtKg(sw) + ' kg)</span><b>' + Math.round(mStart.bmr) + ' kcal</b></div>' +
+            '<div class="kv"><span>BMR now (' + fmtKg(m.kg) + ' kg)</span><b>' + Math.round(m.bmr) + ' kcal</b></div>' +
+            '<div class="kv" style="border:0"><span>Change</span><b class="delta ' + (dB < 0 ? 'down' : dB > 0 ? 'up' : 'flat') + '">' + (dB > 0 ? '+' : '') + dB + ' kcal/day</b></div>' +
+            '<div class="footnote">As you lose weight your body needs a little less energy — normal, and part of why pace can slow. Recalculated from your latest weight every time.</div>';
+        }
+      } else {
+        h += '<div class="footnote" style="margin:0">Each 1 kg of body weight changes your BMR by about 10 kcal/day. As your weight moves, this screen updates automatically from your newest weigh-in.</div>';
+      }
+      h += '</div>';
+
+      /* projection at goal */
+      if (set.goalKg) {
+        const mGoal = metabolism(+set.goalKg);
+        if (mGoal) {
+          h += '<div class="sec-label">At your goal</div><div class="card">' +
+            '<div class="kv"><span>BMR at ' + fmtKg(+set.goalKg) + ' kg</span><b>' + Math.round(mGoal.bmr) + ' kcal/day</b></div>' +
+            '<div class="kv" style="border:0"><span>TDEE at goal</span><b>' + Math.round(mGoal.tdee) + ' kcal/day</b></div>' +
+            '<div class="footnote">A rough guide to your energy needs once you reach your goal weight.</div></div>';
+        }
+      }
+
+      /* activity picker */
+      h += '<div class="sec-label">Activity level</div><div class="card">' +
+        ACTIVITY_LEVELS.map(a =>
+          '<button class="row" style="width:100%;text-align:left" data-act="set-activity" data-v="' + a[0] + '">' +
+          '<div class="rmain"><div class="rtitle">' + a[1] + (set.activity === a[0] ? ' <span class="badge-day">current</span>' : '') + '</div>' +
+          '<div class="rsub">' + a[2] + '</div></div>' +
+          '<div class="rside"><div class="rval">×' + a[0] + '</div></div></button>'
+        ).join('') + '</div>';
+
+      h += '<div class="card"><button class="btn btn-tonal" style="width:100%" data-act="metab-setup">Edit sex, birth date &amp; height</button></div>';
+      h += '<div class="footnote">Mifflin-St Jeor equation — the current clinical standard. An estimate to guide you, not a medical prescription.</div>';
+      body.innerHTML = h;
+    }
+  });
+}
+function openMetabSetupSheet() {
+  const set = Store.state.settings;
+  const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  const nowY = new Date().getFullYear();
+  Sheet.open({
+    title: 'Your details',
+    sub: 'Used only to estimate metabolism, on this device.',
+    html:
+      '<div class="f-label">Sex</div>' +
+      '<div class="chips" id="ms-sex">' +
+      '<button class="chip' + (set.sex === 'female' ? ' on' : '') + '" data-v="female">Female</button>' +
+      '<button class="chip' + (set.sex === 'male' ? ' on' : '') + '" data-v="male">Male</button></div>' +
+      '<div class="f-hint">The equation uses a different constant for each; pick what matches your physiology.</div>' +
+      '<div class="f-label">Date of birth</div>' +
+      '<div class="f-2col">' +
+      '<select class="field" id="ms-bm"><option value="">Month</option>' +
+      months.map((mn, i) => '<option value="' + (i + 1) + '"' + (set.birthMonth === i + 1 ? ' selected' : '') + '>' + mn + '</option>').join('') + '</select>' +
+      '<select class="field" id="ms-by"><option value="">Year</option>' +
+      Array.from({ length: 80 }, (_, k) => nowY - 16 - k).map(y => '<option value="' + y + '"' + (set.birthYear === y ? ' selected' : '') + '>' + y + '</option>').join('') + '</select>' +
+      '</div>' +
+      '<div class="f-label">Height (cm)</div>' +
+      '<input class="field num" type="text" inputmode="decimal" id="ms-h" value="' + (set.heightCm || '') + '" placeholder="e.g. 165">' +
+      '<div class="sheet-actions"><button class="btn btn-primary" id="ms-save" style="flex:1">Save</button></div>',
+    mount(el, close) {
+      let sex = set.sex;
+      $('#ms-sex', el).addEventListener('click', e => {
+        const c = e.target.closest('.chip'); if (!c) return;
+        sex = c.dataset.v;
+        $$('#ms-sex .chip', el).forEach(x => x.classList.toggle('on', x.dataset.v === sex));
+      });
+      $('#ms-save', el).addEventListener('click', () => {
+        const h = parseNum($('#ms-h', el).value);
+        if ($('#ms-h', el).value && (!h || h < 90 || h > 250)) return toast('Height should be 90-250 cm');
+        const bm = +$('#ms-bm', el).value || null, by = +$('#ms-by', el).value || null;
+        Actions.patchSettings({ sex: sex || null, birthMonth: bm, birthYear: by, heightCm: h || set.heightCm || null });
+        close(); toast('Saved');
+      });
     }
   });
 }
@@ -2145,7 +2386,9 @@ function openSettingsPage() {
         '<div class="f-label">Starting weight override (kg)</div>' +
         '<input class="field num" type="text" inputmode="decimal" step="0.1" id="set-start" value="' + (set.startKgOverride || '') + '" placeholder="auto: earliest logged weight">' +
         '<div class="f-hint">Use this if you started Mounjaro before you started logging here.</div>' +
-        '<button class="btn btn-primary btn-sm" style="margin-top:12px" data-act="save-body">Save body settings</button></div>';
+        '<button class="btn btn-primary btn-sm" style="margin-top:12px" data-act="save-body">Save body settings</button>' +
+        '<div class="divider"></div>' +
+        '<button class="btn btn-tonal btn-sm" style="width:100%" data-act="open-metab">' + ic('sun', 15) + ' Metabolism (BMR / TDEE) →</button></div>';
       /* checklist */
       h += '<div class="sec-label">Shot day checklist</div><div class="card">' +
         '<textarea class="field" id="set-checklist" rows="5" style="margin-top:0">' + esc(set.checklistItems.join('\n')) + '</textarea>' +
@@ -2573,6 +2816,9 @@ const Handlers = {
   'open-inj': () => openInjectionsPage(),
   'open-photos': () => openPhotosPage(),
   'open-journey': () => openJourneyPage(),
+  'open-metab': () => openMetabolismPage(),
+  'metab-setup': () => openMetabSetupSheet(),
+  'set-activity': el => { Actions.patchSettings({ activity: +el.dataset.v }); },
   'feel-good': () => {
     Store.state.meta.feelGoodKey = dateKey(new Date());
     Store.save(); App.refresh();
