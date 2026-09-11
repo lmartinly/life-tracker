@@ -1,5 +1,5 @@
 /* Mounjaro Tracker service worker — bump CACHE on every app release */
-const CACHE = 'mj-v1.2.0';
+const CACHE = 'mj-v1.3.0';
 
 self.addEventListener('install', e => {
   e.waitUntil(

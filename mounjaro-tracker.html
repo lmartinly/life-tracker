@@ -1,0 +1,2983 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no, maximum-scale=1">
+<title>Mounjaro Tracker</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Mounjaro">
+<meta name="theme-color" content="#F7F0E8">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<style>
+:root{
+  /* board: Terracotta #C96A3A · Indigo #3E4DBA · Dusty Rose #A55C7A · Sage #9AA17B · Cream #F7F0E8 */
+  --bg:#F7F0E8; --surface:#FFFFFF; --surface2:#EFE6DA; --line:#E7DCCE;
+  --text:#3A332B; --muted:#8D8374; --faint:#B5AA97;
+  --coral:#C96A3A; --coral-soft:#F6E3D5; --coral-deep:#9A4E26;      /* terracotta */
+  --teal:#3E4DBA; --teal-soft:#E4E6F8; --teal-deep:#2E3A96;         /* indigo */
+  --pink:#A55C7A; --pink-soft:#F2E1E9; --pink-deep:#82425E;         /* dusty rose */
+  --mint:#9AA17B; --mint-soft:#EBEDDE; --mint-deep:#6E7552;         /* sage */
+  --lav:#8A4E68; --lav-soft:#F0E2E9; --lav-deep:#6D3A51;            /* plum — dusty rose, darkened */
+  --peach:#6C79D6; --peach-soft:#E9EBFA; --peach-deep:#4553A8;      /* periwinkle — indigo, lightened */
+  --shadow:0 10px 30px rgba(92,72,48,.09), 0 1px 3px rgba(92,72,48,.05);
+  --shadow-sm:0 4px 14px rgba(92,72,48,.07), 0 1px 2px rgba(92,72,48,.04);
+  --r-lg:26px; --r-md:20px; --r-sm:14px;
+  --ease:cubic-bezier(.32,.72,.33,1);
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;margin:0;padding:0}
+html{height:100%}
+body{
+  background:var(--bg); color:var(--text); min-height:100dvh;
+  font:16px/1.45 -apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",system-ui,sans-serif;
+  -webkit-font-smoothing:antialiased; overscroll-behavior-y:none; touch-action:manipulation;
+}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+input,select,textarea{font:inherit;color:inherit}
+img{display:block;max-width:100%}
+svg{display:block}
+.num{font-variant-numeric:tabular-nums}
+
+/* ---------- shell ---------- */
+#app{max-width:520px;margin:0 auto;min-height:100dvh;position:relative}
+.screen{padding:0 18px calc(34px + env(safe-area-inset-bottom))}
+.topbar{
+  position:sticky;top:0;z-index:6;display:flex;align-items:center;gap:10px;
+  padding:calc(12px + env(safe-area-inset-top)) 18px 10px;
+  background:linear-gradient(180deg,var(--bg) 72%,rgba(246,243,237,0));
+}
+.topbar .title{font-size:22px;font-weight:700;letter-spacing:-.02em;flex:1;display:flex;align-items:center;gap:9px;min-width:0}
+.topbar .title span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.logo-img{width:24px;height:24px;border-radius:7px;display:block}
+.logo-dot{width:12px;height:12px;border-radius:50%;background:linear-gradient(160deg,#EE947A,#DE705C);flex:none;box-shadow:0 2px 6px rgba(222,112,92,.4)}
+.tbtn{
+  width:40px;height:40px;border-radius:14px;background:var(--surface);flex:none;
+  box-shadow:var(--shadow-sm);display:grid;place-items:center;color:var(--text);
+  transition:transform .18s var(--ease);
+}
+.tbtn:active{transform:scale(.92)}
+.back-btn{display:flex;align-items:center;gap:2px;height:40px;padding:0 14px 0 8px;border-radius:14px;background:var(--surface);box-shadow:var(--shadow-sm);font-weight:600;font-size:15px;flex:none}
+.back-btn:active{transform:scale(.95)}
+.datebar{padding:2px 18px 14px;color:var(--muted);font-size:14px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.pill{display:inline-flex;align-items:center;gap:5px;padding:4px 11px;border-radius:999px;font-size:12.5px;font-weight:600}
+.pill.coral{background:var(--coral-soft);color:var(--coral-deep)}
+.pill.teal{background:var(--teal-soft);color:var(--teal-deep)}
+.pill.mint{background:var(--mint-soft);color:var(--mint-deep)}
+.pill.pink{background:var(--pink-soft);color:var(--pink-deep)}
+.pill.lav{background:var(--lav-soft);color:var(--lav-deep)}
+.pill.peach{background:var(--peach-soft);color:var(--peach-deep)}
+.pill.gray{background:var(--surface2);color:var(--muted)}
+
+/* ---------- cards ---------- */
+.card{background:var(--surface);border-radius:var(--r-lg);box-shadow:var(--shadow);padding:18px;margin-bottom:14px;position:relative}
+.card.press{transition:transform .18s var(--ease)}
+.card.press:active{transform:scale(.98)}
+.card-head{display:flex;align-items:center;gap:9px;margin-bottom:12px}
+.card-head .dot{width:9px;height:9px;border-radius:50%;flex:none}
+.card-head h3{font-size:16.5px;font-weight:700;letter-spacing:-.01em;flex:1}
+.dot.coral{background:var(--coral)} .dot.teal{background:var(--teal)} .dot.pink{background:var(--pink)}
+.dot.mint{background:var(--mint)} .dot.lav{background:var(--lav)} .dot.peach{background:var(--peach)}
+.mini-add{width:32px;height:32px;border-radius:11px;display:grid;place-items:center;background:var(--surface2);color:var(--muted);transition:transform .15s var(--ease)}
+.mini-add:active{transform:scale(.88)}
+.chev-ico{color:var(--faint);flex:none}
+.sec-label{font-size:12.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--faint);margin:22px 4px 10px}
+.sec-label:first-child{margin-top:4px}
+
+/* ---------- stats grid ---------- */
+/* --- icon chips: soft colored containers giving each section its character --- */
+.ichip{width:31px;height:31px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex:none}
+.ichip.coral{background:var(--coral-soft);color:var(--coral-deep)}
+.ichip.teal{background:var(--teal-soft);color:var(--teal-deep)}
+.ichip.pink{background:var(--pink-soft);color:var(--pink-deep)}
+.ichip.mint{background:var(--mint-soft);color:var(--mint-deep)}
+.ichip.lav{background:var(--lav-soft);color:var(--lav-deep)}
+.ichip.peach{background:var(--peach-soft);color:var(--peach-deep)}
+/* --- hero tiles (priority row) --- */
+.tilegrid{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-bottom:14px}
+.tile{border-radius:var(--r-md);box-shadow:var(--shadow-sm);padding:14px 15px;min-height:112px;display:flex;flex-direction:column;justify-content:space-between;text-align:left;transition:transform .18s var(--ease)}
+.tile:active{transform:scale(.96)}
+.tile .tk{font-size:12px;font-weight:600;display:flex;align-items:center;gap:7px}
+.tile .tv{font-size:24px;font-weight:800;letter-spacing:-.02em;margin-top:8px;font-variant-numeric:tabular-nums;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tile .ts{display:block;font-size:12px;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tile.terra{background:linear-gradient(150deg,var(--coral-soft),#FBF2EA)}
+.tile.terra .tk,.tile.terra .ts{color:var(--coral-deep)}.tile.terra .tv{color:#7E3F1C}
+.tile.indigo{background:linear-gradient(150deg,var(--teal-soft),#EFF1FB)}
+.tile.indigo .tk,.tile.indigo .ts{color:var(--teal-deep)}.tile.indigo .tv{color:#28348E}
+.tile .ring-txt{font-size:9.5px}
+/* --- journey card --- */
+.journey{background:linear-gradient(155deg,var(--mint-soft),#F4F6EC)}
+.jstats{display:flex;gap:6px;margin:10px 0 2px;flex-wrap:wrap}
+.jstat{flex:1;min-width:70px;background:rgba(255,253,248,.72);border-radius:13px;padding:9px 10px}
+.jstat b{display:block;font-size:17px;font-weight:800;letter-spacing:-.02em;font-variant-numeric:tabular-nums;color:var(--mint-deep)}
+.jstat span{font-size:10.5px;font-weight:600;color:var(--muted);letter-spacing:.02em}
+.insight{display:flex;gap:9px;align-items:flex-start;padding:9px 2px;font-size:14px;line-height:1.45;color:var(--text)}
+.insight+.insight{border-top:1px dashed var(--line)}
+.insight .ii{flex:none;width:26px;height:26px;border-radius:9px;background:var(--mint-soft);color:var(--mint-deep);display:flex;align-items:center;justify-content:center;margin-top:-1px}
+.recrow{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:11px 2px}
+.recrow+.recrow{border-top:1px solid var(--line)}
+.recrow .rl{font-size:13.5px;color:var(--muted);font-weight:600}
+.recrow .rv{font-size:15px;font-weight:700;font-variant-numeric:tabular-nums;text-align:right}
+.recrow .rd{display:block;font-size:11.5px;color:var(--faint);font-weight:500;margin-top:1px}
+/* --- dynamic today cards --- */
+.todaycard{border-radius:var(--r-lg);padding:16px 17px;margin-bottom:14px;box-shadow:var(--shadow-sm)}
+.todaycard.sympt{background:linear-gradient(150deg,var(--peach-soft),#F2F3FC)}
+.todaycard.week{background:linear-gradient(150deg,var(--teal-soft),#EDEFFA)}
+.todaycard h3{font-size:15.5px;font-weight:700;display:flex;align-items:center;gap:8px}
+.todaycard p{font-size:13.5px;color:var(--muted);margin-top:5px;line-height:1.5}
+.wkrow{display:flex;justify-content:space-between;font-size:13.5px;padding:7px 0;border-bottom:1px dashed var(--line)}
+.wkrow:last-of-type{border-bottom:0}
+.wkrow b{font-variant-numeric:tabular-nums}
+.mgroup{font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);margin:14px 0 2px}
+.mgroup:first-child{margin-top:0}
+.statgrid{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-bottom:14px}
+.stat{background:var(--surface);border-radius:var(--r-md);box-shadow:var(--shadow-sm);padding:14px 15px;transition:transform .18s var(--ease);min-height:86px;display:flex;flex-direction:column;justify-content:space-between}
+.stat:active{transform:scale(.96)}
+.stat .k{font-size:12px;font-weight:600;color:var(--muted);display:flex;align-items:center;gap:6px}
+.stat .k .sdot{width:7px;height:7px;border-radius:50%;flex:none}
+.stat .v{display:block;font-size:21px;font-weight:700;letter-spacing:-.02em;margin-top:6px;font-variant-numeric:tabular-nums;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.stat .s{display:block;font-size:12px;color:var(--faint);margin-top:1px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+/* ---------- checklist ---------- */
+.check-card{background:linear-gradient(150deg,#FBEDE6,#F9E4DA);border-radius:var(--r-lg);box-shadow:var(--shadow);padding:18px;margin-bottom:14px}
+.check-row{display:flex;align-items:center;gap:13px;padding:11px 2px;border-bottom:1px solid rgba(192,95,71,.1)}
+.check-row:last-child{border-bottom:0}
+.checkbox{width:27px;height:27px;border-radius:50%;border:2px solid rgba(192,95,71,.4);flex:none;display:grid;place-items:center;color:#fff;background:transparent;transition:all .2s var(--ease)}
+.check-row.done .checkbox{background:var(--coral);border-color:var(--coral)}
+.check-row .txt{flex:1;font-size:15.5px;font-weight:500;transition:color .2s,opacity .2s}
+.check-row.done .txt{color:var(--coral-deep);opacity:.55;text-decoration:line-through}
+.check-prog{font-size:13px;font-weight:700;color:var(--coral-deep)}
+
+/* ---------- lists & rows ---------- */
+.list{background:var(--surface);border-radius:var(--r-lg);box-shadow:var(--shadow);overflow:hidden;margin-bottom:14px}
+.row{display:flex;align-items:center;gap:12px;padding:14px 16px;border-bottom:1px solid var(--surface2);transition:background .15s}
+.row:last-child{border-bottom:0}
+.row:active{background:var(--surface2)}
+.row .rmain{flex:1;min-width:0}
+.row .rtitle{font-size:15.5px;font-weight:600;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.row .rsub{font-size:13px;color:var(--muted);margin-top:2px}
+.row .rside{text-align:right;flex:none}
+.row .rval{font-size:15.5px;font-weight:700;font-variant-numeric:tabular-nums}
+.rnote{font-size:13px;color:var(--muted);margin-top:4px;background:var(--surface2);border-radius:10px;padding:7px 10px;white-space:pre-wrap;word-break:break-word}
+.sev{display:inline-flex;gap:3px}
+.sev i{width:7px;height:7px;border-radius:50%;background:var(--line)}
+.sev i.on{background:var(--peach)}
+.badge-day{font-size:11.5px;font-weight:700;background:var(--surface2);color:var(--muted);border-radius:7px;padding:2px 7px}
+
+/* ---------- buttons ---------- */
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;height:51px;border-radius:16px;font-size:16px;font-weight:650;transition:transform .15s var(--ease),opacity .15s}
+.btn:active{transform:scale(.97)}
+.btn:disabled{opacity:.45}
+.btn-primary{background:var(--text);color:#fff;box-shadow:0 6px 18px rgba(56,50,44,.25)}
+.btn-tonal{background:var(--surface2);color:var(--text)}
+.btn-ghost{background:transparent;color:var(--muted);height:44px}
+.btn-danger{background:#FBE9E5;color:#B8432E}
+.btn-sm{height:40px;font-size:14.5px;border-radius:13px;width:auto;padding:0 16px}
+.btnrow{display:flex;gap:10px}
+.btnrow .btn{flex:1}
+
+/* ---------- forms ---------- */
+.f-label{font-size:12.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--faint);margin:16px 2px 7px;display:block}
+.f-label:first-child{margin-top:0}
+.field{width:100%;background:var(--surface2);border:1.5px solid transparent;border-radius:var(--r-sm);padding:13px 14px;font-size:16px;outline:none;transition:border-color .15s;-webkit-appearance:none;appearance:none;color:var(--text)}
+.field:focus{border-color:var(--faint);background:var(--surface)}
+textarea.field{resize:vertical;min-height:74px;font-family:inherit}
+select.field{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%238E857A' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'><path d='M6 9l6 6 6-6'/></svg>");background-repeat:no-repeat;background-position:right 13px center;padding-right:38px}
+.f-2col{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.f-hint{font-size:12.5px;color:var(--faint);margin:7px 3px 0;line-height:1.45}
+input[type="datetime-local"].field,input[type="time"].field{min-height:49px}
+
+/* chips */
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{padding:9px 15px;border-radius:999px;background:var(--surface2);font-size:14.5px;font-weight:600;color:var(--text);border:1.5px solid transparent;transition:all .15s var(--ease)}
+.chip:active{transform:scale(.94)}
+.chip.on{background:var(--text);color:#fff}
+.chips.scroll{flex-wrap:nowrap;overflow-x:auto;padding:2px 2px 6px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.chips.scroll::-webkit-scrollbar{display:none}
+.sitegrid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.sitebtn{padding:13px 10px;border-radius:var(--r-sm);background:var(--surface2);font-size:14px;font-weight:600;border:1.5px solid transparent;position:relative;text-align:center;transition:all .15s var(--ease)}
+.sitebtn.on{background:var(--coral-soft);border-color:var(--coral);color:var(--coral-deep)}
+.sitebtn .tag{display:block;font-size:10.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;margin-top:3px;color:var(--faint)}
+.sitebtn.on .tag{color:var(--coral)}
+/* severity */
+.sevpick{display:flex;gap:8px}
+.sevbtn{flex:1;height:48px;border-radius:var(--r-sm);background:var(--surface2);font-weight:700;font-size:16px;border:1.5px solid transparent;transition:all .15s var(--ease)}
+.sevbtn.on{background:var(--peach-soft);border-color:var(--peach);color:var(--peach-deep)}
+
+/* ---------- hero blocks ---------- */
+.hero{display:flex;align-items:center;gap:18px}
+.hero-num{font-size:42px;font-weight:800;letter-spacing:-.03em;line-height:1.05;font-variant-numeric:tabular-nums}
+.hero-num small{font-size:19px;font-weight:700;color:var(--muted);letter-spacing:0}
+.hero-sub{font-size:13.5px;color:var(--muted);margin-top:4px}
+.delta{font-weight:700}
+.delta.down{color:var(--mint-deep)} .delta.up{color:var(--coral-deep)} .delta.flat{color:var(--muted)}
+.kv{display:flex;justify-content:space-between;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--surface2);font-size:14.5px}
+.kv:last-child{border-bottom:0}
+.kv b{font-variant-numeric:tabular-nums;font-weight:700}
+.kv span{color:var(--muted)}
+.progressbar{height:9px;border-radius:99px;background:var(--surface2);overflow:hidden;margin-top:10px}
+.progressbar i{display:block;height:100%;border-radius:99px;transition:width .5s var(--ease)}
+
+/* ---------- charts ---------- */
+.chartwrap{margin:6px -4px 2px}
+.chart-legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px;font-size:12px;color:var(--muted)}
+.chart-legend i{display:inline-block;width:14px;height:3px;border-radius:2px;vertical-align:middle;margin-right:5px}
+.empty{padding:26px 16px;text-align:center;color:var(--muted);font-size:14.5px;line-height:1.5}
+.empty .big{font-size:30px;margin-bottom:8px}
+
+/* ---------- calendar ---------- */
+.cal-head{display:flex;align-items:center;justify-content:space-between;margin:2px 2px 14px}
+.cal-head b{font-size:18px;letter-spacing:-.01em}
+.cal-nav{width:38px;height:38px;border-radius:13px;background:var(--surface);box-shadow:var(--shadow-sm);display:grid;place-items:center}
+.cal-nav:active{transform:scale(.9)}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}
+.cal-dow{text-align:center;font-size:11.5px;font-weight:700;color:var(--faint);padding:4px 0;text-transform:uppercase;letter-spacing:.05em}
+.cal-cell{aspect-ratio:1/1.12;border-radius:13px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-size:14.5px;font-weight:600;font-variant-numeric:tabular-nums;position:relative;transition:all .15s var(--ease)}
+.cal-cell.day{background:var(--surface);box-shadow:var(--shadow-sm)}
+.cal-cell.day:active{transform:scale(.9)}
+.cal-cell.today{outline:2px solid var(--text);outline-offset:-2px}
+.cal-cell.sel{background:var(--text);color:#fff}
+.cal-dots{display:flex;gap:3px;height:5px}
+.cal-dots i{width:5px;height:5px;border-radius:50%}
+.cal-legend{display:flex;flex-wrap:wrap;gap:8px 14px;margin:16px 4px 0;font-size:12.5px;color:var(--muted)}
+.cal-legend span{display:inline-flex;align-items:center;gap:6px}
+.cal-legend i{width:7px;height:7px;border-radius:50%}
+
+/* ---------- photos ---------- */
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.pcell{aspect-ratio:3/4;border-radius:15px;overflow:hidden;position:relative;background:var(--surface2);transition:transform .15s var(--ease)}
+.pcell:active{transform:scale(.95)}
+.pcell img{width:100%;height:100%;object-fit:cover}
+.pcell .pdate{position:absolute;left:0;right:0;bottom:0;padding:14px 8px 6px;font-size:10.5px;font-weight:700;color:#fff;background:linear-gradient(transparent,rgba(30,20,15,.55));text-align:center}
+.pcell.selmode::after{content:"";position:absolute;inset:0;border-radius:15px;border:2.5px solid transparent}
+.pcell.selected::after{border-color:var(--lav)}
+.pcell .selnum{position:absolute;top:6px;right:6px;width:22px;height:22px;border-radius:50%;background:var(--lav);color:#fff;font-size:12px;font-weight:800;display:grid;place-items:center}
+.pstrip{display:flex;gap:9px;overflow-x:auto;padding:2px 2px 6px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.pstrip::-webkit-scrollbar{display:none}
+.pstrip .pcell{flex:none;width:88px}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.compare img{width:100%;border-radius:15px;aspect-ratio:3/4;object-fit:cover;background:var(--surface2)}
+.compare .cinfo{text-align:center;font-size:12.5px;color:var(--muted);margin-top:7px;line-height:1.5}
+.compare .cinfo b{display:block;color:var(--text);font-size:14px}
+.photoview img{width:100%;border-radius:18px;background:var(--surface2)}
+
+/* ---------- pages ---------- */
+.page{
+  position:fixed;inset:0;margin:0 auto;max-width:520px;background:var(--bg);z-index:20;
+  transform:translateX(105%);transition:transform .26s var(--ease);
+  overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;
+}
+.page.in{transform:translateX(0)}
+.page-body{padding:2px 18px calc(40px + env(safe-area-inset-bottom))}
+
+/* ---------- sheets ---------- */
+.sheet-wrap{position:fixed;inset:0;z-index:40;display:flex;align-items:flex-end;justify-content:center}
+.sheet-back{position:absolute;inset:0;background:rgba(45,36,28,.38);opacity:0;transition:opacity .24s}
+.sheet-wrap.in .sheet-back{opacity:1}
+.sheet{
+  position:relative;width:100%;max-width:520px;background:var(--bg);border-radius:28px 28px 0 0;
+  padding:10px 20px calc(24px + env(safe-area-inset-bottom));max-height:90dvh;overflow-y:auto;
+  -webkit-overflow-scrolling:touch;overscroll-behavior:contain;
+  transform:translateY(102%);transition:transform .28s var(--ease);box-shadow:0 -12px 40px rgba(60,48,38,.18);
+}
+.sheet-wrap.in .sheet{transform:translateY(0)}
+.grab{width:38px;height:5px;border-radius:99px;background:var(--line);margin:2px auto 14px}
+.sheet h2{font-size:20px;font-weight:750;letter-spacing:-.02em;margin-bottom:4px}
+.sheet .sheet-sub{font-size:13.5px;color:var(--muted);margin-bottom:10px}
+.sheet-actions{margin-top:22px;display:flex;flex-direction:column;gap:9px}
+
+/* ---------- dialog / toast ---------- */
+.dlg-wrap{position:fixed;inset:0;z-index:60;display:grid;place-items:center;padding:28px}
+.dlg-back{position:absolute;inset:0;background:rgba(45,36,28,.42);opacity:0;transition:opacity .2s}
+.dlg{position:relative;width:100%;max-width:330px;background:var(--surface);border-radius:22px;padding:22px 20px 16px;text-align:center;transform:scale(.92);opacity:0;transition:all .2s var(--ease);box-shadow:0 20px 60px rgba(50,40,30,.3)}
+.dlg-wrap.in .dlg-back{opacity:1}
+.dlg-wrap.in .dlg{transform:scale(1);opacity:1}
+.dlg h4{font-size:17px;font-weight:750;margin-bottom:7px}
+.dlg p{font-size:14px;color:var(--muted);line-height:1.5;margin-bottom:16px;white-space:pre-line}
+.dlg .btn{height:46px;font-size:15px;margin-bottom:8px}
+.dlg .btn:last-child{margin-bottom:0}
+#toasts{position:fixed;left:0;right:0;bottom:calc(22px + env(safe-area-inset-bottom));z-index:80;display:flex;flex-direction:column;align-items:center;gap:8px;pointer-events:none}
+.toast{background:var(--text);color:#fff;font-size:14px;font-weight:600;padding:11px 19px;border-radius:999px;box-shadow:0 8px 24px rgba(40,32,26,.3);opacity:0;transform:translateY(12px);transition:all .25s var(--ease);max-width:86%;text-align:center}
+.toast.in{opacity:1;transform:translateY(0)}
+
+/* ---------- misc ---------- */
+.ring-wrap{position:relative;flex:none}
+.ring-txt{position:absolute;inset:0;display:grid;place-items:center;font-size:14px;font-weight:800;font-variant-numeric:tabular-nums}
+.banner{border-radius:var(--r-md);padding:13px 15px;font-size:13.5px;line-height:1.5;margin-bottom:14px}
+.banner.warn{background:#FBF0DC;color:#8A6420}
+.banner.err{background:#FBE9E5;color:#B8432E}
+.footnote{font-size:12px;color:var(--faint);line-height:1.55;margin:14px 6px 0}
+.divider{height:1px;background:var(--surface2);margin:14px 0}
+.iconbtn-sm{width:34px;height:34px;border-radius:11px;display:grid;place-items:center;background:var(--surface2);color:var(--muted);flex:none}
+.iconbtn-sm:active{transform:scale(.88)}
+.tag-last{font-size:10.5px;font-weight:800;letter-spacing:.06em;color:var(--lav-deep);background:var(--lav-soft);border-radius:6px;padding:2px 6px;text-transform:uppercase}
+.switch{position:relative;width:50px;height:30px;flex:none}
+.switch input{opacity:0;width:100%;height:100%;position:absolute;z-index:2;margin:0}
+.switch i{position:absolute;inset:0;border-radius:99px;background:var(--line);transition:background .2s}
+.switch i::after{content:"";position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:50%;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.2);transition:transform .2s var(--ease)}
+.switch input:checked + i{background:var(--mint)}
+.switch input:checked + i::after{transform:translateX(20px)}
+.setrow{display:flex;align-items:center;gap:12px;padding:13px 16px;border-bottom:1px solid var(--surface2)}
+.setrow:last-child{border-bottom:0}
+.setrow .smain{flex:1;min-width:0}
+.setrow .stitle{font-size:15.5px;font-weight:600}
+.setrow .ssub{font-size:12.5px;color:var(--muted);margin-top:1px}
+@media (prefers-reduced-motion:reduce){*{transition-duration:.01ms!important;animation-duration:.01ms!important}}
+@keyframes fadeup{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.fadeup{animation:fadeup .3s var(--ease)}
+</style>
+</head>
+<body>
+<div id="app">
+  <div id="dash-topbar"></div>
+  <div id="root" class="screen"></div>
+</div>
+<div id="pages"></div>
+<div id="overlays"></div>
+<div id="toasts"></div>
+<script>
+'use strict';
+/* ============================================================
+   Mounjaro Tracker — single-file PWA
+   Layers: utils · core logic (PK/dates) · Store · PhotoDB ·
+           UI kit · charts · pages · Drive sync · boot
+   ============================================================ */
+
+/* ---------------- utils ---------------- */
+const DAY = 86400000;
+const $ = (s, r) => (r || document).querySelector(s);
+const $$ = (s, r) => Array.from((r || document).querySelectorAll(s));
+function uid() { return Date.now().toString(36) + Math.random().toString(36).slice(2, 8); }
+function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
+function pad2(n) { return (n < 10 ? '0' : '') + n; }
+function clamp(v, a, b) { return Math.min(b, Math.max(a, v)); }
+/* Turkish-friendly numbers: accept "92,4" or "92.4" on input, display with comma */
+function parseNum(v) {
+  v = String(v == null ? '' : v).trim().replace(/\s/g, '').replace(',', '.');
+  const n = parseFloat(v);
+  return isNaN(n) ? null : n;
+}
+const DTF = {
+  wd: new Intl.DateTimeFormat('en', { weekday: 'short' }),
+  wdl: new Intl.DateTimeFormat('en', { weekday: 'long' }),
+  md: new Intl.DateTimeFormat('en', { month: 'short', day: 'numeric' }),
+  mdy: new Intl.DateTimeFormat('en', { month: 'short', day: 'numeric', year: 'numeric' }),
+  mo: new Intl.DateTimeFormat('en', { month: 'long', year: 'numeric' }),
+  tm: new Intl.DateTimeFormat('en-GB', { hour: '2-digit', minute: '2-digit' })
+};
+function fmtDate(d) { d = new Date(d); const now = new Date(); return d.getFullYear() === now.getFullYear() ? DTF.wd.format(d) + ', ' + DTF.md.format(d) : DTF.md.format(d) + ', ' + d.getFullYear(); }
+function fmtDT(d) { return fmtDate(d) + ' · ' + DTF.tm.format(new Date(d)); }
+function fmtTime(d) { return DTF.tm.format(new Date(d)); }
+function toInputDT(d) { d = new Date(d); return d.getFullYear() + '-' + pad2(d.getMonth() + 1) + '-' + pad2(d.getDate()) + 'T' + pad2(d.getHours()) + ':' + pad2(d.getMinutes()); }
+function fmtKg(v) { return (Math.round(v * 10) / 10).toFixed(1).replace(".", ","); }
+function fmtMg(v) { return String(+(v.toFixed(v >= 10 ? 1 : 2))).replace('.', ','); }
+function fmtCm(v) { return String(+(+v).toFixed(1)).replace('.', ','); }
+function relDays(n) { return n === 0 ? 'Today' : n === 1 ? 'Tomorrow' : n === -1 ? 'Yesterday' : n > 0 ? 'in ' + n + 'd' : Math.abs(n) + 'd ago'; }
+const WEEKDAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+/* ---------------- icons ---------------- */
+function ic(name, size) {
+  const S = size || 22;
+  const P = {
+    back: '<path d="M14.5 5l-7 7 7 7"/>',
+    chevR: '<path d="M9.5 5l7 7-7 7"/>',
+    chevL: '<path d="M14.5 5l-7 7 7 7"/>',
+    plus: '<path d="M12 5v14M5 12h14"/>',
+    x: '<path d="M6 6l12 12M18 6L6 18"/>',
+    check: '<path d="M4.5 12.5l5 5L19.5 7"/>',
+    cal: '<rect x="3.5" y="5" width="17" height="16" rx="4"/><path d="M3.5 10h17M8 2.5V6M16 2.5V6"/>',
+    gear: '<path d="M4 7.5h10M18 7.5h2M4 16.5h2M10 16.5h10"/><circle cx="16" cy="7.5" r="2.6"/><circle cx="8" cy="16.5" r="2.6"/>',
+    trash: '<path d="M4.5 6.5h15M9.5 6V4.5A1.5 1.5 0 0 1 11 3h2a1.5 1.5 0 0 1 1.5 1.5V6M7 6.5l.8 12.5a2 2 0 0 0 2 1.9h4.4a2 2 0 0 0 2-1.9L17 6.5"/>',
+    pencil: '<path d="M4 20l4.5-1 11-11a2.1 2.1 0 0 0-3-3l-11 11L4 20z"/>',
+    camera: '<rect x="3" y="6.5" width="18" height="14" rx="4"/><circle cx="12" cy="13.5" r="4"/><path d="M8.5 6.5L10 4h4l1.5 2.5"/>',
+    share: '<path d="M12 15V3.5M7.5 7.5L12 3l4.5 4.5"/><path d="M5 12v6.5A2.5 2.5 0 0 0 7.5 21h9a2.5 2.5 0 0 0 2.5-2.5V12"/>',
+    cloud: '<path d="M7 18.5a4.5 4.5 0 0 1-.5-8.97A6 6 0 0 1 18 10.5a4 4 0 0 1-.5 8H7z"/>',
+    compare: '<rect x="3" y="5" width="7.5" height="14" rx="2.5"/><rect x="13.5" y="5" width="7.5" height="14" rx="2.5"/>',
+    dl: '<path d="M12 3.5V15M7.5 11L12 15.5 16.5 11"/><path d="M5 18.5h14"/>',
+    syringe: '<path d="M15.5 3.5l5 5M17 8.5l-8.6 8.6a2.6 2.6 0 0 1-1.3.7l-3.6.7.7-3.6a2.6 2.6 0 0 1 .7-1.3L13.5 4M6.8 13.7l3.5 3.5M18.8 2.2L21.8 5.2"/>',
+    scale: '<rect x="3.5" y="3.5" width="17" height="17" rx="5"/><path d="M8.5 9.5a4.4 4.4 0 0 1 7 0M12 9.2v2.3"/>',
+    tape: '<circle cx="9" cy="12" r="5.5"/><circle cx="9" cy="12" r="1.6"/><path d="M14.5 12H21v3.5h-3"/>',
+    heart: '<path fill="currentColor" stroke="none" d="M12 20.2C7 16.6 3.5 13.4 3.5 9.6 3.5 7 5.6 5 8 5c1.6 0 3 .8 4 2.2C13 5.8 14.4 5 16 5c2.4 0 4.5 2 4.5 4.6 0 3.8-3.5 7-8.5 10.6z"/>',
+    sparkle: '<path fill="currentColor" stroke="none" d="M12 2.8l1.9 5.6 5.6 1.9-5.6 1.9L12 17.8l-1.9-5.6-5.6-1.9 5.6-1.9L12 2.8z"/><path fill="currentColor" stroke="none" d="M19 15.5l.95 2.8 2.8.95-2.8.95L19 23l-.95-2.8-2.8-.95 2.8-.95.95-2.8z" transform="scale(.85) translate(2.2 1.5)"/>',
+    droplet: '<path fill="currentColor" stroke="none" d="M12 2.6S5.5 10 5.5 14.3a6.5 6.5 0 0 0 13 0C18.5 10 12 2.6 12 2.6z"/>',
+    sun: '<circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.5M12 19v2.5M2.5 12H5M19 12h2.5M5 5l1.8 1.8M17.2 17.2L19 19M19 5l-1.8 1.8M6.8 17.2L5 19"/>',
+    trophy: '<path d="M7 4.5h10v4a5 5 0 0 1-10 0v-4z"/><path d="M7 6H4.5a2.5 2.5 0 0 0 2.6 2.7M17 6h2.5a2.5 2.5 0 0 1-2.6 2.7M12 13.5v3M8.5 20h7M10 20v-2.5a2 2 0 0 1 4 0V20"/>',
+    flag: '<path d="M5.5 21V4"/><path fill="currentColor" stroke="none" d="M6.5 4.5c2.5-1.6 5-.2 7.5.4 1.6.4 3.2.4 4.5-.2v8.2c-1.3.6-2.9.6-4.5.2-2.5-.6-5-2-7.5-.4V4.5z"/>'
+  }[name] || '';
+  return '<svg width="' + S + '" height="' + S + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">' + P + '</svg>';
+}
+function iconChip(name, color, size) {
+  return '<span class="ichip ' + color + '">' + ic(name, size || 17) + '</span>';
+}
+function ring(pct, color, size, stroke) {
+  size = size || 74; stroke = stroke || 8;
+  const r = (size - stroke) / 2, c = 2 * Math.PI * r;
+  const off = c * (1 - clamp(pct, 0, 100) / 100);
+  return '<div class="ring-wrap" style="width:' + size + 'px;height:' + size + 'px">' +
+    '<svg width="' + size + '" height="' + size + '" viewBox="0 0 ' + size + ' ' + size + '">' +
+    '<circle cx="' + size / 2 + '" cy="' + size / 2 + '" r="' + r + '" fill="none" stroke="var(--surface2)" stroke-width="' + stroke + '"/>' +
+    '<circle cx="' + size / 2 + '" cy="' + size / 2 + '" r="' + r + '" fill="none" stroke="' + color + '" stroke-width="' + stroke + '" stroke-linecap="round" stroke-dasharray="' + c.toFixed(1) + '" stroke-dashoffset="' + off.toFixed(1) + '" transform="rotate(-90 ' + size / 2 + ' ' + size / 2 + ')" style="transition:stroke-dashoffset .6s var(--ease)"/>' +
+    '</svg><div class="ring-txt">' + Math.round(clamp(pct, 0, 100)) + '%</div></div>';
+}
+
+/* ---------------- core logic (tested) ---------------- */
+const PK = {
+  halfLifeDays: 5,      // tirzepatide elimination half-life ~5 days (~120 h)
+  ka: 3.36,             // /day absorption rate -> tmax ~= 24 h
+  F: 0.80,              // subcutaneous bioavailability
+  get ke() { return Math.LN2 / this.halfLifeDays; },
+  contribution(doseMg, days) {
+    if (days < 0 || days > 60) return 0;
+    const ke = this.ke, ka = this.ka;
+    const v = doseMg * this.F * (ka / (ka - ke)) * (Math.exp(-ke * days) - Math.exp(-ka * days));
+    return v > 0 ? v : 0;
+  },
+  totalAt(injections, when) {
+    const t = typeof when === 'number' ? when : when.getTime();
+    let s = 0;
+    for (const inj of injections) {
+      const days = (t - new Date(inj.dateTime).getTime()) / DAY;
+      s += this.contribution(inj.doseMg, days);
+    }
+    return s;
+  },
+  peakInfo(injections, fromMs, horizonDays) {
+    horizonDays = horizonDays || 10;
+    let peak = 0, at = fromMs;
+    for (let t = fromMs; t <= fromMs + horizonDays * DAY; t += 2 * 3600000) {
+      const v = this.totalAt(injections, t);
+      if (v > peak) { peak = v; at = t; }
+    }
+    return { peak: peak, at: at };
+  }
+};
+
+function sod(d) { const x = new Date(d); x.setHours(0, 0, 0, 0); return x; }
+function daysBetween(a, b) { return Math.round((sod(b) - sod(a)) / DAY); }
+function dateKey(d) { d = new Date(d); return d.getFullYear() + '-' + pad2(d.getMonth() + 1) + '-' + pad2(d.getDate()); }
+
+function nextInjectionDate(now, weekday, timeStr) {
+  const parts = (timeStr || '22:00').split(':');
+  const d = new Date(now);
+  d.setHours(+parts[0] || 0, +parts[1] || 0, 0, 0);
+  let delta = (weekday - d.getDay() + 7) % 7;
+  if (delta === 0 && d.getTime() <= now.getTime()) delta = 7;
+  d.setDate(d.getDate() + delta);
+  return d;
+}
+function lastInjectionBefore(injections, when) {
+  const t = typeof when === 'number' ? when : when.getTime();
+  let best = null, bt = -Infinity;
+  for (const i of injections) {
+    const it = new Date(i.dateTime).getTime();
+    if (it <= t && it > bt) { best = i; bt = it; }
+  }
+  return best;
+}
+/* Day 1 = injection day itself (calendar-based, uses the entry's own date) */
+function dayAfterInjection(injections, entryDateTime) {
+  const li = lastInjectionBefore(injections, new Date(entryDateTime).getTime());
+  if (!li) return null;
+  return daysBetween(new Date(li.dateTime), new Date(entryDateTime)) + 1;
+}
+const WEEK_ANCHOR = sod(new Date(2000, 0, 3)).getTime(); // a Monday
+function weekIndex(d) { return Math.floor((sod(d).getTime() - WEEK_ANCHOR) / (7 * DAY)); }
+function injectionStreak(injections) {
+  if (!injections.length) return 0;
+  const weeks = [...new Set(injections.map(i => weekIndex(new Date(i.dateTime))))].sort((a, b) => b - a);
+  let n = 1;
+  for (let i = 0; i < weeks.length - 1; i++) {
+    if (weeks[i] - weeks[i + 1] === 1) n++; else break;
+  }
+  return n;
+}
+function monthMatrix(year, month) {
+  const first = new Date(year, month, 1);
+  const offset = (first.getDay() + 6) % 7;
+  const dim = new Date(year, month + 1, 0).getDate();
+  const cells = [];
+  for (let i = 0; i < offset; i++) cells.push(null);
+  for (let d = 1; d <= dim; d++) cells.push(new Date(year, month, d));
+  while (cells.length % 7) cells.push(null);
+  return cells;
+}
+function fnv1a(str) {
+  let h = 0x811c9dc5;
+  for (let i = 0; i < str.length; i++) {
+    h ^= str.charCodeAt(i);
+    h = (h + ((h << 1) + (h << 4) + (h << 7) + (h << 8) + (h << 24))) >>> 0;
+  }
+  return ('0000000' + h.toString(16)).slice(-8);
+}
+
+/* ---------------- constants ---------------- */
+const DOSES = [2.5, 5, 7.5, 10, 12.5, 15];
+const SITES = ['Abdomen Left', 'Abdomen Right', 'Left Thigh', 'Right Thigh', 'Left Upper Arm', 'Right Upper Arm'];
+const SYMPTOM_PRESETS = ['Nausea', 'Vomiting', 'Fatigue', 'Constipation', 'Diarrhea', 'Reflux', 'Headache', 'Dizziness', 'Chills', 'Fast heartbeat', 'Appetite suppression', 'Food aversion'];
+const DEFAULT_CHECKLIST = ['Remove pen from refrigerator', 'Eat a light protein-rich meal', 'Inject medication', 'Stay hydrated', 'Log symptoms tomorrow'];
+const MEAS_GROUPS = [
+  ['Upper body', [['neck', 'Neck'], ['bust', 'Bust / Chest'], ['underbust', 'Under bust'], ['waist', 'Waist'], ['belly', 'Belly']]],
+  ['Lower body', [['hip', 'Hip'], ['thigh', 'Thigh']]],
+  ['Arms', [['arm', 'Arm']]]
+];
+const MEAS_FIELDS = MEAS_GROUPS.reduce((a, g) => a.concat(g[1]), []);
+const APP_VERSION = '1.3.0';
+const SCHEMA = 4;
+const LS_KEY = 'mounjaro_tracker_data';
+
+/* ---------------- Store ---------------- */
+const Store = {
+  state: null,
+  corruptRecovered: false,
+  defaults() {
+    return {
+      schemaVersion: SCHEMA,
+      settings: {
+        weekday: 5, time: '22:00',
+        heightCm: null, goalKg: null, startKgOverride: null,
+        sex: null, birthMonth: null, birthYear: null, activity: 1.375,
+        checklistItems: DEFAULT_CHECKLIST.slice(),
+        setupDismissed: false,
+        drive: { enabled: false, clientId: '', fileId: null, folderId: null, lastSync: null, lastHash: null }
+      },
+      injections: [], weights: [], symptoms: [], measurements: [],
+      checklist: { dateKey: null, done: [] },
+      meta: { createdAt: new Date().toISOString(), quarantineKey: null, feelGoodKey: null }
+    };
+  },
+  normalize(d) {
+    const def = this.defaults();
+    d = (d && typeof d === 'object') ? d : {};
+    d.settings = Object.assign({}, def.settings, d.settings || {});
+    d.settings.drive = Object.assign({}, def.settings.drive, (d.settings && d.settings.drive) || {});
+    if (!Array.isArray(d.settings.checklistItems) || !d.settings.checklistItems.length) d.settings.checklistItems = DEFAULT_CHECKLIST.slice();
+    ['injections', 'weights', 'symptoms', 'measurements'].forEach(k => { if (!Array.isArray(d[k])) d[k] = []; });
+    d.checklist = Object.assign({ dateKey: null, done: [] }, d.checklist || {});
+    if (!Array.isArray(d.checklist.done)) d.checklist.done = [];
+    d.meta = Object.assign({}, def.meta, d.meta || {});
+    d.schemaVersion = SCHEMA;
+    return d;
+  },
+  /* MIGRATIONS[n] upgrades schema n -> n+1 */
+  MIGRATIONS: [
+    function v0to1(d) { return d; }, // v0 = pre-versioned payloads; normalize() fills the rest
+    function v1to2(d) {
+      /* measurements grew from 4 to 10 fields; old single arm/thigh map to left side */
+      if (Array.isArray(d.measurements)) d.measurements.forEach(m => {
+        if (m && typeof m === 'object') {
+          if ('arm' in m) { if (m.arm != null && m.armL == null) m.armL = m.arm; delete m.arm; }
+          if ('thigh' in m) { if (m.thigh != null && m.thighL == null) m.thighL = m.thigh; delete m.thigh; }
+        }
+      });
+      return d;
+    },
+    function v2to3(d) {
+      /* dropped left/right split: keep one thigh + one arm, preferring whichever side was logged */
+      if (Array.isArray(d.measurements)) d.measurements.forEach(m => {
+        if (!m || typeof m !== 'object') return;
+        [['thigh', 'thighL', 'thighR'], ['arm', 'armL', 'armR']].forEach(t => {
+          const val = (m[t[0]] != null && m[t[0]] !== '') ? m[t[0]]
+            : (m[t[1]] != null && m[t[1]] !== '') ? m[t[1]]
+            : (m[t[2]] != null && m[t[2]] !== '') ? m[t[2]] : null;
+          if (val != null) m[t[0]] = val;
+          delete m[t[1]]; delete m[t[2]];
+        });
+      });
+      return d;
+    },
+    function v3to4(d) { return d; } /* adds sex/birth/activity via normalize() */
+  ],
+  migrate(d) {
+    let v = (d && typeof d.schemaVersion === 'number') ? d.schemaVersion : 0;
+    while (v < SCHEMA) {
+      const step = this.MIGRATIONS[v];
+      if (typeof step === 'function') d = step(d) || d;
+      v++;
+    }
+    return this.normalize(d);
+  },
+  load() {
+    let raw = null;
+    try { raw = localStorage.getItem(LS_KEY); } catch (e) { /* private mode etc. */ }
+    if (!raw) { this.state = this.defaults(); this.persist(); return; }
+    let data = null;
+    try { data = JSON.parse(raw); }
+    catch (err) {
+      const qk = 'mounjaro_quarantine_' + Date.now();
+      try { localStorage.setItem(qk, raw); } catch (e) {}
+      this.state = this.defaults();
+      this.state.meta.quarantineKey = qk;
+      this.corruptRecovered = true;
+      this.persist();
+      return;
+    }
+    this.state = this.migrate(data);
+    this.persist();
+  },
+  persist() {
+    try { localStorage.setItem(LS_KEY, JSON.stringify(this.state)); }
+    catch (e) { toast('Could not save — storage full?'); }
+  },
+  save() {
+    this.persist();
+    Drive.scheduleAutoSync();
+  }
+};
+
+/* ---------------- derived state helpers ---------------- */
+function injectionsSorted(desc) {
+  const a = Store.state.injections.slice().sort((x, y) => new Date(x.dateTime) - new Date(y.dateTime));
+  return desc ? a.reverse() : a;
+}
+function weightsSorted(desc) {
+  const a = Store.state.weights.slice().sort((x, y) => new Date(x.dateTime) - new Date(y.dateTime));
+  return desc ? a.reverse() : a;
+}
+function lastInjection() { const a = injectionsSorted(true); return a[0] || null; }
+function currentWeight() { const a = weightsSorted(true); return a[0] || null; }
+function startWeight() {
+  const o = Store.state.settings.startKgOverride;
+  if (o != null && o !== '') return +o;
+  const a = weightsSorted(false); return a.length ? +a[0].kg : null;
+}
+function latestSymptom() {
+  const a = Store.state.symptoms.slice().sort((x, y) => new Date(y.dateTime) - new Date(x.dateTime));
+  return a[0] || null;
+}
+function suggestedSite() {
+  const li = lastInjection();
+  if (!li || !li.site) return SITES[0];
+  const idx = SITES.indexOf(li.site);
+  return SITES[(idx + 1) % SITES.length];
+}
+
+/* ---------------- journey engine ---------------- */
+function fmtSign(v, unit, fmt) {
+  fmt = fmt || fmtKg;
+  if (v == null) return '—';
+  if (Math.abs(v) < 0.05) return '±0 ' + unit;
+  return (v < 0 ? '−' : '+') + fmt(Math.abs(v)) + ' ' + unit;
+}
+function firstInjection() { const a = injectionsSorted(false); return a[0] || null; }
+function daysSinceStart(now) {
+  const f = firstInjection();
+  if (!f) return 0;
+  return daysBetween(new Date(f.dateTime), now || new Date()) + 1;
+}
+function weeksSinceStart(now) {
+  const f = firstInjection();
+  if (!f) return 0;
+  return Math.floor(daysBetween(new Date(f.dateTime), now || new Date()) / 7) + 1;
+}
+function longestStreak(injections) {
+  if (!injections.length) return 0;
+  const weeks = [...new Set(injections.map(i => weekIndex(new Date(i.dateTime))))].sort((a, b) => b - a);
+  let best = 1, run = 1;
+  for (let i = 0; i < weeks.length - 1; i++) {
+    if (weeks[i] - weeks[i + 1] === 1) { run++; if (run > best) best = run; }
+    else run = 1;
+  }
+  return best;
+}
+/* per-field first/last/delta across all measurement entries */
+function measurementDeltas() {
+  const ms = Store.state.measurements.slice().sort((a, b) => new Date(a.dateTime) - new Date(b.dateTime));
+  const out = {};
+  MEAS_FIELDS.forEach(f => {
+    const vals = ms.filter(m => m[f[0]] != null && m[f[0]] !== '');
+    if (!vals.length) { out[f[0]] = null; return; }
+    const first = +vals[0][f[0]], last = +vals[vals.length - 1][f[0]];
+    out[f[0]] = { label: f[1], first, last, delta: last - first, n: vals.length, lastAt: vals[vals.length - 1].dateTime };
+  });
+  return out;
+}
+function totalBodyChange(deltas) {
+  deltas = deltas || measurementDeltas();
+  let sum = 0, counted = 0;
+  MEAS_FIELDS.forEach(f => {
+    const d = deltas[f[0]];
+    if (d && d.n >= 2) { sum += d.delta; counted++; }
+  });
+  return counted ? { cm: sum, fields: counted } : null;
+}
+function bestMonthlyLoss() {
+  const ws = weightsSorted(false);
+  if (ws.length < 2) return null;
+  const byMonth = new Map(); /* 'YYYY-MM' -> last entry of that month */
+  ws.forEach(w => {
+    const d = new Date(w.dateTime);
+    byMonth.set(d.getFullYear() + '-' + pad2(d.getMonth() + 1), w);
+  });
+  const keys = [...byMonth.keys()].sort();
+  let best = null;
+  for (let i = 1; i < keys.length; i++) {
+    const loss = byMonth.get(keys[i - 1]).kg - byMonth.get(keys[i]).kg;
+    if (loss > 0 && (!best || loss > best.kg)) {
+      const d = new Date(byMonth.get(keys[i]).dateTime);
+      best = { kg: loss, label: new Intl.DateTimeFormat('en', { month: 'long', year: 'numeric' }).format(d) };
+    }
+  }
+  return best;
+}
+function buildRecords() {
+  const out = [];
+  const ws = weightsSorted(false);
+  if (ws.length) {
+    const min = ws.reduce((a, b) => (b.kg < a.kg ? b : a));
+    out.push({ label: 'Lowest weight', value: fmtKg(min.kg) + ' kg', date: fmtDate(min.dateTime) });
+  }
+  const bm = bestMonthlyLoss();
+  if (bm) out.push({ label: 'Best month', value: '−' + fmtKg(bm.kg) + ' kg', date: bm.label });
+  const deltas = measurementDeltas();
+  const w = deltas.waist;
+  if (w) {
+    const ms = Store.state.measurements.filter(m => m.waist != null && m.waist !== '');
+    const minW = ms.reduce((a, b) => (+b.waist < +a.waist ? b : a));
+    out.push({ label: 'Smallest waist', value: fmtCm(minW.waist) + ' cm', date: fmtDate(minW.dateTime) });
+  }
+  let big = null;
+  MEAS_FIELDS.forEach(f => {
+    const d = deltas[f[0]];
+    if (d && d.n >= 2 && d.delta < 0 && (!big || d.delta < big.delta)) big = d;
+  });
+  if (big) out.push({ label: 'Biggest change', value: big.label + ' −' + fmtCm(Math.abs(big.delta)) + ' cm', date: 'since day one' });
+  const ls = longestStreak(Store.state.injections);
+  if (ls) out.push({ label: 'Longest streak', value: ls + ' week' + (ls === 1 ? '' : 's'), date: 'consecutive shots' });
+  if (Store.state.injections.length) out.push({ label: 'Injections completed', value: String(Store.state.injections.length), date: 'since ' + fmtDate(firstInjection().dateTime) });
+  return out;
+}
+/* small, meaningful moments — noticing progress, not gamifying it */
+function buildInsights() {
+  const out = [];
+  const now = new Date();
+  const ws = weightsSorted(false);
+  const nInj = Store.state.injections.length;
+  const wk = weeksSinceStart(now);
+  if (ws.length >= 3) {
+    const latest = ws[ws.length - 1];
+    const minPrev = Math.min.apply(null, ws.slice(0, -1).map(w => w.kg));
+    if (latest.kg < minPrev) out.push({ icon: 'sparkle', text: 'Lowest weight of your journey — ' + fmtKg(latest.kg) + ' kg.' });
+  }
+  const sw = startWeight(), cw = currentWeight();
+  if (sw != null && cw && sw - cw.kg >= 1) out.push({ icon: 'flag', text: fmtKg(sw - cw.kg) + ' kg down from where you started.' });
+  const tb = totalBodyChange();
+  if (tb && tb.cm <= -1) out.push({ icon: 'tape', text: fmtCm(Math.abs(tb.cm)) + ' cm smaller than day one, across ' + tb.fields + ' measurements.' });
+  if (nInj > 0 && nInj % 5 === 0) out.push({ icon: 'syringe', text: 'Injection #' + nInj + ' complete.' });
+  const cs = injectionStreak(Store.state.injections);
+  if (cs >= 3 && cs === longestStreak(Store.state.injections)) out.push({ icon: 'trophy', text: cs + ' weeks without missing a shot — your longest run.' });
+  if (wk >= 2) out.push({ icon: 'sun', text: 'Week ' + wk + ' of your journey.' });
+  return out;
+}
+/* ---------------- trend / pace / metabolism ---------------- */
+/* least-squares slope of weight over the last `days`, in kg per week */
+function weightTrend(days) {
+  const cut = Date.now() - (days || 28) * DAY;
+  const pts = weightsSorted(false).filter(w => new Date(w.dateTime).getTime() >= cut)
+    .map(w => ({ t: new Date(w.dateTime).getTime(), y: +w.kg }));
+  if (pts.length < 2) return null;
+  const t0 = pts[0].t;
+  const xs = pts.map(p => (p.t - t0) / DAY);
+  const n = pts.length;
+  const mx = xs.reduce((a, b) => a + b, 0) / n;
+  const my = pts.reduce((a, p) => a + p.y, 0) / n;
+  let num = 0, den = 0;
+  for (let i = 0; i < n; i++) { num += (xs[i] - mx) * (pts[i].y - my); den += (xs[i] - mx) * (xs[i] - mx); }
+  if (den === 0) return null;
+  const perDay = num / den;
+  return { perWeek: perDay * 7, perDay, n, spanDays: xs[xs.length - 1] };
+}
+function goalProjection() {
+  const set = Store.state.settings;
+  const cw = currentWeight();
+  if (!set.goalKg || !cw) return null;
+  const goal = +set.goalKg, remaining = cw.kg - goal;
+  const tr = weightTrend(28) || weightTrend(56);
+  const out = { goal, remaining, perWeek: tr ? tr.perWeek : null, reached: Math.abs(remaining) < 0.1 };
+  if (out.reached) { out.status = 'reached'; return out; }
+  if (!tr || tr.n < 2) { out.status = 'nodata'; return out; }
+  const losing = tr.perWeek < -0.02, gaining = tr.perWeek > 0.02;
+  const needToLose = remaining > 0;
+  if (Math.abs(tr.perWeek) < 0.02) out.status = 'flat';
+  else if ((needToLose && gaining) || (!needToLose && losing)) out.status = 'wrongway';
+  else {
+    const weeks = Math.abs(remaining / tr.perWeek);
+    if (weeks > 260) out.status = 'slow';
+    else { out.status = 'eta'; out.weeks = weeks; out.date = new Date(Date.now() + weeks * 7 * DAY); }
+  }
+  return out;
+}
+function ageFromBirth(set) {
+  if (!set.birthYear) return null;
+  const now = new Date();
+  let a = now.getFullYear() - set.birthYear;
+  const bm = (set.birthMonth || 1) - 1;
+  if (now.getMonth() < bm) a--;
+  return a;
+}
+function metabolism(atKg) {
+  const set = Store.state.settings;
+  const cw = currentWeight();
+  const kg = atKg != null ? atKg : (cw ? cw.kg : null);
+  const age = ageFromBirth(set);
+  if (!kg || !set.heightCm || age == null || !set.sex) return null;
+  const s = set.sex === 'male' ? 5 : -161;
+  const bmr = 10 * kg + 6.25 * set.heightCm - 5 * age + s;
+  return { bmr, tdee: bmr * (set.activity || 1.375), kg, age };
+}
+const ACTIVITY_LEVELS = [
+  [1.2, 'Sedentary', 'little or no exercise'],
+  [1.375, 'Light', 'exercise 1-3 days/week'],
+  [1.55, 'Moderate', 'exercise 3-5 days/week'],
+  [1.725, 'Very active', 'exercise 6-7 days/week'],
+  [1.9, 'Athlete', 'hard training, physical job']
+];
+function kgCmRatio() {
+  const tb = totalBodyChange();
+  const sw = startWeight(), cw = currentWeight();
+  if (!tb || sw == null || !cw) return null;
+  const kgLost = sw - cw.kg;
+  if (kgLost < 1 || tb.cm >= 0) return null;
+  return { cmPerKg: Math.abs(tb.cm) / kgLost, kgLost, cmLost: Math.abs(tb.cm) };
+}
+
+function weekStats(now) {
+  now = now || new Date();
+  const thisW = weekIndex(now);
+  const ws = weightsSorted(false);
+  const lastOf = wi => { const inW = ws.filter(w => weekIndex(new Date(w.dateTime)) === wi); return inW.length ? inW[inW.length - 1] : null; };
+  const cur = lastOf(thisW), prev = lastOf(thisW - 1);
+  return {
+    kgDelta: (cur && prev) ? cur.kg - prev.kg : null,
+    shots: Store.state.injections.filter(i => weekIndex(new Date(i.dateTime)) === thisW).length,
+    symptoms: Store.state.symptoms.filter(s => weekIndex(new Date(s.dateTime)) === thisW).length,
+    weekNo: weeksSinceStart(now)
+  };
+}
+function bmiOf(kg) {
+  const h = +Store.state.settings.heightCm;
+  if (!h || !kg) return null;
+  return kg / Math.pow(h / 100, 2);
+}
+function bmiLabel(b) { return b < 18.5 ? 'Underweight' : b < 25 ? 'Healthy range' : b < 30 ? 'Overweight' : 'Obesity range'; }
+function medicationStatus(now) {
+  now = now || new Date();
+  const injs = Store.state.injections;
+  const li = lastInjectionBefore(injs, now.getTime());
+  const level = PK.totalAt(injs, now);
+  if (!li) return { level: 0, pct: 0, peak: 0, peakAt: null, phase: 'none', last: null };
+  const pi = PK.peakInfo(injs, new Date(li.dateTime).getTime(), 10);
+  const pct = pi.peak > 0 ? level / pi.peak * 100 : 0;
+  return { level, pct, peak: pi.peak, peakAt: pi.at, phase: now.getTime() < pi.at ? 'rising' : 'falling', last: li };
+}
+function checklistState() {
+  const key = dateKey(new Date());
+  const items = Store.state.settings.checklistItems;
+  let c = Store.state.checklist;
+  if (c.dateKey !== key) c = { dateKey: key, done: items.map(() => false) };
+  while (c.done.length < items.length) c.done.push(false);
+  c.done = c.done.slice(0, items.length);
+  return c;
+}
+
+/* ---------------- PhotoDB (IndexedDB) ---------------- */
+const PhotoDB = {
+  db: null, available: false,
+  open() {
+    return new Promise((res) => {
+      if (typeof indexedDB === 'undefined') return res(false);
+      let req;
+      try { req = indexedDB.open('mounjaro_photos', 1); } catch (e) { return res(false); }
+      req.onupgradeneeded = e => {
+        const db = e.target.result;
+        if (!db.objectStoreNames.contains('meta')) db.createObjectStore('meta', { keyPath: 'id' });
+        if (!db.objectStoreNames.contains('full')) db.createObjectStore('full', { keyPath: 'id' });
+      };
+      req.onsuccess = e => { PhotoDB.db = e.target.result; PhotoDB.available = true; res(true); };
+      req.onerror = () => res(false);
+      req.onblocked = () => res(false);
+    });
+  },
+  tx(store, mode, fn) {
+    return new Promise((res, rej) => {
+      if (!this.db) return rej(new Error('Photo storage unavailable'));
+      const t = this.db.transaction(store, mode);
+      const s = t.objectStore(store);
+      let out;
+      try { out = fn(s); } catch (e) { return rej(e); }
+      t.oncomplete = () => res(out && out.result !== undefined ? out.result : out);
+      t.onerror = () => rej(t.error);
+      t.onabort = () => rej(t.error || new Error('aborted'));
+    });
+  },
+  put(meta, fullBlob) {
+    return this.tx('meta', 'readwrite', s => s.put(meta))
+      .then(() => this.tx('full', 'readwrite', s => s.put({ id: meta.id, blob: fullBlob })));
+  },
+  updateMeta(meta) { return this.tx('meta', 'readwrite', s => s.put(meta)); },
+  allMeta() {
+    return new Promise((res, rej) => {
+      if (!this.db) return res([]);
+      const t = this.db.transaction('meta', 'readonly');
+      const req = t.objectStore('meta').getAll();
+      req.onsuccess = () => res(req.result || []);
+      req.onerror = () => rej(req.error);
+    });
+  },
+  getFull(id) {
+    return new Promise((res, rej) => {
+      if (!this.db) return rej(new Error('unavailable'));
+      const t = this.db.transaction('full', 'readonly');
+      const req = t.objectStore('full').get(id);
+      req.onsuccess = () => res(req.result ? req.result.blob : null);
+      req.onerror = () => rej(req.error);
+    });
+  },
+  remove(id) {
+    return this.tx('meta', 'readwrite', s => s.delete(id))
+      .then(() => this.tx('full', 'readwrite', s => s.delete(id)));
+  },
+  clearAll() {
+    return this.tx('meta', 'readwrite', s => s.clear())
+      .then(() => this.tx('full', 'readwrite', s => s.clear()));
+  }
+};
+let photoCache = [];           // meta records, sorted asc by dateTime
+const thumbUrls = new Map();   // id -> objectURL for thumbs
+function refreshPhotoCache() {
+  return PhotoDB.allMeta().then(list => {
+    photoCache = list.sort((a, b) => new Date(a.dateTime) - new Date(b.dateTime));
+  }).catch(() => { photoCache = []; });
+}
+function thumbUrl(p) {
+  if (!thumbUrls.has(p.id) && p.thumb && typeof URL !== 'undefined' && URL.createObjectURL) {
+    try { thumbUrls.set(p.id, URL.createObjectURL(p.thumb)); } catch (e) { return ''; }
+  }
+  return thumbUrls.get(p.id) || '';
+}
+function dropThumbUrl(id) {
+  if (thumbUrls.has(id)) { try { URL.revokeObjectURL(thumbUrls.get(id)); } catch (e) {} thumbUrls.delete(id); }
+}
+async function makeScaled(file, maxDim, quality) {
+  let bmp = null, w, h;
+  if (typeof createImageBitmap === 'function') {
+    try { bmp = await createImageBitmap(file, { imageOrientation: 'from-image' }); }
+    catch (e) { try { bmp = await createImageBitmap(file); } catch (e2) {} }
+  }
+  let img = null;
+  if (!bmp) {
+    const url = URL.createObjectURL(file);
+    img = await new Promise((res, rej) => { const i = new Image(); i.onload = () => res(i); i.onerror = rej; i.src = url; });
+    w = img.naturalWidth; h = img.naturalHeight;
+  } else { w = bmp.width; h = bmp.height; }
+  const scale = Math.min(1, maxDim / Math.max(w, h));
+  const cw = Math.max(1, Math.round(w * scale)), ch = Math.max(1, Math.round(h * scale));
+  const cv = document.createElement('canvas'); cv.width = cw; cv.height = ch;
+  cv.getContext('2d').drawImage(bmp || img, 0, 0, cw, ch);
+  if (bmp && bmp.close) bmp.close();
+  return new Promise(res => cv.toBlob(b => res(b), 'image/jpeg', quality));
+}
+function nearestWeight(dt) {
+  const t = new Date(dt).getTime();
+  let best = null, bd = Infinity;
+  for (const w of Store.state.weights) {
+    const d = Math.abs(new Date(w.dateTime).getTime() - t);
+    if (d < bd) { bd = d; best = w; }
+  }
+  return (best && bd <= 3.5 * DAY) ? best : null;
+}
+
+/* ---------------- UI kit ---------------- */
+function toast(msg) {
+  const t = document.createElement('div');
+  t.className = 'toast'; t.textContent = msg;
+  $('#toasts').appendChild(t);
+  requestAnimationFrame(() => t.classList.add('in'));
+  setTimeout(() => { t.classList.remove('in'); setTimeout(() => t.remove(), 300); }, 2300);
+}
+
+/* history integration: hardware/edge back closes sheets & pages */
+const Nav = {
+  expectedPops: 0,
+  push() { try { history.pushState({ mj: 1 }, ''); } catch (e) {} },
+  consume() { this.expectedPops++; try { history.back(); } catch (e) { this.expectedPops--; } }
+};
+window.addEventListener('popstate', () => {
+  if (Nav.expectedPops > 0) { Nav.expectedPops--; return; }
+  if (Dlg.current) { Dlg.current.resolve(null); return; }
+  if (Sheet.current) { Sheet.current.close(true); return; }
+  if (Pages.stack.length) { Pages.pop(true); }
+});
+
+const Pages = {
+  stack: [],
+  push(opts) { /* {title, color, render(body,page), right} */
+    const page = document.createElement('div');
+    page.className = 'page';
+    page.innerHTML =
+      '<div class="topbar">' +
+      '<button class="back-btn" data-act="page-back">' + ic('back', 19) + 'Back</button>' +
+      '<div class="title" style="justify-content:center"><span>' + esc(opts.title) + '</span></div>' +
+      '<div style="width:64px;display:flex;justify-content:flex-end">' + (opts.right || '') + '</div>' +
+      '</div><div class="page-body"></div>';
+    $('#pages').appendChild(page);
+    const entry = { page, opts };
+    this.stack.push(entry);
+    this.render(entry);
+    requestAnimationFrame(() => requestAnimationFrame(() => page.classList.add('in')));
+    Nav.push();
+    return entry;
+  },
+  render(entry) {
+    entry = entry || this.stack[this.stack.length - 1];
+    if (!entry) return;
+    const body = $('.page-body', entry.page);
+    const st = entry.page.scrollTop;
+    body.innerHTML = '';
+    entry.opts.render(body, entry);
+    entry.page.scrollTop = st;
+  },
+  pop(fromHistory) {
+    const entry = this.stack.pop();
+    if (!entry) return;
+    entry.page.classList.remove('in');
+    setTimeout(() => entry.page.remove(), 300);
+    if (entry.opts.onClose) { try { entry.opts.onClose(); } catch (e) {} }
+    if (!fromHistory) Nav.consume();
+  },
+  popAll() { while (this.stack.length) this.pop(false); }
+};
+
+const Sheet = {
+  current: null,
+  open(opts) { /* {title, sub, html, mount(el, close), noGrab} */
+    const reuseEntry = !!this.current;      /* replacing an open sheet: keep its history entry */
+    if (this.current) this.current.close(true);
+    const wrap = document.createElement('div');
+    wrap.className = 'sheet-wrap';
+    wrap.innerHTML =
+      '<div class="sheet-back"></div>' +
+      '<div class="sheet">' + (opts.noGrab ? '' : '<div class="grab"></div>') +
+      (opts.title ? '<h2>' + esc(opts.title) + '</h2>' : '') +
+      (opts.sub ? '<div class="sheet-sub">' + opts.sub + '</div>' : '') +
+      '<div class="sheet-content">' + (opts.html || '') + '</div></div>';
+    $('#overlays').appendChild(wrap);
+    let closed = false;
+    const api = {
+      el: $('.sheet', wrap),
+      close(fromHistory) {
+        if (closed) return; closed = true;
+        Sheet.current = null;
+        wrap.classList.remove('in');
+        setTimeout(() => wrap.remove(), 300);
+        if (!fromHistory) Nav.consume();
+      }
+    };
+    $('.sheet-back', wrap).addEventListener('click', () => api.close(false));
+    this.current = api;
+    requestAnimationFrame(() => requestAnimationFrame(() => wrap.classList.add('in')));
+    if (!reuseEntry) Nav.push();
+    if (opts.mount) opts.mount(api.el, api.close.bind(api));
+    return api;
+  }
+};
+
+const Dlg = {
+  current: null,
+  show(opts) { /* {title, msg, buttons:[{label, key, style}]} -> Promise<key|null> */
+    return new Promise(resolve => {
+      const wrap = document.createElement('div');
+      wrap.className = 'dlg-wrap';
+      const btns = opts.buttons.map(b =>
+        '<button class="btn ' + (b.style || 'btn-tonal') + '" data-key="' + esc(b.key) + '">' + esc(b.label) + '</button>'
+      ).join('');
+      wrap.innerHTML = '<div class="dlg-back"></div><div class="dlg"><h4>' + esc(opts.title) + '</h4>' +
+        (opts.msg ? '<p>' + esc(opts.msg) + '</p>' : '') + btns + '</div>';
+      $('#overlays').appendChild(wrap);
+      let done = false;
+      const finish = key => {
+        if (done) return; done = true;
+        Dlg.current = null;
+        wrap.classList.remove('in');
+        setTimeout(() => wrap.remove(), 220);
+        if (key !== null) Nav.consume(); /* history entry pushed on open */
+        resolve(key);
+      };
+      Dlg.current = { resolve: finish };
+      wrap.addEventListener('click', e => {
+        const b = e.target.closest('[data-key]');
+        if (b) finish(b.dataset.key);
+        else if (e.target.classList.contains('dlg-back') && opts.dismissable !== false) finish('cancel');
+      });
+      requestAnimationFrame(() => requestAnimationFrame(() => wrap.classList.add('in')));
+      Nav.push();
+    });
+  }
+};
+function confirmDlg(title, msg, confirmLabel, danger) {
+  return Dlg.show({
+    title, msg,
+    buttons: [
+      { label: confirmLabel || 'Confirm', key: 'ok', style: danger ? 'btn-danger' : 'btn-primary' },
+      { label: 'Cancel', key: 'cancel', style: 'btn-ghost' }
+    ]
+  }).then(k => k === 'ok');
+}
+
+/* ---------------- charts ---------------- */
+function lineChart(cfg) {
+  const w = cfg.w || 336, h = cfg.h || 168;
+  const p = { l: cfg.padL || 38, r: 12, t: 14, b: 24 };
+  const series = (cfg.series || []).filter(s => s.pts && s.pts.length);
+  const all = series.reduce((a, s) => a.concat(s.pts), []);
+  if (!all.length) return '<div class="empty">Not enough data for a chart yet.</div>';
+  let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
+  all.forEach(pt => { if (pt.x < minX) minX = pt.x; if (pt.x > maxX) maxX = pt.x; if (pt.y < minY) minY = pt.y; if (pt.y > maxY) maxY = pt.y; });
+  if (cfg.goal != null) { minY = Math.min(minY, cfg.goal); maxY = Math.max(maxY, cfg.goal); }
+  if (cfg.minY0) minY = Math.min(minY, 0);
+  if (minX === maxX) { minX -= DAY; maxX += DAY; }
+  const spanY = (maxY - minY) || 1;
+  minY -= spanY * 0.1; maxY += spanY * 0.1;
+  if (cfg.minY0 && minY < 0) minY = 0;
+  const X = x => p.l + (x - minX) / (maxX - minX) * (w - p.l - p.r);
+  const Y = y => h - p.b - (y - minY) / (maxY - minY) * (h - p.t - p.b);
+  const yF = cfg.yFmt || (v => String(Math.round(v * 10) / 10));
+  let out = '<svg viewBox="0 0 ' + w + ' ' + h + '" width="100%" style="height:auto" preserveAspectRatio="xMidYMid meet">';
+  const gid = 'g' + uid();
+  out += '<defs><linearGradient id="' + gid + '" x1="0" y1="0" x2="0" y2="1">' +
+    '<stop offset="0" stop-color="' + (series[0].color || '#888') + '" stop-opacity=".22"/>' +
+    '<stop offset="1" stop-color="' + (series[0].color || '#888') + '" stop-opacity="0"/></linearGradient></defs>';
+  // gridlines + y labels
+  for (let i = 0; i <= 2; i++) {
+    const gy = minY + (maxY - minY) * i / 2;
+    const yy = Y(gy).toFixed(1);
+    out += '<line x1="' + p.l + '" x2="' + (w - p.r) + '" y1="' + yy + '" y2="' + yy + '" stroke="#E7DCCE" stroke-width="1"' + (i > 0 ? ' stroke-dasharray="1 4"' : '') + ' stroke-linecap="round"/>';
+    out += '<text x="' + (p.l - 7) + '" y="' + yy + '" font-size="10" fill="#B5AA97" text-anchor="end" dominant-baseline="middle">' + esc(yF(gy)) + '</text>';
+  }
+  // x labels: first, mid, last
+  const xf = cfg.xFmt || (x => DTF.md.format(new Date(x)));
+  [[minX, 'start'], [(minX + maxX) / 2, 'middle'], [maxX, 'end']].forEach(a => {
+    out += '<text x="' + X(a[0]).toFixed(1) + '" y="' + (h - 7) + '" font-size="10" fill="#B5AA97" text-anchor="' + a[1] + '">' + esc(xf(a[0])) + '</text>';
+  });
+  // goal line
+  if (cfg.goal != null) {
+    out += '<line x1="' + p.l + '" x2="' + (w - p.r) + '" y1="' + Y(cfg.goal).toFixed(1) + '" y2="' + Y(cfg.goal).toFixed(1) + '" stroke="#9AA17B" stroke-width="1.5" stroke-dasharray="4 4"/>';
+  }
+  // today marker
+  if (cfg.todayX != null && cfg.todayX >= minX && cfg.todayX <= maxX) {
+    out += '<line x1="' + X(cfg.todayX).toFixed(1) + '" x2="' + X(cfg.todayX).toFixed(1) + '" y1="' + p.t + '" y2="' + (h - p.b) + '" stroke="#B5AA97" stroke-width="1" stroke-dasharray="2 4"/>';
+    out += '<text x="' + X(cfg.todayX).toFixed(1) + '" y="' + (p.t - 3) + '" font-size="9" fill="#B5AA97" text-anchor="middle">now</text>';
+  }
+  series.forEach((s, si) => {
+    const path = s.pts.map((pt, i) => (i ? 'L' : 'M') + X(pt.x).toFixed(1) + ' ' + Y(pt.y).toFixed(1)).join('');
+    if (si === 0 && s.fill !== false) {
+      out += '<path d="' + path + 'L' + X(s.pts[s.pts.length - 1].x).toFixed(1) + ' ' + (h - p.b) + 'L' + X(s.pts[0].x).toFixed(1) + ' ' + (h - p.b) + 'Z" fill="url(#' + gid + ')"/>';
+    }
+    out += '<path d="' + path + '" fill="none" stroke="' + (s.color || '#888') + '" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"' + (s.dash ? ' stroke-dasharray="3 5"' : '') + '/>';
+    if (s.dots) s.pts.forEach(pt => {
+      out += '<circle cx="' + X(pt.x).toFixed(1) + '" cy="' + Y(pt.y).toFixed(1) + '" r="2.7" fill="#fff" stroke="' + (s.color || '#888') + '" stroke-width="1.8"/>';
+    });
+    if (s.endDot) {
+      const lp = s.pts[s.pts.length - 1];
+      out += '<circle cx="' + X(lp.x).toFixed(1) + '" cy="' + Y(lp.y).toFixed(1) + '" r="4" fill="' + (s.color || '#888') + '" stroke="#fff" stroke-width="2"/>';
+    }
+  });
+  // event markers (e.g. injections)
+  (cfg.marks || []).forEach(m => {
+    if (m.x < minX || m.x > maxX) return;
+    out += '<circle cx="' + X(m.x).toFixed(1) + '" cy="' + (h - p.b) + '" r="3" fill="' + (m.color || '#C96A3A') + '"/>';
+  });
+  out += '</svg>';
+  return '<div class="chartwrap">' + out + '</div>';
+}
+
+/* ---------------- actions ---------------- */
+const Actions = {
+  saveInjection(d) {
+    if (d.id) {
+      const i = Store.state.injections.findIndex(x => x.id === d.id);
+      if (i >= 0) Store.state.injections[i] = d;
+    } else { d.id = uid(); Store.state.injections.push(d); }
+    Store.save(); App.refresh();
+  },
+  deleteInjection(id) { Store.state.injections = Store.state.injections.filter(x => x.id !== id); Store.save(); App.refresh(); },
+  saveWeight(d) {
+    if (d.id) { const i = Store.state.weights.findIndex(x => x.id === d.id); if (i >= 0) Store.state.weights[i] = d; }
+    else { d.id = uid(); Store.state.weights.push(d); }
+    Store.save(); App.refresh();
+  },
+  deleteWeight(id) { Store.state.weights = Store.state.weights.filter(x => x.id !== id); Store.save(); App.refresh(); },
+  saveSymptom(d) {
+    if (d.id) { const i = Store.state.symptoms.findIndex(x => x.id === d.id); if (i >= 0) Store.state.symptoms[i] = d; }
+    else { d.id = uid(); Store.state.symptoms.push(d); }
+    Store.save(); App.refresh();
+  },
+  deleteSymptom(id) { Store.state.symptoms = Store.state.symptoms.filter(x => x.id !== id); Store.save(); App.refresh(); },
+  saveMeasurement(d) {
+    if (d.id) { const i = Store.state.measurements.findIndex(x => x.id === d.id); if (i >= 0) Store.state.measurements[i] = d; }
+    else { d.id = uid(); Store.state.measurements.push(d); }
+    Store.save(); App.refresh();
+  },
+  deleteMeasurement(id) { Store.state.measurements = Store.state.measurements.filter(x => x.id !== id); Store.save(); App.refresh(); },
+  toggleChecklist(idx) {
+    const c = checklistState();
+    c.done[idx] = !c.done[idx];
+    Store.state.checklist = c;
+    Store.save(); App.refresh();
+  },
+  patchSettings(patch) { Object.assign(Store.state.settings, patch); Store.save(); App.refresh(); }
+};
+
+/* ---------------- dashboard ---------------- */
+function renderTopbar() {
+  $('#dash-topbar').innerHTML =
+    '<div class="topbar">' +
+    '<div class="title"><img class="logo-img" alt="" src="' + (document.querySelector('link[rel="apple-touch-icon"]') || {href:''}).href + '"><span>Mounjaro</span></div>' +
+    '<button class="tbtn" data-act="open-cal" aria-label="Calendar">' + ic('cal', 20) + '</button>' +
+    '<button class="tbtn" data-act="open-settings" aria-label="Settings">' + ic('gear', 20) + '</button>' +
+    '</div>';
+}
+function cardHead(icon, color, title, extra) {
+  return '<div class="card-head">' + iconChip(icon, color) + '<h3>' + title + '</h3>' + (extra || '') + '</div>';
+}
+function renderTodayCard(ctx) {
+  const s = Store.state, set = s.settings;
+  /* 1 — shot day: the checklist owns the day */
+  if (ctx.isShotDay) {
+    const c = checklistState();
+    const items = set.checklistItems;
+    const done = c.done.filter(Boolean).length;
+    let h = '<div class="check-card fadeup"><div class="card-head" style="margin-bottom:6px">' +
+      iconChip('syringe', 'coral') + '<h3>Shot Day Checklist</h3>' +
+      '<span class="check-prog num">' + done + '/' + items.length + '</span></div>' +
+      '<div style="font-size:12.5px;color:var(--coral-deep);opacity:.75;margin-bottom:4px">Injection scheduled ' + esc(set.time) + '</div>' +
+      items.map((it, i) =>
+        '<button class="check-row' + (c.done[i] ? ' done' : '') + '" data-act="check" data-i="' + i + '" style="width:100%;text-align:left">' +
+        '<span class="checkbox">' + (c.done[i] ? ic('check', 15) : '') + '</span><span class="txt">' + esc(it) + '</span></button>'
+      ).join('');
+    const shotLoggedToday = s.injections.some(x => dateKey(x.dateTime) === dateKey(ctx.now));
+    if (!shotLoggedToday) h += '<button class="btn btn-sm" style="background:rgba(255,253,248,.7);color:var(--coral-deep);margin-top:10px;width:100%" data-act="add-injection">Log today\u2019s injection →</button>';
+    return h + '</div>';
+  }
+  /* 2 — days 2–3 after a shot: symptoms tend to peak, keep the check-in visible */
+  const todayK = dateKey(ctx.now);
+  const symToday = s.symptoms.some(x => dateKey(x.dateTime) === todayK);
+  if (ctx.cycleDay >= 2 && ctx.cycleDay <= 3 && !symToday && s.meta.feelGoodKey !== todayK) {
+    return '<div class="todaycard sympt fadeup"><h3>' + iconChip('heart', 'peach') + 'Day ' + ctx.cycleDay + ' after your shot</h3>' +
+      '<p>These are the days side effects usually show up, if they do. How\u2019s your body today?</p>' +
+      '<div class="btnrow" style="margin-top:12px">' +
+      '<button class="btn btn-sm" style="background:var(--peach);color:#fff;flex:1" data-act="add-symptom">Log a symptom</button>' +
+      '<button class="btn btn-ghost btn-sm" data-act="feel-good">Feeling good ✓</button></div></div>';
+  }
+  /* 3 — Sunday: a quiet week in review */
+  if (ctx.now.getDay() === 0) {
+    const wsk = weekStats(ctx.now);
+    if (wsk.kgDelta != null || wsk.shots || wsk.symptoms) {
+      return '<div class="todaycard week fadeup"><h3>' + iconChip('sun', 'teal') + 'Your week' + (wsk.weekNo ? ' · #' + wsk.weekNo : '') + '</h3>' +
+        '<div style="margin-top:8px">' +
+        (wsk.kgDelta != null ? '<div class="wkrow"><span>Weight vs last week</span><b class="delta ' + (wsk.kgDelta < 0 ? 'down' : wsk.kgDelta > 0 ? 'up' : 'flat') + '">' + fmtSign(wsk.kgDelta, 'kg') + '</b></div>' : '') +
+        '<div class="wkrow"><span>Injections</span><b>' + wsk.shots + '</b></div>' +
+        '<div class="wkrow"><span>Symptoms logged</span><b>' + wsk.symptoms + '</b></div>' +
+        '</div></div>';
+    }
+  }
+  return '';
+}
+function renderDashboard() {
+  const root = $('#root');
+  const s = Store.state, set = s.settings;
+  const now = new Date();
+  const isShotDay = now.getDay() === set.weekday;
+  const next = nextInjectionDate(now, set.weekday, set.time);
+  const daysToNext = daysBetween(now, next);
+  const li = lastInjection();
+  const med = medicationStatus(now);
+  const cw = currentWeight(), sw = startWeight();
+  const lost = (cw && sw != null) ? sw - cw.kg : null;
+  const cycleDay = li ? daysBetween(new Date(li.dateTime), now) + 1 : null;
+  const hasData = s.injections.length || s.weights.length;
+  let html = '';
+
+  html += '<div class="datebar"><span>' + DTF.wdl.format(now) + ', ' + DTF.md.format(now) + '</span>' +
+    (isShotDay ? '<span class="pill coral">💉 Shot day</span>'
+      : (cycleDay ? '<span class="pill gray">Day ' + cycleDay + ' · next shot ' + relDays(daysToNext).toLowerCase() + '</span>' : '')) +
+    '</div>';
+
+  /* first-run setup hint */
+  if (!set.setupDismissed && !hasData) {
+    html += '<div class="card fadeup">' + cardHead('sparkle', 'mint', 'Welcome',
+      '<button class="mini-add" data-act="dismiss-setup">' + ic('x', 15) + '</button>') +
+      '<div style="font-size:14.5px;color:var(--muted);line-height:1.55">Set your injection day, height and goal weight in Settings, then log your first shot. Everything stays on this device.</div>' +
+      '<div class="btnrow" style="margin-top:14px"><button class="btn btn-tonal btn-sm" data-act="open-settings">Open Settings</button>' +
+      '<button class="btn btn-primary btn-sm" data-act="add-injection">Log injection</button></div></div>';
+  }
+
+  /* 1 — today, whatever today needs */
+  html += renderTodayCard({ now, isShotDay, cycleDay });
+
+  /* 2 — priority tiles: next shot & what's in your system */
+  html += '<div class="tilegrid">' +
+    '<button class="tile terra" data-act="open-inj"><span class="tk">' + ic('syringe', 15) + 'Next injection</span>' +
+    '<span><span class="tv">' + (daysToNext === 0 ? 'Today' : '<span class="num">' + daysToNext + '</span>d') + '</span>' +
+    '<span class="ts">' + (li ? fmtMg(li.doseMg) + ' mg · ' : '') + WEEKDAYS[set.weekday].slice(0, 3) + ' ' + esc(set.time) + '</span></span></button>' +
+    '<button class="tile indigo" data-act="open-med"><span class="tk">' + ic('droplet', 15) + 'Active now</span>' +
+    '<span style="display:flex;align-items:center;gap:10px;margin-top:4px">' + ring(med.pct, 'var(--teal)', 46, 6) +
+    '<span style="min-width:0"><span class="tv" style="margin-top:0">' + fmtMg(med.level) + '<small style="font-size:13px;font-weight:600"> mg</small></span>' +
+    '<span class="ts">' + (med.last ? (med.phase === 'rising' ? 'building to peak' : Math.round(med.pct) + '% of peak') : 'no shots yet') + '</span></span></span></button>' +
+    '</div>';
+
+  /* 3 — weight & progress */
+  const bmi = cw ? bmiOf(cw.kg) : null;
+  html += '<div class="card press" data-act="open-weight">' + cardHead('scale', 'pink', 'Weight',
+    '<button class="mini-add" data-act="add-weight">' + ic('plus', 16) + '</button><span class="chev-ico">' + ic('chevR', 17) + '</span>');
+  if (cw) {
+    html += '<div class="hero"><div><div class="hero-num">' + fmtKg(cw.kg) + '<small> kg</small></div>' +
+      '<div class="hero-sub">' + (lost != null && lost !== 0 ? '<span class="delta ' + (lost > 0 ? 'down' : 'up') + '">' + (lost > 0 ? '↓ ' : '↑ ') + fmtKg(Math.abs(lost)) + ' kg</span> since start' : 'starting point') +
+      (bmi ? ' · BMI ' + bmi.toFixed(1) : '') + '</div></div></div>';
+    if (set.goalKg && sw != null) {
+      const total = sw - set.goalKg;
+      const doneP = total > 0 ? clamp((sw - cw.kg) / total * 100, 0, 100) : 0;
+      html += '<div class="progressbar" style="margin-top:12px"><i style="width:' + doneP + '%;background:var(--pink)"></i></div>' +
+        '<div style="display:flex;justify-content:space-between;font-size:11.5px;color:var(--faint);margin-top:5px"><span>' + fmtKg(sw) + '</span><span>goal ' + fmtKg(+set.goalKg) + '</span></div>';
+    }
+  } else {
+    html += '<div style="font-size:14.5px;color:var(--muted)">No weight logged yet — tap + to add your first entry.</div>';
+  }
+  html += '</div>';
+
+  /* 4 — journey: how far you've come */
+  if (hasData) {
+    const wk = weeksSinceStart(now);
+    const tb = totalBodyChange();
+    const ins = buildInsights();
+    html += '<div class="card press journey" data-act="open-journey">' + cardHead('sparkle', 'mint', 'Your journey', '<span class="chev-ico">' + ic('chevR', 17) + '</span>') +
+      '<div class="jstats">' +
+      '<div class="jstat"><b>' + (wk || '—') + '</b><span>week' + (wk === 1 ? '' : 's') + ' · day ' + daysSinceStart(now) + '</span></div>' +
+      '<div class="jstat"><b>' + s.injections.length + '</b><span>shot' + (s.injections.length === 1 ? '' : 's') + '</span></div>' +
+      '<div class="jstat"><b>' + (lost != null ? fmtSign(-lost, '').trim() : '—') + '</b><span>kg</span></div>' +
+      '<div class="jstat"><b>' + (tb ? fmtSign(tb.cm, '', fmtCm).trim() : '—') + '</b><span>cm</span></div>' +
+      '</div>' +
+      (ins.length ? '<div class="insight" style="padding-bottom:2px"><span class="ii">' + ic(ins[0].icon, 14) + '</span><span>' + esc(ins[0].text) + '</span></div>' : '') +
+      '</div>';
+  }
+
+  /* 5 — symptoms */
+  html += '<div class="card press" data-act="open-sym">' + cardHead('heart', 'peach', 'Symptoms',
+    '<button class="mini-add" data-act="add-symptom">' + ic('plus', 16) + '</button><span class="chev-ico">' + ic('chevR', 17) + '</span>');
+  const sym = latestSymptom();
+  const symTodayList = s.symptoms.filter(x => dateKey(x.dateTime) === dateKey(now));
+  if (symTodayList.length) {
+    const t = symTodayList.sort((a, b) => new Date(b.dateTime) - new Date(a.dateTime))[0];
+    const dX = dayAfterInjection(s.injections, t.dateTime);
+    html += '<div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap"><span class="pill peach">' + esc(t.name) + '</span>' +
+      sevDots(t.severity) + (dX ? '<span class="badge-day">Day ' + dX + '</span>' : '') +
+      '<span style="font-size:13px;color:var(--muted)">' + fmtTime(t.dateTime) + '</span></div>';
+  } else {
+    html += '<div style="font-size:14.5px;color:var(--muted)">No symptoms today.' + (sym ? ' Last: ' + esc(sym.name) + ' · ' + fmtDate(sym.dateTime) : '') + '</div>';
+  }
+  html += '</div>';
+
+  /* 6 — injection details */
+  html += '<div class="card press" data-act="open-inj">' + cardHead('syringe', 'coral', 'Injection',
+    '<button class="mini-add" data-act="add-injection">' + ic('plus', 16) + '</button><span class="chev-ico">' + ic('chevR', 17) + '</span>') +
+    '<div class="kv"><span>Current dose</span><b>' + (li ? fmtMg(li.doseMg) + ' mg' : '—') + '</b></div>' +
+    '<div class="kv"><span>Last site</span><b>' + (li && li.site ? esc(li.site) : '—') + '</b></div>' +
+    '<div class="kv"><span>Rotate next to</span><b style="color:var(--coral-deep)">' + esc(suggestedSite()) + '</b></div></div>';
+
+  /* 7 — photos */
+  html += '<div class="sec-label">Progress Photos</div>';
+  html += '<div class="card">' + cardHead('camera', 'lav', 'Photos',
+    '<button class="mini-add" data-act="add-photo">' + ic('camera', 16) + '</button>' +
+    (photoCache.length ? '<button class="mini-add" data-act="open-photos">' + ic('chevR', 16) + '</button>' : ''));
+  if (!PhotoDB.available) {
+    html += '<div style="font-size:13.5px;color:var(--muted)">Photo storage isn\u2019t available in this browser mode.</div>';
+  } else if (!photoCache.length) {
+    html += '<div style="font-size:14.5px;color:var(--muted)">Capture your starting point — photos stay on this device.</div>' +
+      '<button class="btn btn-tonal btn-sm" style="margin-top:12px" data-act="add-photo">Add first photo</button>';
+  } else {
+    const recent = photoCache.slice(-8).reverse();
+    html += '<div class="pstrip">' + recent.map(p =>
+      '<button class="pcell" data-act="view-photo" data-id="' + p.id + '"><img src="' + thumbUrl(p) + '" alt="">' +
+      '<span class="pdate">' + DTF.md.format(new Date(p.dateTime)) + '</span></button>').join('') + '</div>' +
+      '<button class="btn btn-ghost btn-sm" style="width:100%;margin-top:6px" data-act="open-photos">Open gallery · ' + photoCache.length + '</button>';
+  }
+  html += '</div>';
+  html += '<div class="footnote" style="text-align:center">Everything is stored on this device.' + (Store.state.settings.drive.enabled ? ' Google Drive sync is on.' : '') + '</div>';
+  root.innerHTML = html;
+}
+function sevDots(n) {
+  let out = '<span class="sev">';
+  for (let i = 1; i <= 5; i++) out += '<i class="' + (i <= n ? 'on' : '') + '"></i>';
+  return out + '</span>';
+}
+
+/* ---------------- medication page ---------------- */
+function medChartHtml() {
+  const injs = injectionsSorted(false);
+  if (!injs.length) return '<div class="empty"><div class="big">💧</div>Log your first injection and the level curve appears here.</div>';
+  const now = Date.now();
+  const first = new Date(injs[0].dateTime).getTime();
+  const from = Math.max(first, now - 42 * DAY);
+  const to = now + 7 * DAY;
+  const past = [], future = [];
+  for (let t = from; t <= to; t += 6 * 3600000) {
+    const pt = { x: t, y: PK.totalAt(injs, t) };
+    if (t <= now) past.push(pt); else future.push(pt);
+  }
+  const nowPt = { x: now, y: PK.totalAt(injs, now) };
+  past.push(nowPt); future.unshift(nowPt);
+  return lineChart({
+    series: [
+      { pts: past, color: 'var(--teal)', endDot: true },
+      { pts: future, color: 'var(--teal)', dash: true, fill: false }
+    ],
+    marks: injs.filter(i => { const t = new Date(i.dateTime).getTime(); return t >= from && t <= to; }).map(i => ({ x: new Date(i.dateTime).getTime(), color: 'var(--coral)' })),
+    todayX: now, yFmt: v => fmtMg(v), minY0: true
+  }) + '<div class="chart-legend"><span><i style="background:var(--teal)"></i>estimated level (mg)</span><span><i style="background:var(--teal);opacity:.4"></i>next 7 days</span><span><i style="background:var(--coral);height:7px;width:7px;border-radius:50%"></i>injections</span></div>';
+}
+function openMedicationPage() {
+  Pages.push({
+    title: 'Medication',
+    render(body) {
+      const now = new Date();
+      const med = medicationStatus(now);
+      const injs = injectionsSorted(true);
+      let h = '';
+      h += '<div class="card"><div class="hero">' + ring(med.pct, 'var(--teal)', 88, 9) +
+        '<div><div class="hero-num">' + fmtMg(med.level) + '<small> mg</small></div>' +
+        '<div class="hero-sub">estimated active tirzepatide right now</div></div></div>';
+      if (med.last) {
+        h += '<div class="divider"></div>' +
+          '<div class="kv"><span>Recent peak</span><b>' + fmtMg(med.peak) + ' mg · ' + fmtDate(med.peakAt) + '</b></div>' +
+          '<div class="kv"><span>Phase</span><b>' + (med.phase === 'rising' ? 'Absorbing — building to peak' : 'Elimination — ' + Math.round(med.pct) + '% of peak') + '</b></div>' +
+          '<div class="kv"><span>Last injection</span><b>' + fmtMg(med.last.doseMg) + ' mg · ' + fmtDate(med.last.dateTime) + '</b></div>';
+      }
+      h += '</div>';
+      h += '<div class="sec-label">Level over time</div><div class="card">' + medChartHtml() + '</div>';
+      /* dose stacking */
+      if (injs.length) {
+        const active = injs.map(i => ({ i, c: PK.contribution(i.doseMg, (Date.now() - new Date(i.dateTime).getTime()) / DAY) })).filter(x => x.c > 0.005);
+        h += '<div class="sec-label">Dose stacking — active now</div><div class="list">';
+        if (active.length) {
+          const maxC = Math.max.apply(null, active.map(x => x.c));
+          h += active.map(x =>
+            '<div class="row"><div class="rmain"><div class="rtitle"><span class="num">' + fmtMg(x.i.doseMg) + ' mg</span><span style="font-weight:400;color:var(--muted);font-size:13px">' + fmtDate(x.i.dateTime) + '</span></div>' +
+            '<div class="progressbar" style="margin-top:7px"><i style="width:' + Math.max(4, x.c / maxC * 100) + '%;background:var(--teal)"></i></div></div>' +
+            '<div class="rside"><div class="rval num">' + fmtMg(x.c) + ' mg</div><div class="rsub">still active</div></div></div>').join('');
+        } else h += '<div class="empty">Previous doses have fully cleared.</div>';
+        h += '</div>';
+      }
+      /* model */
+      h += '<div class="sec-label">The model</div><div class="card">' +
+        '<div class="kv"><span>Elimination half-life</span><b>5 days (~120 h)</b></div>' +
+        '<div class="kv"><span>Time to peak (t<sub>max</sub>)</span><b>≈ 24 h after injection</b></div>' +
+        '<div class="kv"><span>Bioavailability (F)</span><b>80% subcutaneous</b></div>' +
+        '<div class="kv"><span>Method</span><b>One-compartment, first-order</b></div>' +
+        '<div class="footnote">Each injection follows A(t) = D·F·k<sub>a</sub>/(k<sub>a</sub>−k<sub>e</sub>)·(e^(−k<sub>e</sub>t) − e^(−k<sub>a</sub>t)); all injections from the last 60 days are summed, so week-to-week accumulation is included. Published tirzepatide pharmacokinetics — an estimate for insight, not medical advice.</div></div>';
+      /* previous injections */
+      if (injs.length) {
+        h += '<div class="sec-label">Previous injections</div><div class="list">' + injs.slice(0, 12).map(i =>
+          '<button class="row" style="width:100%;text-align:left" data-act="edit-injection" data-id="' + i.id + '">' +
+          '<div class="rmain"><div class="rtitle">' + fmtDate(i.dateTime) + '</div><div class="rsub">' + fmtTime(i.dateTime) + (i.site ? ' · ' + esc(i.site) : '') + '</div></div>' +
+          '<div class="rside"><div class="rval num">' + fmtMg(i.doseMg) + ' mg</div></div></button>').join('') + '</div>';
+      }
+      body.innerHTML = h;
+    }
+  });
+}
+
+/* ---------------- weight & body page ---------------- */
+function weightRangePts(range) {
+  const ws = weightsSorted(false);
+  const now = Date.now();
+  const cut = range === '1m' ? now - 31 * DAY : range === '3m' ? now - 92 * DAY : 0;
+  return ws.filter(w => new Date(w.dateTime).getTime() >= cut).map(w => ({ x: new Date(w.dateTime).getTime(), y: +w.kg }));
+}
+let weightRange = 'all';
+function openWeightPage() {
+  Pages.push({
+    title: 'Weight & Body',
+    right: '<button class="tbtn" data-act="add-weight" style="width:36px;height:36px">' + ic('plus', 18) + '</button>',
+    render(body) {
+      const cw = currentWeight(), sw = startWeight();
+      const set = Store.state.settings;
+      const lost = (cw && sw != null) ? sw - cw.kg : null;
+      const bmi = cw ? bmiOf(cw.kg) : null;
+      let h = '';
+      h += '<div class="card">';
+      if (cw) {
+        h += '<div class="hero-num">' + fmtKg(cw.kg) + '<small> kg</small></div>' +
+          '<div class="hero-sub">' + (lost != null && lost !== 0 ? '<span class="delta ' + (lost > 0 ? 'down' : 'up') + '">' + (lost > 0 ? '↓ ' : '↑ ') + fmtKg(Math.abs(lost)) + ' kg</span> since ' + (sw != null ? fmtKg(sw) + ' kg' : 'start') : 'first entry') + ' · ' + fmtDate(cw.dateTime) + '</div>';
+        if (bmi != null) h += '<div class="divider"></div><div class="kv"><span>BMI</span><b>' + bmi.toFixed(1) + ' · ' + bmiLabel(bmi) + '</b></div>';
+        else h += '<div class="footnote">Add your height in Settings to see BMI.</div>';
+        if (set.goalKg) {
+          const total = sw != null ? sw - set.goalKg : null;
+          const doneP = (total && total > 0) ? clamp((sw - cw.kg) / total * 100, 0, 100) : 0;
+          h += '<div class="kv"><span>Goal</span><b>' + fmtKg(+set.goalKg) + ' kg · ' + fmtKg(Math.abs(cw.kg - set.goalKg)) + ' kg to go</b></div>' +
+            '<div class="progressbar"><i style="width:' + doneP + '%;background:var(--pink)"></i></div>';
+        }
+      } else {
+        h += '<div class="empty" style="padding:8px 0"><div class="big">⚖️</div>Log your first weight to start the trend.</div>';
+      }
+      h += '</div>';
+      /* chart + range */
+      h += '<div class="sec-label">Trend</div><div class="card">' +
+        '<div class="chips" style="margin-bottom:8px">' +
+        ['1m', '3m', 'all'].map(r => '<button class="chip' + (weightRange === r ? ' on' : '') + '" data-act="wrange" data-r="' + r + '">' + (r === '1m' ? '4 weeks' : r === '3m' ? '3 months' : 'All') + '</button>').join('') + '</div>' +
+        lineChart({ series: [{ pts: weightRangePts(weightRange), color: 'var(--pink)', dots: weightRangePts(weightRange).length <= 20, endDot: true }], goal: set.goalKg ? +set.goalKg : null, yFmt: v => fmtKg(v) }) +
+        (set.goalKg ? '<div class="chart-legend"><span><i style="background:var(--pink)"></i>weight</span><span><i style="background:var(--mint)"></i>goal ' + fmtKg(+set.goalKg) + ' kg</span></div>' : '') +
+        '</div>';
+      /* measurements */
+      h += '<div class="sec-label">Measurements</div>';
+      h += renderMeasurementBlock();
+      /* history */
+      const ws = weightsSorted(true);
+      if (ws.length) {
+        h += '<div class="sec-label">Weight history</div><div class="list">' + ws.slice(0, 40).map((w, i) => {
+          const prev = ws[i + 1];
+          const d = prev ? w.kg - prev.kg : 0;
+          return '<button class="row" style="width:100%;text-align:left" data-act="edit-weight" data-id="' + w.id + '">' +
+            '<div class="rmain"><div class="rtitle">' + fmtDate(w.dateTime) + '</div><div class="rsub">' + fmtTime(w.dateTime) + '</div>' + (w.note ? '<div class="rnote">' + esc(w.note) + '</div>' : '') + '</div>' +
+            '<div class="rside"><div class="rval num">' + fmtKg(w.kg) + ' kg</div>' +
+            (prev ? '<div class="rsub delta ' + (d < 0 ? 'down' : d > 0 ? 'up' : 'flat') + '">' + (d < 0 ? '↓' : d > 0 ? '↑' : '·') + ' ' + fmtKg(Math.abs(d)) + '</div>' : '') + '</div></button>';
+        }).join('') + '</div>';
+      }
+      body.innerHTML = h;
+    }
+  });
+}
+function renderMeasurementBlock() {
+  const ms = Store.state.measurements.slice().sort((a, b) => new Date(a.dateTime) - new Date(b.dateTime));
+  let h = '<div class="card"><div class="card-head" style="margin-bottom:8px">' + iconChip('tape', 'mint') + '<h3>Body measurements</h3>' +
+    '<button class="mini-add" data-act="add-measurement">' + ic('plus', 16) + '</button></div>';
+  if (!ms.length) {
+    h += '<div style="font-size:14px;color:var(--muted)">Neck to thighs, all in cm — often the story the scale doesn\u2019t tell. Measure what matters to you; every field is optional.</div></div>';
+    return h;
+  }
+  const deltas = measurementDeltas();
+  const tb = totalBodyChange(deltas);
+  /* body progress summary — the headline */
+  if (tb) {
+    h += '<div style="background:var(--mint-soft);border-radius:15px;padding:12px 14px;margin:4px 0 12px;display:flex;justify-content:space-between;align-items:center">' +
+      '<span style="font-size:13px;font-weight:600;color:var(--mint-deep)">Total body change</span>' +
+      '<b class="num delta ' + (tb.cm < 0 ? 'down' : tb.cm > 0 ? 'up' : 'flat') + '" style="font-size:18px">' + fmtSign(tb.cm, 'cm', fmtCm) + '</b></div>';
+  }
+  /* grouped current values with change from start */
+  MEAS_GROUPS.forEach(g => {
+    const rows = g[1].map(f => deltas[f[0]] ? [f, deltas[f[0]]] : null).filter(Boolean);
+    if (!rows.length) return;
+    h += '<div class="mgroup">' + g[0] + '</div>';
+    rows.forEach(r => {
+      const d = r[1];
+      h += '<div class="kv"><span>' + esc(d.label) + '</span>' +
+        '<b><span class="num">' + fmtCm(d.last) + ' cm</span>' +
+        (d.n >= 2 && Math.abs(d.delta) >= 0.05 ? ' <span class="delta ' + (d.delta < 0 ? 'down' : 'up') + '" style="font-size:12.5px">' + fmtSign(d.delta, '', fmtCm) + '</span>' : '') +
+        '</b></div>';
+    });
+  });
+  /* mini trend charts for fields with enough points */
+  MEAS_FIELDS.forEach(f => {
+    const pts = ms.filter(m => m[f[0]] != null && m[f[0]] !== '').map(m => ({ x: new Date(m.dateTime).getTime(), y: +m[f[0]] }));
+    if (pts.length >= 3) {
+      h += '<div class="divider"></div><div style="font-size:13px;font-weight:700;color:var(--muted);margin-bottom:2px">' + f[1] + '</div>' +
+        lineChart({ series: [{ pts, color: 'var(--mint)', dots: pts.length <= 16, endDot: true }], h: 120, yFmt: v => fmtCm(v) });
+    }
+  });
+  /* history rows */
+  h += '<div class="divider"></div>' + ms.slice().reverse().slice(0, 20).map(m =>
+    '<button class="row" style="width:100%;text-align:left;padding:11px 2px" data-act="edit-measurement" data-id="' + m.id + '">' +
+    '<div class="rmain"><div class="rtitle" style="font-size:14px">' + fmtDate(m.dateTime) + '</div>' +
+    '<div class="rsub">' + MEAS_FIELDS.filter(f => m[f[0]] != null && m[f[0]] !== '').map(f => f[1] + ' ' + fmtCm(m[f[0]])).join(' · ') + '</div></div>' +
+    '<span class="chev-ico">' + ic('chevR', 15) + '</span></button>').join('');
+  h += '</div>';
+  return h;
+}
+/* ---------------- journey page ---------------- */
+function openJourneyPage() {
+  Pages.push({
+    title: 'Your Journey',
+    render(body) {
+      const now = new Date();
+      const wk = weeksSinceStart(now);
+      const fi = firstInjection();
+      const sw = startWeight(), cw = currentWeight();
+      const lost = (cw && sw != null) ? sw - cw.kg : null;
+      const deltas = measurementDeltas();
+      const tb = totalBodyChange(deltas);
+      const ins = buildInsights();
+      const recs = buildRecords();
+      let h = '';
+
+      /* hero */
+      h += '<div class="card journey">';
+      if (fi) {
+        h += '<div class="hero-num">Week ' + wk + '</div>' +
+          '<div class="hero-sub">day ' + daysSinceStart(now) + ' since your first injection · ' + fmtDate(fi.dateTime) + '</div>';
+      } else {
+        h += '<div class="hero-num">Day one</div><div class="hero-sub">your journey starts with the first log</div>';
+      }
+      h += '<div class="jstats" style="margin-top:14px">' +
+        '<div class="jstat"><b>' + (lost != null ? fmtSign(-lost, '').trim() : '—') + '</b><span>kg total</span></div>' +
+        '<div class="jstat"><b>' + (tb ? fmtSign(tb.cm, '', fmtCm).trim() : '—') + '</b><span>cm total</span></div>' +
+        '<div class="jstat"><b>' + Store.state.injections.length + '</b><span>injections</span></div>' +
+        '<div class="jstat"><b>' + longestStreak(Store.state.injections) + '</b><span>best streak</span></div>' +
+        '</div></div>';
+
+      /* metabolism entry */
+      const mMet = metabolism();
+      h += '<button class="card press" data-act="open-metab" style="width:100%;text-align:left">' +
+        '<div class="card-head" style="margin:0">' + iconChip('sun', 'coral') + '<h3>Metabolism</h3><span class="chev-ico">' + ic('chevR', 17) + '</span></div>' +
+        (mMet ? '<div class="kv" style="border:0;padding:6px 0 0"><span>Daily energy use (TDEE)</span><b>' + Math.round(mMet.tdee) + ' kcal</b></div>'
+          : '<div style="font-size:13.5px;color:var(--muted);margin-top:6px">Add your details to estimate BMR — it updates as you lose weight.</div>') +
+        '</button>';
+
+      /* insights */
+      if (ins.length) {
+        h += '<div class="sec-label">Right now</div><div class="card">' +
+          ins.map(i => '<div class="insight"><span class="ii">' + ic(i.icon, 14) + '</span><span>' + esc(i.text) + '</span></div>').join('') +
+          '</div>';
+      }
+
+      /* personal records */
+      if (recs.length) {
+        h += '<div class="sec-label">Personal records</div><div class="card">' +
+          recs.map(r => '<div class="recrow"><span class="rl">' + esc(r.label) + '</span>' +
+            '<span class="rv">' + esc(r.value) + '<span class="rd">' + esc(r.date) + '</span></span></div>').join('') +
+          '</div>';
+      }
+
+      /* pace & goal projection */
+      const proj = goalProjection();
+      const tr = weightTrend(28) || weightTrend(56);
+      if (tr || proj) {
+        h += '<div class="sec-label">Pace &amp; goal</div><div class="card">';
+        if (tr) {
+          const dir = tr.perWeek < -0.02 ? 'down' : tr.perWeek > 0.02 ? 'up' : 'flat';
+          h += '<div class="kv"><span>Recent pace</span><b class="delta ' + dir + '">' +
+            (Math.abs(tr.perWeek) < 0.02 ? 'holding steady' : fmtSign(tr.perWeek, 'kg/wk')) + '</b></div>' +
+            '<div class="footnote" style="margin:2px 0 0">from the last ' + Math.max(1, Math.round(tr.spanDays)) + ' days · ' + tr.n + ' weigh-ins</div>';
+        }
+        if (proj) {
+          h += '<div class="divider"></div>';
+          if (proj.status === 'reached') h += '<div class="insight"><span class="ii">' + ic('trophy', 14) + '</span><span>You\u2019ve reached your goal of ' + fmtKg(proj.goal) + ' kg. 🎉</span></div>';
+          else if (proj.status === 'eta') h += '<div class="kv" style="border:0"><span>Goal ' + fmtKg(proj.goal) + ' kg · ' + fmtKg(Math.abs(proj.remaining)) + ' kg to go</span><b>' + (proj.weeks < 1.5 ? 'about a week' : Math.round(proj.weeks) + ' weeks') + '</b></div><div class="footnote" style="margin:0">at this pace, around ' + fmtDate(proj.date) + '</div>';
+          else if (proj.status === 'flat') h += '<div class="insight"><span class="ii">' + ic('flag', 14) + '</span><span>' + fmtKg(Math.abs(proj.remaining)) + ' kg from your goal. Your weight is holding steady right now — no arrival estimate yet.</span></div>';
+          else if (proj.status === 'wrongway') h += '<div class="insight"><span class="ii">' + ic('flag', 14) + '</span><span>' + fmtKg(Math.abs(proj.remaining)) + ' kg from your goal. The recent trend is moving the other way, so there\u2019s no estimate — this happens, keep going.</span></div>';
+          else if (proj.status === 'slow') h += '<div class="kv" style="border:0"><span>Goal ' + fmtKg(proj.goal) + ' kg</span><b>very gradual</b></div><div class="footnote" style="margin:0">the current pace is gentle — an estimate wouldn\u2019t be meaningful yet</div>';
+          else h += '<div class="footnote" style="margin:0">Log a few weigh-ins over a couple of weeks to project your goal date.</div>';
+        }
+        h += '</div>';
+      }
+
+      /* plateau note — a calm one, not an alarm */
+      const trShort = weightTrend(21);
+      if (trShort && trShort.n >= 3 && Math.abs(trShort.perWeek) < 0.12 && cw && Store.state.weights.length >= 5) {
+        h += '<div class="card" style="background:var(--mint-soft)"><div class="insight" style="padding:2px"><span class="ii">' + ic('sun', 14) + '</span><span>Your weight has been level for about three weeks. Plateaus are a normal part of the process — your body adjusting, not you doing anything wrong.</span></div></div>';
+      }
+
+      /* kg <-> cm relationship */
+      const ratio = kgCmRatio();
+      if (ratio) {
+        h += '<div class="card"><div class="insight" style="padding:2px"><span class="ii">' + ic('tape', 14) + '</span><span>For every kg you\u2019ve lost, you\u2019ve dropped about ' + fmtCm(ratio.cmPerKg) + ' cm across your measurements — the scale and the tape moving together.</span></div></div>';
+      }
+
+      /* body change highlights */
+      const changed = MEAS_FIELDS.map(f => deltas[f[0]]).filter(d => d && d.n >= 2 && Math.abs(d.delta) >= 0.1)
+        .sort((a, b) => a.delta - b.delta).slice(0, 5);
+      if (changed.length) {
+        h += '<div class="sec-label">Body changes</div><div class="card">' +
+          changed.map(d => '<div class="kv"><span>' + esc(d.label) + '</span>' +
+            '<b class="delta ' + (d.delta < 0 ? 'down' : 'up') + '">' + fmtSign(d.delta, 'cm', fmtCm) + '</b></div>').join('') +
+          (tb ? '<div class="divider"></div><div class="kv" style="border:0"><span><b>Total body change</b></span><b class="delta ' + (tb.cm < 0 ? 'down' : tb.cm > 0 ? 'up' : 'flat') + '" style="font-size:16px">' + fmtSign(tb.cm, 'cm', fmtCm) + '</b></div>' : '') +
+          '</div>';
+      }
+
+      if (!fi && !Store.state.weights.length) {
+        h += '<div class="card"><div class="empty"><div class="big">🌱</div>Log your first injection or weight —<br>this page grows with you.</div></div>';
+      }
+      h += '<div class="footnote">These are your own milestones, computed from your logs — nothing to collect, just progress to notice.</div>';
+      body.innerHTML = h;
+    }
+  });
+}
+
+/* ---------------- metabolism page ---------------- */
+function openMetabolismPage() {
+  Pages.push({
+    title: 'Metabolism',
+    render(body) {
+      const set = Store.state.settings;
+      const m = metabolism();
+      const cw = currentWeight();
+      let h = '';
+      const missing = [];
+      if (!set.sex) missing.push('sex');
+      if (!set.birthYear) missing.push('date of birth');
+      if (!set.heightCm) missing.push('height');
+      if (!cw) missing.push('a logged weight');
+
+      if (!m) {
+        h += '<div class="card"><div class="empty"><div class="big">🔥</div>Add ' + esc(missing.join(', ')) +
+          ' to estimate your metabolism.</div>' +
+          (missing.indexOf('a logged weight') < 0 ? '<button class="btn btn-primary" style="width:100%" data-act="metab-setup">Add details</button>' :
+            '<button class="btn btn-primary" style="width:100%" data-act="add-weight">Log a weight</button>') +
+          '</div>';
+        body.innerHTML = h;
+        return;
+      }
+
+      /* hero: BMR + TDEE */
+      h += '<div class="card"><div class="hero"><div style="flex:none;width:84px;height:84px;border-radius:50%;background:var(--coral-soft);display:flex;align-items:center;justify-content:center;font-size:34px">🔥</div>' +
+        '<div><div class="hero-num">' + Math.round(m.tdee) + '<small> kcal</small></div>' +
+        '<div class="hero-sub">estimated daily energy use (TDEE) at ' + fmtKg(m.kg) + ' kg</div></div></div>' +
+        '<div class="divider"></div>' +
+        '<div class="kv"><span>Base metabolism (BMR)</span><b>' + Math.round(m.bmr) + ' kcal/day</b></div>' +
+        '<div class="kv"><span>Activity factor</span><b>' + (ACTIVITY_LEVELS.find(a => a[0] === set.activity) || [,'—'])[1] + ' ×' + (set.activity || 1.375) + '</b></div>' +
+        '<div class="kv"><span>At rest, per hour</span><b>' + Math.round(m.bmr / 24) + ' kcal</b></div>' +
+        '</div>';
+
+      /* how it moves with weight */
+      h += '<div class="sec-label">As your weight changes</div><div class="card">';
+      const sw = startWeight();
+      if (sw != null && Math.abs(sw - m.kg) >= 0.5) {
+        const mStart = metabolism(sw);
+        if (mStart) {
+          const dB = Math.round(m.bmr - mStart.bmr);
+          h += '<div class="kv"><span>BMR at start (' + fmtKg(sw) + ' kg)</span><b>' + Math.round(mStart.bmr) + ' kcal</b></div>' +
+            '<div class="kv"><span>BMR now (' + fmtKg(m.kg) + ' kg)</span><b>' + Math.round(m.bmr) + ' kcal</b></div>' +
+            '<div class="kv" style="border:0"><span>Change</span><b class="delta ' + (dB < 0 ? 'down' : dB > 0 ? 'up' : 'flat') + '">' + (dB > 0 ? '+' : '') + dB + ' kcal/day</b></div>' +
+            '<div class="footnote">As you lose weight your body needs a little less energy — normal, and part of why pace can slow. Recalculated from your latest weight every time.</div>';
+        }
+      } else {
+        h += '<div class="footnote" style="margin:0">Each 1 kg of body weight changes your BMR by about 10 kcal/day. As your weight moves, this screen updates automatically from your newest weigh-in.</div>';
+      }
+      h += '</div>';
+
+      /* projection at goal */
+      if (set.goalKg) {
+        const mGoal = metabolism(+set.goalKg);
+        if (mGoal) {
+          h += '<div class="sec-label">At your goal</div><div class="card">' +
+            '<div class="kv"><span>BMR at ' + fmtKg(+set.goalKg) + ' kg</span><b>' + Math.round(mGoal.bmr) + ' kcal/day</b></div>' +
+            '<div class="kv" style="border:0"><span>TDEE at goal</span><b>' + Math.round(mGoal.tdee) + ' kcal/day</b></div>' +
+            '<div class="footnote">A rough guide to your energy needs once you reach your goal weight.</div></div>';
+        }
+      }
+
+      /* activity picker */
+      h += '<div class="sec-label">Activity level</div><div class="card">' +
+        ACTIVITY_LEVELS.map(a =>
+          '<button class="row" style="width:100%;text-align:left" data-act="set-activity" data-v="' + a[0] + '">' +
+          '<div class="rmain"><div class="rtitle">' + a[1] + (set.activity === a[0] ? ' <span class="badge-day">current</span>' : '') + '</div>' +
+          '<div class="rsub">' + a[2] + '</div></div>' +
+          '<div class="rside"><div class="rval">×' + a[0] + '</div></div></button>'
+        ).join('') + '</div>';
+
+      h += '<div class="card"><button class="btn btn-tonal" style="width:100%" data-act="metab-setup">Edit sex, birth date &amp; height</button></div>';
+      h += '<div class="footnote">Mifflin-St Jeor equation — the current clinical standard. An estimate to guide you, not a medical prescription.</div>';
+      body.innerHTML = h;
+    }
+  });
+}
+function openMetabSetupSheet() {
+  const set = Store.state.settings;
+  const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  const nowY = new Date().getFullYear();
+  Sheet.open({
+    title: 'Your details',
+    sub: 'Used only to estimate metabolism, on this device.',
+    html:
+      '<div class="f-label">Sex</div>' +
+      '<div class="chips" id="ms-sex">' +
+      '<button class="chip' + (set.sex === 'female' ? ' on' : '') + '" data-v="female">Female</button>' +
+      '<button class="chip' + (set.sex === 'male' ? ' on' : '') + '" data-v="male">Male</button></div>' +
+      '<div class="f-hint">The equation uses a different constant for each; pick what matches your physiology.</div>' +
+      '<div class="f-label">Date of birth</div>' +
+      '<div class="f-2col">' +
+      '<select class="field" id="ms-bm"><option value="">Month</option>' +
+      months.map((mn, i) => '<option value="' + (i + 1) + '"' + (set.birthMonth === i + 1 ? ' selected' : '') + '>' + mn + '</option>').join('') + '</select>' +
+      '<select class="field" id="ms-by"><option value="">Year</option>' +
+      Array.from({ length: 80 }, (_, k) => nowY - 16 - k).map(y => '<option value="' + y + '"' + (set.birthYear === y ? ' selected' : '') + '>' + y + '</option>').join('') + '</select>' +
+      '</div>' +
+      '<div class="f-label">Height (cm)</div>' +
+      '<input class="field num" type="text" inputmode="decimal" id="ms-h" value="' + (set.heightCm || '') + '" placeholder="e.g. 165">' +
+      '<div class="sheet-actions"><button class="btn btn-primary" id="ms-save" style="flex:1">Save</button></div>',
+    mount(el, close) {
+      let sex = set.sex;
+      $('#ms-sex', el).addEventListener('click', e => {
+        const c = e.target.closest('.chip'); if (!c) return;
+        sex = c.dataset.v;
+        $$('#ms-sex .chip', el).forEach(x => x.classList.toggle('on', x.dataset.v === sex));
+      });
+      $('#ms-save', el).addEventListener('click', () => {
+        const h = parseNum($('#ms-h', el).value);
+        if ($('#ms-h', el).value && (!h || h < 90 || h > 250)) return toast('Height should be 90-250 cm');
+        const bm = +$('#ms-bm', el).value || null, by = +$('#ms-by', el).value || null;
+        Actions.patchSettings({ sex: sex || null, birthMonth: bm, birthYear: by, heightCm: h || set.heightCm || null });
+        close(); toast('Saved');
+      });
+    }
+  });
+}
+
+/* ---------------- symptoms page ---------------- */
+function openSymptomsPage() {
+  Pages.push({
+    title: 'Symptoms',
+    right: '<button class="tbtn" data-act="add-symptom" style="width:36px;height:36px">' + ic('plus', 18) + '</button>',
+    render(body) {
+      const syms = Store.state.symptoms.slice().sort((a, b) => new Date(b.dateTime) - new Date(a.dateTime));
+      if (!syms.length) {
+        body.innerHTML = '<div class="card"><div class="empty"><div class="big">🍃</div>Nothing logged. Hopefully it stays that way —<br>tap + if something comes up.</div></div>';
+        return;
+      }
+      const groups = new Map();
+      syms.forEach(s => { const k = dateKey(s.dateTime); if (!groups.has(k)) groups.set(k, []); groups.get(k).push(s); });
+      let h = '';
+      groups.forEach((list, k) => {
+        h += '<div class="sec-label">' + fmtDate(list[0].dateTime) + '</div><div class="list">';
+        h += list.map(s => {
+          const dX = dayAfterInjection(Store.state.injections, s.dateTime);
+          return '<button class="row" style="width:100%;text-align:left" data-act="edit-symptom" data-id="' + s.id + '">' +
+            '<div class="rmain"><div class="rtitle">' + esc(s.name) + (dX ? ' <span class="badge-day">Day ' + dX + '</span>' : '') + '</div>' +
+            '<div class="rsub" style="display:flex;align-items:center;gap:8px">' + sevDots(s.severity) + '<span>' + fmtTime(s.dateTime) + '</span></div>' +
+            (s.note ? '<div class="rnote">' + esc(s.note) + '</div>' : '') + '</div>' +
+            '<span class="chev-ico">' + ic('chevR', 15) + '</span></button>';
+        }).join('');
+        h += '</div>';
+      });
+      h += '<div class="footnote">“Day X” counts from the most recent injection before each entry — injection day is Day 1.</div>';
+      body.innerHTML = h;
+    }
+  });
+}
+function openSymptomSheet(existing) {
+  const now = existing ? existing.dateTime : new Date().toISOString();
+  let selName = existing ? existing.name : '';
+  let sev = existing ? existing.severity : 3;
+  const isPreset = SYMPTOM_PRESETS.includes(selName);
+  Sheet.open({
+    title: existing ? 'Edit symptom' : 'Log symptom',
+    html:
+      '<div class="f-label">Symptom</div>' +
+      '<div class="chips" id="sym-chips">' + SYMPTOM_PRESETS.map(p =>
+        '<button class="chip' + (p === selName ? ' on' : '') + '" data-name="' + esc(p) + '">' + esc(p) + '</button>').join('') + '</div>' +
+      '<input class="field" id="sym-custom" placeholder="Or type your own…" value="' + (!isPreset && selName ? esc(selName) : '') + '" style="margin-top:10px">' +
+      '<div class="f-label">Severity</div>' +
+      '<div class="sevpick" id="sym-sev">' + [1, 2, 3, 4, 5].map(n =>
+        '<button class="sevbtn' + (n === sev ? ' on' : '') + '" data-sev="' + n + '">' + n + '</button>').join('') + '</div>' +
+      '<div class="f-hint" id="sev-hint"></div>' +
+      '<div class="f-label">Date &amp; time</div>' +
+      '<input class="field" type="datetime-local" id="sym-dt" value="' + toInputDT(now) + '">' +
+      '<div class="f-label">Note <span style="font-weight:400;color:var(--faint)">(optional)</span></div>' +
+      '<textarea class="field" id="sym-note" rows="2" placeholder="What helped, what triggered it…">' + esc(existing && existing.note || '') + '</textarea>' +
+      '<div class="sheet-actions">' +
+      (existing ? '<button class="btn btn-danger" id="sym-del">' + ic('trash', 17) + '</button>' : '') +
+      '<button class="btn btn-primary" id="sym-save" style="flex:1">' + (existing ? 'Save changes' : 'Log symptom') + '</button></div>',
+    mount(el, close) {
+      const hint = ['', 'Barely noticeable', 'Mild', 'Moderate', 'Rough day', 'Severe — consider calling your doctor'];
+      const hintEl = $('#sev-hint', el);
+      const setHint = () => hintEl.textContent = hint[sev];
+      setHint();
+      $('#sym-chips', el).addEventListener('click', e => {
+        const c = e.target.closest('.chip'); if (!c) return;
+        $$('.chip', el).forEach(x => x.classList.remove('on'));
+        c.classList.add('on'); selName = c.dataset.name;
+        $('#sym-custom', el).value = '';
+      });
+      $('#sym-custom', el).addEventListener('input', e => {
+        if (e.target.value.trim()) { $$('.chip', el).forEach(x => x.classList.remove('on')); selName = ''; }
+      });
+      $('#sym-sev', el).addEventListener('click', e => {
+        const b = e.target.closest('.sevbtn'); if (!b) return;
+        sev = +b.dataset.sev;
+        $$('.sevbtn', el).forEach(x => x.classList.toggle('on', +x.dataset.sev === sev));
+        setHint();
+      });
+      $('#sym-save', el).addEventListener('click', () => {
+        const custom = $('#sym-custom', el).value.trim();
+        const name = custom || selName;
+        if (!name) return toast('Pick or type a symptom');
+        const dt = $('#sym-dt', el).value;
+        if (!dt) return toast('Set a date & time');
+        Actions.saveSymptom({ id: existing ? existing.id : null, name, severity: sev, dateTime: new Date(dt).toISOString(), note: $('#sym-note', el).value.trim() });
+        close(); toast(existing ? 'Symptom updated' : 'Symptom logged');
+      });
+      if (existing) $('#sym-del', el).addEventListener('click', async () => {
+        if (await confirmDlg('Delete this symptom?', esc(existing.name) + ' · ' + fmtDate(existing.dateTime), 'Delete', true)) {
+          Actions.deleteSymptom(existing.id); close(); toast('Deleted');
+        }
+      });
+    }
+  });
+}
+
+/* ---------------- injections page ---------------- */
+function openInjectionsPage() {
+  Pages.push({
+    title: 'Injections',
+    right: '<button class="tbtn" data-act="add-injection" style="width:36px;height:36px">' + ic('plus', 18) + '</button>',
+    render(body) {
+      const set = Store.state.settings;
+      const injs = injectionsSorted(true);
+      const li = injs[0] || null;
+      const now = new Date();
+      const next = nextInjectionDate(now, set.weekday, set.time);
+      const sug = suggestedSite();
+      let h = '';
+      h += '<div class="card"><div class="card-head">' + iconChip('cal', 'coral') + '<h3>Schedule</h3>' +
+        '<button class="mini-add" data-act="edit-schedule">' + ic('pencil', 14) + '</button></div>' +
+        '<div class="kv"><span>Injection day</span><b>' + WEEKDAYS[set.weekday] + 's · ' + esc(set.time) + '</b></div>' +
+        '<div class="kv"><span>Next injection</span><b>' + (daysBetween(now, next) === 0 ? 'Today' : fmtDate(next)) + ' · ' + relDays(daysBetween(now, next)) + '</b></div>' +
+        '<div class="kv"><span>Streak</span><b>' + injectionStreak(Store.state.injections) + ' consecutive week' + (injectionStreak(Store.state.injections) === 1 ? '' : 's') + '</b></div></div>';
+      /* site rotation */
+      h += '<div class="sec-label">Site rotation</div><div class="card">' +
+        '<div class="sitegrid">' + SITES.map(st =>
+          '<div class="sitebtn' + (st === sug ? ' on' : '') + '">' + esc(st) +
+          (li && li.site === st ? '<span class="tag tag-last">last</span>' : '') +
+          (st === sug ? '<span class="tag" style="background:var(--coral-soft);color:var(--coral-deep)">next</span>' : '') +
+          '</div>').join('') + '</div>' +
+        '<div class="footnote">Rotating sites keeps skin healthy and absorption steady. Suggested order runs abdomen → thighs → arms.</div></div>';
+      /* dose chart */
+      const dosePts = injectionsSorted(false).map(i => ({ x: new Date(i.dateTime).getTime(), y: i.doseMg }));
+      if (dosePts.length >= 2) {
+        h += '<div class="sec-label">Dose history</div><div class="card">' +
+          lineChart({ series: [{ pts: dosePts, color: 'var(--coral)', dots: true, fill: false }], yFmt: v => fmtMg(v) + ' mg', minY0: true, h: 130 }) + '</div>';
+      }
+      /* history */
+      if (injs.length) {
+        h += '<div class="sec-label">History · ' + injs.length + '</div><div class="list">' + injs.map(i =>
+          '<button class="row" style="width:100%;text-align:left" data-act="edit-injection" data-id="' + i.id + '">' +
+          '<div class="rmain"><div class="rtitle">' + fmtDate(i.dateTime) + '</div>' +
+          '<div class="rsub">' + fmtTime(i.dateTime) + (i.site ? ' · ' + esc(i.site) : '') + '</div>' +
+          (i.note ? '<div class="rnote">' + esc(i.note) + '</div>' : '') + '</div>' +
+          '<div class="rside"><div class="rval num">' + fmtMg(i.doseMg) + ' mg</div></div></button>').join('') + '</div>';
+      } else {
+        h += '<div class="card"><div class="empty"><div class="big">💉</div>No injections yet — log your first one with +.</div></div>';
+      }
+      body.innerHTML = h;
+    }
+  });
+}
+function openInjectionSheet(existing) {
+  const now = existing ? existing.dateTime : new Date().toISOString();
+  let dose = existing ? existing.doseMg : (lastInjection() ? lastInjection().doseMg : 2.5);
+  let site = existing ? (existing.site || suggestedSite()) : suggestedSite();
+  const last = lastInjection();
+  Sheet.open({
+    title: existing ? 'Edit injection' : 'Log injection',
+    sub: (!existing && last) ? 'Previous: ' + fmtMg(last.doseMg) + ' mg · ' + esc(last.site || '—') + ' · ' + fmtDate(last.dateTime) : '',
+    html:
+      '<div class="f-label">Dose</div>' +
+      '<div class="chips" id="inj-dose">' + DOSES.map(d =>
+        '<button class="chip' + (d === dose ? ' on' : '') + '" data-d="' + d + '">' + fmtMg(d) + ' mg</button>').join('') + '</div>' +
+      '<div class="f-label">Injection site</div>' +
+      '<div class="sitegrid" id="inj-site">' + SITES.map(st =>
+        '<button class="sitebtn' + (st === site ? ' on' : '') + '" data-s="' + esc(st) + '">' + esc(st) +
+        (last && last.site === st ? '<span class="tag tag-last">last</span>' : '') + '</button>').join('') + '</div>' +
+      (!existing ? '<div class="f-hint">Suggested rotation: <b>' + esc(suggestedSite()) + '</b></div>' : '') +
+      '<div class="f-label">Date &amp; time</div>' +
+      '<input class="field" type="datetime-local" id="inj-dt" value="' + toInputDT(now) + '">' +
+      '<div class="f-label">Note <span style="font-weight:400;color:var(--faint)">(optional)</span></div>' +
+      '<input class="field" id="inj-note" placeholder="e.g. slight sting, new pen…" value="' + esc(existing && existing.note || '') + '">' +
+      '<div class="sheet-actions">' +
+      (existing ? '<button class="btn btn-danger" id="inj-del">' + ic('trash', 17) + '</button>' : '') +
+      '<button class="btn btn-primary" id="inj-save" style="flex:1">' + (existing ? 'Save changes' : 'Log injection') + '</button></div>',
+    mount(el, close) {
+      $('#inj-dose', el).addEventListener('click', e => {
+        const c = e.target.closest('.chip'); if (!c) return;
+        dose = +c.dataset.d;
+        $$('#inj-dose .chip', el).forEach(x => x.classList.toggle('on', +x.dataset.d === dose));
+      });
+      $('#inj-site', el).addEventListener('click', e => {
+        const b = e.target.closest('.sitebtn'); if (!b) return;
+        site = b.dataset.s;
+        $$('#inj-site .sitebtn', el).forEach(x => x.classList.toggle('on', x.dataset.s === site));
+      });
+      $('#inj-save', el).addEventListener('click', () => {
+        const dt = $('#inj-dt', el).value;
+        if (!dt) return toast('Set a date & time');
+        const when = new Date(dt);
+        if (when.getTime() > Date.now() + 60000) return toast('That\u2019s in the future — check the date');
+        Actions.saveInjection({ id: existing ? existing.id : null, doseMg: dose, site, dateTime: when.toISOString(), note: $('#inj-note', el).value.trim() });
+        close(); toast(existing ? 'Injection updated' : fmtMg(dose) + ' mg logged 💪');
+      });
+      if (existing) $('#inj-del', el).addEventListener('click', async () => {
+        if (await confirmDlg('Delete this injection?', fmtMg(existing.doseMg) + ' mg · ' + fmtDate(existing.dateTime) + ' — medication estimates will update.', 'Delete', true)) {
+          Actions.deleteInjection(existing.id); close(); toast('Deleted');
+        }
+      });
+    }
+  });
+}
+function openWeightSheet(existing) {
+  const now = existing ? existing.dateTime : new Date().toISOString();
+  const lastW = currentWeight();
+  Sheet.open({
+    title: existing ? 'Edit weight' : 'Log weight',
+    html:
+      '<div class="f-label">Weight (kg)</div>' +
+      '<input class="field num" type="text" inputmode="decimal" step="0.1" min="20" max="400" id="w-kg" placeholder="' + (lastW ? fmtKg(lastW.kg) : '80.0') + '" value="' + (existing ? fmtKg(existing.kg) : '') + '" style="font-size:22px;font-weight:700">' +
+      '<div class="f-label">Date &amp; time</div>' +
+      '<input class="field" type="datetime-local" id="w-dt" value="' + toInputDT(now) + '">' +
+      '<div class="f-label">Note <span style="font-weight:400;color:var(--faint)">(optional)</span></div>' +
+      '<input class="field" id="w-note" placeholder="e.g. after breakfast, travel day…" value="' + esc(existing && existing.note || '') + '">' +
+      '<div class="sheet-actions">' +
+      (existing ? '<button class="btn btn-danger" id="w-del">' + ic('trash', 17) + '</button>' : '') +
+      '<button class="btn btn-primary" id="w-save" style="flex:1">' + (existing ? 'Save changes' : 'Log weight') + '</button></div>',
+    mount(el, close) {
+      const inp = $('#w-kg', el);
+      if (!existing) setTimeout(() => inp.focus(), 350);
+      $('#w-save', el).addEventListener('click', () => {
+        const kg = parseNum(inp.value);
+        if (!kg || kg < 20 || kg > 400) return toast('Enter a weight between 20–400 kg');
+        const dt = $('#w-dt', el).value;
+        if (!dt) return toast('Set a date & time');
+        Actions.saveWeight({ id: existing ? existing.id : null, kg: Math.round(kg * 10) / 10, dateTime: new Date(dt).toISOString(), note: $('#w-note', el).value.trim() });
+        close(); toast(existing ? 'Weight updated' : 'Weight logged');
+      });
+      if (existing) $('#w-del', el).addEventListener('click', async () => {
+        if (await confirmDlg('Delete this entry?', fmtKg(existing.kg) + ' kg · ' + fmtDate(existing.dateTime), 'Delete', true)) {
+          Actions.deleteWeight(existing.id); close(); toast('Deleted');
+        }
+      });
+    }
+  });
+}
+function openMeasurementSheet(existing) {
+  const now = existing ? existing.dateTime : new Date().toISOString();
+  Sheet.open({
+    title: existing ? 'Edit measurements' : 'Log measurements',
+    sub: 'All in cm — fill only what you measured today.',
+    html:
+      MEAS_GROUPS.map(g =>
+        '<div class="mgroup">' + g[0] + '</div><div class="f-2col">' +
+        g[1].map(f =>
+          '<div><div class="f-label" style="margin-top:6px">' + f[1] + '</div>' +
+          '<input class="field num" type="text" inputmode="decimal" id="m-' + f[0] + '" value="' + (existing && existing[f[0]] != null && existing[f[0]] !== '' ? fmtCm(existing[f[0]]) : '') + '" placeholder="—"></div>'
+        ).join('') + '</div>'
+      ).join('') +
+      '<div class="f-label">Date &amp; time</div>' +
+      '<input class="field" type="datetime-local" id="m-dt" value="' + toInputDT(now) + '">' +
+      '<div class="sheet-actions">' +
+      (existing ? '<button class="btn btn-danger" id="m-del">' + ic('trash', 17) + '</button>' : '') +
+      '<button class="btn btn-primary" id="m-save" style="flex:1">' + (existing ? 'Save changes' : 'Log measurements') + '</button></div>',
+    mount(el, close) {
+      $('#m-save', el).addEventListener('click', () => {
+        const rec = { id: existing ? existing.id : null, dateTime: null };
+        let any = false;
+        MEAS_FIELDS.forEach(f => {
+          const v = parseNum($('#m-' + f[0], el).value);
+          if (v && v >= 10 && v <= 300) { rec[f[0]] = Math.round(v * 10) / 10; any = true; }
+          else rec[f[0]] = null;
+        });
+        if (!any) return toast('Enter at least one measurement');
+        const dt = $('#m-dt', el).value;
+        if (!dt) return toast('Set a date & time');
+        rec.dateTime = new Date(dt).toISOString();
+        Actions.saveMeasurement(rec);
+        close(); toast(existing ? 'Measurements updated' : 'Measurements logged');
+      });
+      if (existing) $('#m-del', el).addEventListener('click', async () => {
+        if (await confirmDlg('Delete these measurements?', fmtDate(existing.dateTime), 'Delete', true)) {
+          Actions.deleteMeasurement(existing.id); close(); toast('Deleted');
+        }
+      });
+    }
+  });
+}
+
+/* ---------------- photos ---------------- */
+let photoCompare = false, photoSel = [];
+function openPhotosPage() {
+  photoCompare = false; photoSel = [];
+  Pages.push({
+    title: 'Progress Photos',
+    right: '<button class="tbtn" data-act="add-photo" style="width:36px;height:36px">' + ic('camera', 18) + '</button>',
+    render(body) {
+      const list = photoCache.slice().reverse();
+      let h = '';
+      if (!PhotoDB.available) {
+        body.innerHTML = '<div class="banner err">Photo storage isn\u2019t available in this browser mode (e.g. some private tabs).</div>';
+        return;
+      }
+      if (!list.length) {
+        body.innerHTML = '<div class="card"><div class="empty"><div class="big">📷</div>No photos yet. Same spot, same light,<br>same pose — future you will thank you.</div>' +
+          '<button class="btn btn-primary" style="width:100%" data-act="add-photo">Add first photo</button></div>';
+        return;
+      }
+      h += '<div class="btnrow" style="margin-bottom:14px">' +
+        '<button class="btn ' + (photoCompare ? 'btn-primary' : 'btn-tonal') + ' btn-sm" data-act="toggle-compare">' + ic('compare', 15) + ' ' + (photoCompare ? 'Pick two photos… (' + photoSel.length + '/2)' : 'Compare') + '</button>' +
+        (photoCompare ? '<button class="btn btn-ghost btn-sm" data-act="cancel-compare">Cancel</button>' : '') + '</div>';
+      h += '<div class="pgrid">' + list.map(p => {
+        const selIdx = photoSel.indexOf(p.id);
+        return '<button class="pcell' + (photoCompare ? ' selmode' : '') + (selIdx >= 0 ? ' selected' : '') + '" data-act="' + (photoCompare ? 'pick-compare' : 'view-photo') + '" data-id="' + p.id + '">' +
+          '<img src="' + thumbUrl(p) + '" alt="">' +
+          (selIdx >= 0 ? '<span class="selnum">' + (selIdx + 1) + '</span>' : '') +
+          '<span class="pdate">' + DTF.md.format(new Date(p.dateTime)) + (p.weightKg ? ' · ' + fmtKg(p.weightKg) + 'kg' : '') + '</span></button>';
+      }).join('') + '</div>';
+      h += '<div class="footnote">' + list.length + ' photo' + (list.length === 1 ? '' : 's') + ' · stored on this device (not in cloud sync).</div>';
+      body.innerHTML = h;
+    }
+  });
+}
+function openPhotoAddSheet() {
+  if (!PhotoDB.available) return toast('Photo storage unavailable');
+  let fullBlob = null, thumbBlob = null, previewUrl = null;
+  Sheet.open({
+    title: 'Add progress photo',
+    html:
+      '<input type="file" accept="image/*" id="ph-file" style="display:none">' +
+      '<button class="btn btn-tonal" id="ph-pick" style="width:100%;border:1.5px dashed var(--line);background:var(--surface2)">' + ic('camera', 18) + ' Choose photo</button>' +
+      '<div id="ph-preview" style="margin-top:12px"></div>' +
+      '<div class="f-label">Date &amp; time</div>' +
+      '<input class="field" type="datetime-local" id="ph-dt" value="' + toInputDT(new Date()) + '">' +
+      '<div class="f-label">Weight at photo <span style="font-weight:400;color:var(--faint)">(auto from nearest entry)</span></div>' +
+      '<input class="field num" type="text" inputmode="decimal" step="0.1" id="ph-kg" placeholder="optional">' +
+      '<div class="f-label">Note <span style="font-weight:400;color:var(--faint)">(optional)</span></div>' +
+      '<input class="field" id="ph-note" placeholder="e.g. front, morning light…">' +
+      '<div class="sheet-actions"><button class="btn btn-primary" id="ph-save" style="flex:1" disabled>Save photo</button></div>',
+    mount(el, close) {
+      const fileInp = $('#ph-file', el), saveBtn = $('#ph-save', el);
+      const syncWeight = () => {
+        const w = nearestWeight($('#ph-dt', el).value || new Date());
+        if (w && !$('#ph-kg', el).value) $('#ph-kg', el).value = fmtKg(w.kg);
+      };
+      syncWeight();
+      $('#ph-dt', el).addEventListener('change', syncWeight);
+      $('#ph-pick', el).addEventListener('click', () => fileInp.click());
+      fileInp.addEventListener('change', async () => {
+        const f = fileInp.files && fileInp.files[0];
+        if (!f) return;
+        $('#ph-preview', el).innerHTML = '<div class="footnote">Processing…</div>';
+        try {
+          fullBlob = await makeScaled(f, 1400, 0.85);
+          thumbBlob = await makeScaled(f, 320, 0.72);
+          if (previewUrl) URL.revokeObjectURL(previewUrl);
+          previewUrl = URL.createObjectURL(fullBlob);
+          $('#ph-preview', el).innerHTML = '<img src="' + previewUrl + '" style="width:100%;border-radius:16px;display:block" alt="">';
+          saveBtn.disabled = false;
+        } catch (e) {
+          $('#ph-preview', el).innerHTML = '<div class="banner err">Couldn\u2019t read that image — try another.</div>';
+        }
+      });
+      saveBtn.addEventListener('click', async () => {
+        if (!fullBlob || !thumbBlob) return;
+        const dt = $('#ph-dt', el).value;
+        if (!dt) return toast('Set a date & time');
+        const kg = parseNum($('#ph-kg', el).value);
+        const meta = { id: uid(), dateTime: new Date(dt).toISOString(), note: $('#ph-note', el).value.trim(), weightKg: (kg && kg >= 20 && kg <= 400) ? Math.round(kg * 10) / 10 : null, thumb: thumbBlob };
+        saveBtn.disabled = true;
+        try {
+          await PhotoDB.put(meta, fullBlob);
+          await refreshPhotoCache();
+          if (previewUrl) URL.revokeObjectURL(previewUrl);
+          close(); App.refresh(); toast('Photo saved 📸');
+        } catch (e) { saveBtn.disabled = false; toast('Could not save photo'); }
+      });
+    }
+  });
+}
+function openPhotoViewer(id) {
+  const p = photoCache.find(x => x.id === id);
+  if (!p) return;
+  let fullUrl = null;
+  Sheet.open({
+    title: fmtDate(p.dateTime),
+    sub: [p.weightKg ? fmtKg(p.weightKg) + ' kg' : null, fmtTime(p.dateTime)].filter(Boolean).join(' · '),
+    html:
+      '<div class="photoview" id="pv-img"><div class="footnote" style="padding:40px 0;text-align:center">Loading…</div></div>' +
+      (p.note ? '<div class="rnote" style="margin-top:10px;font-size:14px">' + esc(p.note) + '</div>' : '') +
+      '<div class="sheet-actions">' +
+      '<button class="btn btn-danger" id="pv-del">' + ic('trash', 17) + '</button>' +
+      '<button class="btn btn-tonal" id="pv-edit" style="flex:1">' + ic('pencil', 15) + ' Edit details</button></div>',
+    mount(el, close) {
+      PhotoDB.getFull(p.id).then(blob => {
+        if (!blob) { $('#pv-img', el).innerHTML = '<div class="banner err">Image data missing.</div>'; return; }
+        fullUrl = URL.createObjectURL(blob);
+        $('#pv-img', el).innerHTML = '<img src="' + fullUrl + '" style="width:100%;border-radius:16px;display:block" alt="">';
+      }).catch(() => { $('#pv-img', el).innerHTML = '<div class="banner err">Could not load image.</div>'; });
+      const cleanup = () => { if (fullUrl) { URL.revokeObjectURL(fullUrl); fullUrl = null; } };
+      $('.sheet-back', el.parentElement).addEventListener('click', cleanup);
+      $('#pv-del', el).addEventListener('click', async () => {
+        if (await confirmDlg('Delete this photo?', 'This can\u2019t be undone.', 'Delete', true)) {
+          await PhotoDB.remove(p.id).catch(() => {});
+          dropThumbUrl(p.id);
+          await refreshPhotoCache();
+          cleanup(); close(); App.refresh(); toast('Photo deleted');
+        }
+      });
+      $('#pv-edit', el).addEventListener('click', () => { cleanup(); close(); setTimeout(() => openPhotoEditSheet(p.id), 250); });
+    }
+  });
+}
+function openPhotoEditSheet(id) {
+  const p = photoCache.find(x => x.id === id);
+  if (!p) return;
+  Sheet.open({
+    title: 'Edit photo details',
+    html:
+      '<div class="f-label">Date &amp; time</div>' +
+      '<input class="field" type="datetime-local" id="pe-dt" value="' + toInputDT(p.dateTime) + '">' +
+      '<div class="f-label">Weight (kg)</div>' +
+      '<input class="field num" type="text" inputmode="decimal" step="0.1" id="pe-kg" value="' + (p.weightKg ? fmtKg(p.weightKg) : '') + '" placeholder="optional">' +
+      '<div class="f-label">Note</div>' +
+      '<input class="field" id="pe-note" value="' + esc(p.note || '') + '" placeholder="optional">' +
+      '<div class="sheet-actions"><button class="btn btn-primary" id="pe-save" style="flex:1">Save changes</button></div>',
+    mount(el, close) {
+      $('#pe-save', el).addEventListener('click', async () => {
+        const dt = $('#pe-dt', el).value;
+        if (!dt) return toast('Set a date & time');
+        const kg = parseNum($('#pe-kg', el).value);
+        const meta = Object.assign({}, p, {
+          dateTime: new Date(dt).toISOString(),
+          weightKg: (kg && kg >= 20 && kg <= 400) ? Math.round(kg * 10) / 10 : null,
+          note: $('#pe-note', el).value.trim()
+        });
+        try {
+          await PhotoDB.updateMeta(meta);
+          await refreshPhotoCache();
+          close(); App.refresh(); toast('Photo updated');
+        } catch (e) { toast('Could not save'); }
+      });
+    }
+  });
+}
+function openCompareSheet(idA, idB) {
+  let a = photoCache.find(x => x.id === idA), b = photoCache.find(x => x.id === idB);
+  if (!a || !b) return;
+  if (new Date(a.dateTime) > new Date(b.dateTime)) { const t = a; a = b; b = t; }
+  const days = daysBetween(new Date(a.dateTime), new Date(b.dateTime));
+  const wd = (a.weightKg != null && b.weightKg != null) ? b.weightKg - a.weightKg : null;
+  const urls = [];
+  Sheet.open({
+    title: 'Compare',
+    sub: days + ' day' + (days === 1 ? '' : 's') + ' apart' + (wd != null ? ' · <b class="delta ' + (wd < 0 ? 'down' : wd > 0 ? 'up' : 'flat') + '">' + (wd < 0 ? '↓ ' : wd > 0 ? '↑ ' : '') + fmtKg(Math.abs(wd)) + ' kg</b>' : ''),
+    html:
+      '<div class="compare">' +
+      [a, b].map((p, i) => '<div><div id="cmp-' + i + '" style="border-radius:14px;overflow:hidden;background:var(--surface2);min-height:140px"></div>' +
+        '<div class="cinfo"><b>' + fmtDate(p.dateTime) + '</b>' + (p.weightKg ? '<span class="num">' + fmtKg(p.weightKg) + ' kg</span>' : '<span>—</span>') + '</div></div>').join('') +
+      '</div>',
+    mount(el) {
+      [a, b].forEach((p, i) => {
+        PhotoDB.getFull(p.id).then(blob => {
+          if (!blob) return;
+          const u = URL.createObjectURL(blob); urls.push(u);
+          $('#cmp-' + i, el).innerHTML = '<img src="' + u + '" style="width:100%;display:block" alt="">';
+        }).catch(() => {});
+      });
+      /* revoke when sheet is removed */
+      const obs = new MutationObserver(() => {
+        if (!document.body.contains(el)) { urls.forEach(u => { try { URL.revokeObjectURL(u); } catch (e) {} }); obs.disconnect(); }
+      });
+      obs.observe(document.body, { childList: true, subtree: true });
+    }
+  });
+  photoCompare = false; photoSel = [];
+  Pages.render();
+}
+
+/* ---------------- calendar ---------------- */
+const calState = { y: null, m: null, selKey: null };
+function dayRecords(key) {
+  const out = [];
+  Store.state.injections.forEach(x => { if (dateKey(x.dateTime) === key) out.push({ type: 'inj', x }); });
+  Store.state.weights.forEach(x => { if (dateKey(x.dateTime) === key) out.push({ type: 'w', x }); });
+  Store.state.symptoms.forEach(x => { if (dateKey(x.dateTime) === key) out.push({ type: 'sym', x }); });
+  Store.state.measurements.forEach(x => { if (dateKey(x.dateTime) === key) out.push({ type: 'm', x }); });
+  photoCache.forEach(x => { if (dateKey(x.dateTime) === key) out.push({ type: 'ph', x }); });
+  return out.sort((p, q) => new Date(p.x.dateTime) - new Date(q.x.dateTime));
+}
+function openCalendarPage() {
+  const now = new Date();
+  calState.y = now.getFullYear(); calState.m = now.getMonth(); calState.selKey = dateKey(now);
+  Pages.push({
+    title: 'Calendar',
+    render(body) {
+      const { y, m } = calState;
+      const cells = monthMatrix(y, m);
+      const todayK = dateKey(new Date());
+      /* dot map */
+      const dots = {};
+      const addDot = (k, color) => { (dots[k] = dots[k] || new Set()).add(color); };
+      Store.state.injections.forEach(x => addDot(dateKey(x.dateTime), 'coral'));
+      Store.state.weights.forEach(x => addDot(dateKey(x.dateTime), 'pink'));
+      Store.state.symptoms.forEach(x => addDot(dateKey(x.dateTime), 'peach'));
+      Store.state.measurements.forEach(x => addDot(dateKey(x.dateTime), 'mint'));
+      photoCache.forEach(x => addDot(dateKey(x.dateTime), 'lav'));
+      let h = '<div class="card">';
+      h += '<div class="cal-head"><button class="cal-nav" data-act="cal-prev">' + ic('chevL', 17) + '</button>' +
+        '<b>' + DTF.mo.format(new Date(y, m, 1)) + '</b>' +
+        '<button class="cal-nav" data-act="cal-next">' + ic('chevR', 17) + '</button></div>';
+      h += '<div class="cal-grid">' + ['M', 'T', 'W', 'T', 'F', 'S', 'S'].map(d => '<div class="cal-dow">' + d + '</div>').join('');
+      h += cells.map(c => {
+        if (!c) return '<div></div>';
+        const k = dateKey(c);
+        const ds = dots[k] ? [...dots[k]] : [];
+        return '<button class="cal-cell day' + (k === todayK ? ' today' : '') + (k === calState.selKey ? ' sel' : '') + '" data-act="cal-day" data-k="' + k + '">' +
+          '<span class="num">' + c.getDate() + '</span>' +
+          '<span class="cal-dots">' + ds.slice(0, 4).map(cl => '<i style="background:var(--' + cl + ')"></i>').join('') + '</span></button>';
+      }).join('');
+      h += '</div>';
+      h += '<div class="cal-legend">' +
+        '<span><i style="background:var(--coral)"></i>💉 shot</span>' +
+        '<span><i style="background:var(--pink)"></i>⚖️ weight</span>' +
+        '<span><i style="background:var(--peach)"></i>❤️ symptom</span>' +
+        '<span><i style="background:var(--mint)"></i>📏 body</span>' +
+        '<span><i style="background:var(--lav)"></i>📷 photo</span></div>';
+      h += '</div>';
+      /* selected day detail */
+      if (calState.selKey) {
+        const recs = dayRecords(calState.selKey);
+        const selDate = new Date(calState.selKey + 'T12:00:00');
+        h += '<div class="sec-label">' + fmtDate(selDate) + '</div>';
+        if (!recs.length) h += '<div class="card"><div style="font-size:14px;color:var(--muted)">Nothing logged this day.</div></div>';
+        else {
+          h += '<div class="list">' + recs.map(r => {
+            if (r.type === 'inj') return '<button class="row" style="width:100%;text-align:left" data-act="edit-injection" data-id="' + r.x.id + '"><div class="rmain"><div class="rtitle">💉 Injection · <span class="num">' + fmtMg(r.x.doseMg) + ' mg</span></div><div class="rsub">' + fmtTime(r.x.dateTime) + (r.x.site ? ' · ' + esc(r.x.site) : '') + '</div></div><span class="chev-ico">' + ic('chevR', 15) + '</span></button>';
+            if (r.type === 'w') return '<button class="row" style="width:100%;text-align:left" data-act="edit-weight" data-id="' + r.x.id + '"><div class="rmain"><div class="rtitle">⚖️ Weight · <span class="num">' + fmtKg(r.x.kg) + ' kg</span></div><div class="rsub">' + fmtTime(r.x.dateTime) + '</div></div><span class="chev-ico">' + ic('chevR', 15) + '</span></button>';
+            if (r.type === 'sym') return '<button class="row" style="width:100%;text-align:left" data-act="edit-symptom" data-id="' + r.x.id + '"><div class="rmain"><div class="rtitle">❤️ ' + esc(r.x.name) + '</div><div class="rsub" style="display:flex;gap:8px;align-items:center">' + sevDots(r.x.severity) + '<span>' + fmtTime(r.x.dateTime) + '</span></div></div><span class="chev-ico">' + ic('chevR', 15) + '</span></button>';
+            if (r.type === 'm') return '<button class="row" style="width:100%;text-align:left" data-act="edit-measurement" data-id="' + r.x.id + '"><div class="rmain"><div class="rtitle">📏 Measurements</div><div class="rsub">' + MEAS_FIELDS.filter(f => r.x[f[0]] != null && r.x[f[0]] !== '').map(f => f[1] + ' ' + fmtCm(r.x[f[0]])).join(' · ') + '</div></div><span class="chev-ico">' + ic('chevR', 15) + '</span></button>';
+            return '<button class="row" style="width:100%;text-align:left" data-act="view-photo" data-id="' + r.x.id + '"><div class="rmain"><div class="rtitle">📷 Progress photo</div><div class="rsub">' + fmtTime(r.x.dateTime) + (r.x.weightKg ? ' · ' + fmtKg(r.x.weightKg) + ' kg' : '') + '</div></div><span class="chev-ico">' + ic('chevR', 15) + '</span></button>';
+          }).join('') + '</div>';
+        }
+      }
+      body.innerHTML = h;
+    }
+  });
+}
+
+/* ---------------- settings ---------------- */
+function openScheduleSheet() {
+  const set = Store.state.settings;
+  Sheet.open({
+    title: 'Injection schedule',
+    html:
+      '<div class="f-label">Day of week</div>' +
+      '<select class="field" id="sch-day">' + WEEKDAYS.map((w, i) =>
+        '<option value="' + i + '"' + (i === set.weekday ? ' selected' : '') + '>' + w + '</option>').join('') + '</select>' +
+      '<div class="f-label">Time</div>' +
+      '<input class="field" type="time" id="sch-time" value="' + esc(set.time) + '">' +
+      '<div class="f-hint">The Shot Day checklist appears on this weekday and resets each week.</div>' +
+      '<div class="sheet-actions"><button class="btn btn-primary" id="sch-save" style="flex:1">Save schedule</button></div>',
+    mount(el, close) {
+      $('#sch-save', el).addEventListener('click', () => {
+        const t = $('#sch-time', el).value || '22:00';
+        Actions.patchSettings({ weekday: +$('#sch-day', el).value, time: t });
+        close(); toast('Schedule saved');
+      });
+    }
+  });
+}
+function openSettingsPage() {
+  Pages.push({
+    title: 'Settings',
+    render(body) {
+      const set = Store.state.settings;
+      let h = '';
+      /* schedule */
+      h += '<div class="sec-label">Injection schedule</div><div class="card press" data-act="edit-schedule">' +
+        '<div class="kv" style="border:0;padding:2px 0"><span>' + WEEKDAYS[set.weekday] + 's at ' + esc(set.time) + '</span><span class="chev-ico">' + ic('chevR', 16) + '</span></div></div>';
+      /* body */
+      h += '<div class="sec-label">Body</div><div class="card">' +
+        '<div class="f-2col"><div><div class="f-label" style="margin-top:0">Height (cm)</div>' +
+        '<input class="field num" type="text" inputmode="decimal" id="set-height" value="' + (set.heightCm || '') + '" placeholder="e.g. 165"></div>' +
+        '<div><div class="f-label" style="margin-top:0">Goal weight (kg)</div>' +
+        '<input class="field num" type="text" inputmode="decimal" step="0.1" id="set-goal" value="' + (set.goalKg || '') + '" placeholder="optional"></div></div>' +
+        '<div class="f-label">Starting weight override (kg)</div>' +
+        '<input class="field num" type="text" inputmode="decimal" step="0.1" id="set-start" value="' + (set.startKgOverride || '') + '" placeholder="auto: earliest logged weight">' +
+        '<div class="f-hint">Use this if you started Mounjaro before you started logging here.</div>' +
+        '<button class="btn btn-primary btn-sm" style="margin-top:12px" data-act="save-body">Save body settings</button>' +
+        '<div class="divider"></div>' +
+        '<button class="btn btn-tonal btn-sm" style="width:100%" data-act="open-metab">' + ic('sun', 15) + ' Metabolism (BMR / TDEE) →</button></div>';
+      /* checklist */
+      h += '<div class="sec-label">Shot day checklist</div><div class="card">' +
+        '<textarea class="field" id="set-checklist" rows="5" style="margin-top:0">' + esc(set.checklistItems.join('\n')) + '</textarea>' +
+        '<div class="f-hint">One item per line. Resets automatically every shot day.</div>' +
+        '<button class="btn btn-primary btn-sm" style="margin-top:12px" data-act="save-checklist">Save checklist</button></div>';
+      /* backup */
+      h += '<div class="sec-label">Backup & export</div><div class="card">' +
+        '<button class="btn btn-tonal" style="width:100%" data-act="export-full">' + ic('share', 16) + ' Full backup (JSON, incl. photos)</button>' +
+        '<button class="btn btn-tonal" style="width:100%;margin-top:9px" data-act="export-data">' + ic('share', 16) + ' Data-only backup (JSON, small)</button>' +
+        '<button class="btn btn-tonal" style="width:100%;margin-top:9px" data-act="export-csv">' + ic('dl', 16) + ' Export CSV…</button>' +
+        '<div class="divider"></div>' +
+        '<input type="file" accept=".json,application/json" id="restore-file" style="display:none">' +
+        '<button class="btn btn-ghost" style="width:100%" data-act="restore">Restore from backup…</button>' +
+        '<div class="f-hint" style="text-align:center">Restoring replaces current data. A safety snapshot is kept.</div></div>';
+      /* drive */
+      const dr = set.drive;
+      h += '<div class="sec-label">Google Drive sync</div><div class="card">' +
+        '<div class="setrow"><div><b style="font-size:15px">' + (dr.enabled ? 'Sync is on' : 'Sync is off') + '</b>' +
+        '<div class="f-hint" style="margin-top:2px">' + (dr.enabled ? (dr.lastSync ? 'Last sync ' + fmtDT(dr.lastSync) : 'Not synced yet') : 'Optional — data-only JSON to your own Drive.') + '</div></div>' +
+        '<span class="pill ' + (dr.enabled ? 'mint' : 'gray') + '">' + (dr.enabled ? 'ON' : 'OFF') + '</span></div>';
+      if (!dr.enabled) {
+        h += '<div class="f-label">Google OAuth Client ID</div>' +
+          '<input class="field" id="drive-cid" value="' + esc(dr.clientId || '') + '" placeholder="…apps.googleusercontent.com" autocapitalize="off" autocorrect="off">' +
+          '<div class="f-hint">Create a free “Web application” OAuth Client ID in Google Cloud Console and whitelist this app\u2019s URL as an authorized JavaScript origin. Scope used: drive.file (only its own backup file).</div>' +
+          '<button class="btn btn-primary" style="width:100%;margin-top:12px" data-act="drive-connect">' + ic('cloud', 17) + ' Connect Google Drive</button>';
+      } else {
+        h += '<div class="btnrow" style="margin-top:12px">' +
+          '<button class="btn btn-tonal btn-sm" style="flex:1" data-act="drive-sync">Sync now</button>' +
+          '<button class="btn btn-ghost btn-sm" data-act="drive-disconnect">Disconnect</button></div>';
+      }
+      h += '</div>';
+      /* danger */
+      h += '<div class="sec-label">Danger zone</div><div class="card">' +
+        '<button class="btn btn-danger" style="width:100%" data-act="erase-all">Erase all data</button>' +
+        '<div class="f-hint" style="text-align:center">Removes every record and photo from this device.</div></div>';
+      /* about */
+      h += '<div class="sec-label">About</div><div class="card">' +
+        '<div class="kv"><span>Version</span><b>' + APP_VERSION + '</b></div>' +
+        '<div class="kv"><span>Storage</span><b id="about-storage">…</b></div>' +
+        '<div class="kv"><span>Records</span><b>' + (Store.state.injections.length + Store.state.weights.length + Store.state.symptoms.length + Store.state.measurements.length) + ' + ' + photoCache.length + ' photos</b></div>' +
+        (Store.state.meta.quarantineKey ? '<div class="banner warn" style="margin-top:10px">A corrupted data snapshot was quarantined at startup.<br><button class="btn btn-tonal btn-sm" style="margin-top:8px" data-act="export-quarantine">Export quarantined data</button></div>' : '') +
+        '<div class="footnote">Medication levels are a pharmacokinetic estimate for insight only — not medical advice. All data lives on your device.</div></div>';
+      body.innerHTML = h;
+      if (navigator.storage && navigator.storage.estimate) {
+        navigator.storage.estimate().then(e => {
+          const el = $('#about-storage', body);
+          if (el && e && e.usage != null) el.textContent = (e.usage / 1048576).toFixed(1) + ' MB used';
+        }).catch(() => {});
+      } else { const el = $('#about-storage', body); if (el) el.textContent = 'on device'; }
+    }
+  });
+}
+
+/* ---------------- backup / export / restore ---------------- */
+function csvEsc(v) {
+  v = v == null ? '' : String(v);
+  return /[",\n]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v;
+}
+function blobToDataURL(blob) {
+  return new Promise((res, rej) => {
+    const r = new FileReader();
+    r.onload = () => res(r.result);
+    r.onerror = () => rej(r.error);
+    r.readAsDataURL(blob);
+  });
+}
+function dataURLtoBlob(durl) {
+  const m = durl.split(',');
+  const mime = (m[0].match(/data:(.*?);/) || [])[1] || 'image/jpeg';
+  const bin = atob(m[1]);
+  const arr = new Uint8Array(bin.length);
+  for (let i = 0; i < bin.length; i++) arr[i] = bin.charCodeAt(i);
+  return new Blob([arr], { type: mime });
+}
+async function shareFile(filename, mime, text) {
+  const blob = new Blob([text], { type: mime });
+  if (navigator.share && navigator.canShare) {
+    try {
+      const file = new File([blob], filename, { type: mime });
+      if (navigator.canShare({ files: [file] })) {
+        await navigator.share({ files: [file], title: filename });
+        return;
+      }
+    } catch (e) { if (e && e.name === 'AbortError') return; }
+  }
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = filename;
+  document.body.appendChild(a); a.click();
+  setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 800);
+}
+function dataOnlyPayload() {
+  const d = JSON.parse(JSON.stringify(Store.state));
+  d.exportedAt = new Date().toISOString();
+  d.appVersion = APP_VERSION;
+  return d;
+}
+async function exportData(includePhotos) {
+  const d = dataOnlyPayload();
+  if (includePhotos && PhotoDB.available) {
+    d.photos = [];
+    for (const p of photoCache) {
+      try {
+        const full = await PhotoDB.getFull(p.id);
+        d.photos.push({
+          id: p.id, dateTime: p.dateTime, note: p.note || '', weightKg: p.weightKg || null,
+          thumbData: p.thumb ? await blobToDataURL(p.thumb) : null,
+          fullData: full ? await blobToDataURL(full) : null
+        });
+      } catch (e) {}
+    }
+  }
+  return JSON.stringify(d);
+}
+function stamp() { const d = new Date(); return d.getFullYear() + pad2(d.getMonth() + 1) + pad2(d.getDate()); }
+async function doExport(includePhotos) {
+  toast('Preparing backup…');
+  try {
+    const json = await exportData(includePhotos);
+    await shareFile('mounjaro-backup-' + stamp() + (includePhotos ? '-full' : '') + '.json', 'application/json', json);
+  } catch (e) { toast('Export failed'); }
+}
+function doExportCsv() {
+  Sheet.open({
+    title: 'Export CSV',
+    html: [
+      ['csv-inj', 'Injections · ' + Store.state.injections.length],
+      ['csv-w', 'Weights · ' + Store.state.weights.length],
+      ['csv-sym', 'Symptoms · ' + Store.state.symptoms.length],
+      ['csv-m', 'Measurements · ' + Store.state.measurements.length]
+    ].map(x => '<button class="btn btn-tonal" style="width:100%;margin-bottom:9px" data-csv="' + x[0] + '">' + x[1] + '</button>').join(''),
+    mount(el, close) {
+      el.addEventListener('click', e => {
+        const b = e.target.closest('[data-csv]'); if (!b) return;
+        const k = b.dataset.csv;
+        let rows, name;
+        if (k === 'csv-inj') {
+          name = 'injections';
+          rows = [['dateTime', 'doseMg', 'site', 'note']].concat(injectionsSorted(false).map(i => [i.dateTime, i.doseMg, i.site || '', i.note || '']));
+        } else if (k === 'csv-w') {
+          name = 'weights';
+          rows = [['dateTime', 'kg', 'note']].concat(weightsSorted(false).map(w => [w.dateTime, w.kg, w.note || '']));
+        } else if (k === 'csv-sym') {
+          name = 'symptoms';
+          rows = [['dateTime', 'name', 'severity', 'dayAfterInjection', 'note']].concat(
+            Store.state.symptoms.slice().sort((a, b) => new Date(a.dateTime) - new Date(b.dateTime))
+              .map(s => [s.dateTime, s.name, s.severity, dayAfterInjection(Store.state.injections, s.dateTime) || '', s.note || '']));
+        } else {
+          name = 'measurements';
+          rows = [['dateTime'].concat(MEAS_FIELDS.map(f => f[0]))].concat(
+            Store.state.measurements.slice().sort((a, b) => new Date(a.dateTime) - new Date(b.dateTime))
+              .map(mm => [mm.dateTime].concat(MEAS_FIELDS.map(f => (mm[f[0]] != null && mm[f[0]] !== '') ? mm[f[0]] : ''))));
+        }
+        const csv = rows.map(r => r.map(csvEsc).join(',')).join('\r\n');
+        shareFile('mounjaro-' + name + '-' + stamp() + '.csv', 'text/csv', csv);
+        close();
+      });
+    }
+  });
+}
+function looksLikeBackup(d) {
+  return d && typeof d === 'object' && (Array.isArray(d.injections) || Array.isArray(d.weights) || d.settings);
+}
+async function doRestore(file) {
+  let text;
+  try { text = await file.text(); } catch (e) { return toast('Could not read file'); }
+  let data;
+  try { data = JSON.parse(text); } catch (e) { return toast('Not a valid backup file'); }
+  if (!looksLikeBackup(data)) return toast('That file doesn\u2019t look like a Mounjaro Tracker backup');
+  const counts = ['injections', 'weights', 'symptoms', 'measurements'].map(k => (Array.isArray(data[k]) ? data[k].length : 0));
+  const nPhotos = Array.isArray(data.photos) ? data.photos.length : 0;
+  const ok = await confirmDlg('Restore this backup?',
+    counts[0] + ' injections, ' + counts[1] + ' weights, ' + counts[2] + ' symptoms, ' + counts[3] + ' measurements' + (nPhotos ? ', ' + nPhotos + ' photos' : '') + '. Current data will be replaced.',
+    'Restore', true);
+  if (!ok) return;
+  try { localStorage.setItem('mounjaro_prerestore_' + Date.now(), JSON.stringify(Store.state)); } catch (e) {}
+  const photos = Array.isArray(data.photos) ? data.photos : null;
+  delete data.photos;
+  Store.state = Store.migrate(data);
+  Store.persist();
+  if (photos && PhotoDB.available) {
+    toast('Restoring photos…');
+    try {
+      await PhotoDB.clearAll();
+      thumbUrls.forEach((u) => { try { URL.revokeObjectURL(u); } catch (e) {} });
+      thumbUrls.clear();
+      for (const p of photos) {
+        if (!p.fullData) continue;
+        const meta = { id: p.id || uid(), dateTime: p.dateTime, note: p.note || '', weightKg: p.weightKg || null, thumb: p.thumbData ? dataURLtoBlob(p.thumbData) : await makeScaled(dataURLtoBlob(p.fullData), 320, 0.72) };
+        await PhotoDB.put(meta, dataURLtoBlob(p.fullData));
+      }
+    } catch (e) {}
+  }
+  await refreshPhotoCache();
+  Pages.popAll();
+  App.refresh();
+  toast('Backup restored ✓');
+}
+async function eraseAll() {
+  if (!await confirmDlg('Erase all data?', 'Every record, setting and photo on this device will be deleted.', 'Erase', true)) return;
+  if (!await confirmDlg('Are you absolutely sure?', 'This cannot be undone.', 'Yes, erase everything', true)) return;
+  try { localStorage.removeItem(LS_KEY); } catch (e) {}
+  if (PhotoDB.available) await PhotoDB.clearAll().catch(() => {});
+  thumbUrls.forEach(u => { try { URL.revokeObjectURL(u); } catch (e) {} });
+  thumbUrls.clear();
+  photoCache = [];
+  Store.load();
+  Pages.popAll();
+  App.refresh();
+  toast('All data erased');
+}
+
+/* ---------------- Google Drive sync (optional) ---------------- */
+const Drive = {
+  token: null, tokenExp: 0, tokenClient: null, gisLoading: null, syncTimer: null, busy: false,
+  API: 'https://www.googleapis.com/drive/v3',
+  UP: 'https://www.googleapis.com/upload/drive/v3',
+  loadGis() {
+    if (window.google && window.google.accounts && window.google.accounts.oauth2) return Promise.resolve();
+    if (this.gisLoading) return this.gisLoading;
+    this.gisLoading = new Promise((res, rej) => {
+      const s = document.createElement('script');
+      s.src = 'https://accounts.google.com/gsi/client';
+      s.async = true;
+      s.onload = () => res();
+      s.onerror = () => { Drive.gisLoading = null; rej(new Error('Could not load Google sign-in (offline?)')); };
+      document.head.appendChild(s);
+    });
+    return this.gisLoading;
+  },
+  getToken(interactive) {
+    if (this.token && Date.now() < this.tokenExp) return Promise.resolve(this.token);
+    const cid = Store.state.settings.drive.clientId;
+    if (!cid) return Promise.reject(new Error('Missing Client ID'));
+    return this.loadGis().then(() => new Promise((res, rej) => {
+      try {
+        this.tokenClient = google.accounts.oauth2.initTokenClient({
+          client_id: cid,
+          scope: 'https://www.googleapis.com/auth/drive.file',
+          callback: (resp) => {
+            if (resp && resp.access_token) {
+              Drive.token = resp.access_token;
+              Drive.tokenExp = Date.now() + (((+resp.expires_in) || 3600) - 60) * 1000;
+              res(Drive.token);
+            } else rej(new Error('No token received'));
+          },
+          error_callback: (err) => rej(new Error(err && err.type === 'popup_closed' ? 'Sign-in cancelled' : 'Sign-in failed — check Client ID & authorized origin'))
+        });
+        this.tokenClient.requestAccessToken({ prompt: interactive ? 'consent' : '' });
+      } catch (e) { rej(e); }
+    }));
+  },
+  async api(url, opts, retried) {
+    const tok = await this.getToken(false);
+    opts = opts || {};
+    opts.headers = Object.assign({}, opts.headers, { Authorization: 'Bearer ' + tok });
+    const r = await fetch(url, opts);
+    if (r.status === 401 && !retried) {
+      this.token = null;
+      return this.api(url, opts, true);
+    }
+    if (!r.ok) throw new Error('Drive error ' + r.status);
+    return r;
+  },
+  async ensureSetup() {
+    const dr = Store.state.settings.drive;
+    if (!dr.folderId) {
+      const q = encodeURIComponent("name='Mounjaro Tracker' and mimeType='application/vnd.google-apps.folder' and trashed=false");
+      const r = await (await this.api(this.API + '/files?q=' + q + '&fields=files(id)')).json();
+      if (r.files && r.files.length) dr.folderId = r.files[0].id;
+      else {
+        const c = await (await this.api(this.API + '/files', {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name: 'Mounjaro Tracker', mimeType: 'application/vnd.google-apps.folder' })
+        })).json();
+        dr.folderId = c.id;
+      }
+    }
+    if (!dr.fileId) {
+      const q2 = encodeURIComponent("name='mounjaro-backup.json' and '" + dr.folderId + "' in parents and trashed=false");
+      const r2 = await (await this.api(this.API + '/files?q=' + q2 + '&fields=files(id,appProperties)')).json();
+      if (r2.files && r2.files.length) { dr.fileId = r2.files[0].id; return r2.files[0]; }
+    }
+    Store.persist();
+    return null;
+  },
+  async remoteInfo() {
+    const dr = Store.state.settings.drive;
+    if (!dr.fileId) return null;
+    try {
+      const r = await (await this.api(this.API + '/files/' + dr.fileId + '?fields=id,appProperties,modifiedTime')).json();
+      return r;
+    } catch (e) { return null; }
+  },
+  multipartBody(meta, json, boundary) {
+    return '--' + boundary + '\r\nContent-Type: application/json; charset=UTF-8\r\n\r\n' +
+      JSON.stringify(meta) + '\r\n--' + boundary + '\r\nContent-Type: application/json\r\n\r\n' +
+      json + '\r\n--' + boundary + '--';
+  },
+  async push(manual) {
+    const dr = Store.state.settings.drive;
+    if (!dr.enabled || this.busy) return;
+    this.busy = true;
+    try {
+      await this.ensureSetup();
+      const json = JSON.stringify(dataOnlyPayload());
+      const hash = fnv1a(json);
+      if (dr.fileId) {
+        const remote = await this.remoteInfo();
+        const rHash = remote && remote.appProperties && remote.appProperties.hash;
+        if (rHash && dr.lastHash && rHash !== dr.lastHash) {
+          /* someone else wrote since our last sync */
+          this.busy = false;
+          const k = await Dlg.show({
+            title: 'Sync conflict',
+            msg: 'The backup on Drive changed since this device last synced. Which version wins?',
+            dismissable: false,
+            buttons: [
+              { label: 'Use Drive version here', key: 'pull', style: 'btn-tonal' },
+              { label: 'Overwrite Drive with this device', key: 'push', style: 'btn-primary' },
+              { label: 'Cancel', key: 'cancel', style: 'btn-ghost' }
+            ]
+          });
+          if (k === 'pull') return this.pull();
+          if (k !== 'push') return;
+          this.busy = true;
+        }
+      }
+      const boundary = 'mjb' + uid();
+      if (dr.fileId) {
+        await this.api(this.UP + '/files/' + dr.fileId + '?uploadType=multipart', {
+          method: 'PATCH',
+          headers: { 'Content-Type': 'multipart/related; boundary=' + boundary },
+          body: this.multipartBody({ appProperties: { hash } }, json, boundary)
+        });
+      } else {
+        const r = await (await this.api(this.UP + '/files?uploadType=multipart', {
+          method: 'POST',
+          headers: { 'Content-Type': 'multipart/related; boundary=' + boundary },
+          body: this.multipartBody({ name: 'mounjaro-backup.json', parents: [dr.folderId], appProperties: { hash } }, json, boundary)
+        })).json();
+        dr.fileId = r.id;
+      }
+      dr.lastHash = hash;
+      dr.lastSync = new Date().toISOString();
+      Store.persist();
+      if (manual) { toast('Synced to Drive ✓'); App.refresh(); }
+    } catch (e) {
+      if (manual) toast(e.message || 'Sync failed');
+    } finally { this.busy = false; }
+  },
+  async pull() {
+    const dr = Store.state.settings.drive;
+    if (!dr.fileId) return;
+    try {
+      const r = await this.api(this.API + '/files/' + dr.fileId + '?alt=media');
+      const data = await r.json();
+      if (!looksLikeBackup(data)) throw new Error('Drive file unreadable');
+      const keepDrive = JSON.parse(JSON.stringify(dr));
+      delete data.photos;
+      Store.state = Store.migrate(data);
+      Store.state.settings.drive = keepDrive;
+      Store.state.settings.drive.lastHash = fnv1a(JSON.stringify(dataOnlyPayload()));
+      Store.state.settings.drive.lastSync = new Date().toISOString();
+      Store.persist();
+      Pages.popAll();
+      App.refresh();
+      toast('Restored from Drive ✓');
+    } catch (e) { toast(e.message || 'Could not read Drive backup'); }
+  },
+  scheduleAutoSync() {
+    const dr = Store.state.settings.drive;
+    if (!dr.enabled || !dr.clientId) return;
+    clearTimeout(this.syncTimer);
+    this.syncTimer = setTimeout(() => this.push(false), 4000);
+  },
+  async connect() {
+    const cid = ($('#drive-cid') ? $('#drive-cid').value.trim() : Store.state.settings.drive.clientId || '').trim();
+    if (!cid || cid.indexOf('.apps.googleusercontent.com') < 0) return toast('Paste a valid OAuth Client ID first');
+    Store.state.settings.drive.clientId = cid;
+    Store.persist();
+    toast('Opening Google sign-in…');
+    try {
+      await this.getToken(true);
+      const existing = await this.ensureSetup();
+      const dr = Store.state.settings.drive;
+      if (existing || dr.fileId) {
+        const k = await Dlg.show({
+          title: 'Backup found on Drive',
+          msg: 'A previous backup exists. Load it here, or keep this device\u2019s data and overwrite it?',
+          dismissable: false,
+          buttons: [
+            { label: 'Load Drive backup', key: 'pull', style: 'btn-tonal' },
+            { label: 'Keep this device\u2019s data', key: 'push', style: 'btn-primary' }
+          ]
+        });
+        dr.enabled = true; Store.persist();
+        if (k === 'pull') await this.pull(); else await this.push(true);
+      } else {
+        Store.state.settings.drive.enabled = true;
+        Store.persist();
+        await this.push(true);
+      }
+      App.refresh();
+    } catch (e) { toast(e.message || 'Could not connect'); }
+  },
+  disconnect() {
+    const dr = Store.state.settings.drive;
+    dr.enabled = false;
+    this.token = null; this.tokenExp = 0;
+    clearTimeout(this.syncTimer);
+    Store.persist();
+    App.refresh();
+    toast('Drive sync off — file stays in your Drive');
+  }
+};
+
+/* ---------------- global event delegation ---------------- */
+const Handlers = {
+  'open-cal': () => openCalendarPage(),
+  'open-settings': () => openSettingsPage(),
+  'open-med': () => openMedicationPage(),
+  'open-weight': () => openWeightPage(),
+  'open-sym': () => openSymptomsPage(),
+  'open-inj': () => openInjectionsPage(),
+  'open-photos': () => openPhotosPage(),
+  'open-journey': () => openJourneyPage(),
+  'open-metab': () => openMetabolismPage(),
+  'metab-setup': () => openMetabSetupSheet(),
+  'set-activity': el => { Actions.patchSettings({ activity: +el.dataset.v }); },
+  'feel-good': () => {
+    Store.state.meta.feelGoodKey = dateKey(new Date());
+    Store.save(); App.refresh();
+    toast('Noted — good days count too 🌿');
+  },
+  'page-back': () => Pages.pop(false),
+  'add-injection': () => openInjectionSheet(null),
+  'add-weight': () => openWeightSheet(null),
+  'add-symptom': () => openSymptomSheet(null),
+  'add-measurement': () => openMeasurementSheet(null),
+  'add-photo': () => openPhotoAddSheet(),
+  'edit-injection': el => { const x = Store.state.injections.find(i => i.id === el.dataset.id); if (x) openInjectionSheet(x); },
+  'edit-weight': el => { const x = Store.state.weights.find(i => i.id === el.dataset.id); if (x) openWeightSheet(x); },
+  'edit-symptom': el => { const x = Store.state.symptoms.find(i => i.id === el.dataset.id); if (x) openSymptomSheet(x); },
+  'edit-measurement': el => { const x = Store.state.measurements.find(i => i.id === el.dataset.id); if (x) openMeasurementSheet(x); },
+  'view-photo': el => openPhotoViewer(el.dataset.id),
+  'toggle-compare': () => { photoCompare = !photoCompare; photoSel = []; Pages.render(); },
+  'cancel-compare': () => { photoCompare = false; photoSel = []; Pages.render(); },
+  'pick-compare': el => {
+    const id = el.dataset.id;
+    const i = photoSel.indexOf(id);
+    if (i >= 0) photoSel.splice(i, 1); else photoSel.push(id);
+    if (photoSel.length === 2) openCompareSheet(photoSel[0], photoSel[1]);
+    else Pages.render();
+  },
+  'check': el => Actions.toggleChecklist(+el.dataset.i),
+  'dismiss-setup': (el, e) => { e.stopPropagation(); Actions.patchSettings({ setupDismissed: true }); },
+  'wrange': el => { weightRange = el.dataset.r; Pages.render(); },
+  'cal-prev': () => { calState.m--; if (calState.m < 0) { calState.m = 11; calState.y--; } Pages.render(); },
+  'cal-next': () => { calState.m++; if (calState.m > 11) { calState.m = 0; calState.y++; } Pages.render(); },
+  'cal-day': el => { calState.selKey = el.dataset.k; Pages.render(); },
+  'edit-schedule': () => openScheduleSheet(),
+  'save-body': () => {
+    const hv = parseNum($('#set-height').value), gv = parseNum($('#set-goal').value), sv = parseNum($('#set-start').value);
+    if ($('#set-height').value && (!hv || hv < 90 || hv > 250)) return toast('Height should be 90–250 cm');
+    if ($('#set-goal').value && (!gv || gv < 20 || gv > 400)) return toast('Goal should be 20–400 kg');
+    if ($('#set-start').value && (!sv || sv < 20 || sv > 400)) return toast('Start weight should be 20–400 kg');
+    Actions.patchSettings({ heightCm: hv || null, goalKg: gv || null, startKgOverride: sv || null });
+    toast('Saved');
+  },
+  'save-checklist': () => {
+    const items = $('#set-checklist').value.split('\n').map(s => s.trim()).filter(Boolean).slice(0, 12);
+    if (!items.length) return toast('Add at least one item');
+    Actions.patchSettings({ checklistItems: items });
+    Store.state.checklist = { dateKey: null, done: [] };
+    Store.save();
+    toast('Checklist saved');
+  },
+  'export-full': () => doExport(true),
+  'export-data': () => doExport(false),
+  'export-csv': () => doExportCsv(),
+  'restore': () => {
+    const inp = $('#restore-file');
+    if (!inp) return;
+    inp.onchange = () => { if (inp.files && inp.files[0]) doRestore(inp.files[0]); inp.value = ''; };
+    inp.click();
+  },
+  'erase-all': () => eraseAll(),
+  'drive-connect': () => Drive.connect(),
+  'drive-sync': () => Drive.push(true),
+  'drive-disconnect': () => Drive.disconnect(),
+  'export-quarantine': () => {
+    const k = Store.state.meta.quarantineKey;
+    let raw = null;
+    try { raw = k && localStorage.getItem(k); } catch (e) {}
+    if (raw) shareFile('mounjaro-quarantined.json', 'application/json', raw);
+    else toast('No quarantined data found');
+  }
+};
+document.addEventListener('click', e => {
+  const el = e.target.closest('[data-act]');
+  if (!el) return;
+  const fn = Handlers[el.dataset.act];
+  if (fn) { e.preventDefault(); fn(el, e); }
+});
+
+/* ---------------- boot ---------------- */
+const App = {
+  refresh() {
+    renderDashboard();
+    if (Pages.stack.length) Pages.render();
+  },
+  actions: Actions, store: Store, pk: PK,
+  exportData, Pages, Sheet
+};
+window.App = App;
+
+function installPwaBits() {
+  /* runtime manifest (iOS mainly reads the apple-* meta tags, this helps other browsers) */
+  try {
+    const manifest = {
+      name: 'Mounjaro Tracker', short_name: 'Mounjaro',
+      display: 'standalone', start_url: '.', scope: '.',
+      background_color: '#F6F3ED', theme_color: '#F6F3ED',
+      icons: [{ src: document.querySelector('link[rel="apple-touch-icon"]').href, sizes: '180x180', type: 'image/png' }]
+    };
+    const url = URL.createObjectURL(new Blob([JSON.stringify(manifest)], { type: 'application/manifest+json' }));
+    const link = document.createElement('link');
+    link.rel = 'manifest'; link.href = url;
+    document.head.appendChild(link);
+    const fav = document.createElement('link');
+    fav.rel = 'icon';
+    fav.href = document.querySelector('link[rel="apple-touch-icon"]').href;
+    document.head.appendChild(fav);
+  } catch (e) {}
+  /* optional companion service worker for offline (iOS needs a real file) */
+  try {
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./sw.js').then(reg => {
+        reg.update().catch(() => {});
+        /* a newer build finished downloading while the app was open */
+        reg.addEventListener('updatefound', () => {
+          const sw = reg.installing;
+          if (!sw) return;
+          sw.addEventListener('statechange', () => {
+            if (sw.state === 'installed' && navigator.serviceWorker.controller) {
+              Dlg.show({
+                title: 'Update ready',
+                msg: 'A newer version of the app has been downloaded. Reload now to use it? Your data is untouched.',
+                buttons: [
+                  { label: 'Reload', key: 'go', style: 'btn-primary' },
+                  { label: 'Later', key: 'later', style: 'btn-ghost' }
+                ]
+              }).then(k => { if (k === 'go') { try { sw.postMessage('skipWaiting'); } catch (e) {} location.reload(); } });
+            }
+          });
+        });
+        /* check again whenever the app comes back to the foreground */
+        document.addEventListener('visibilitychange', () => {
+          if (!document.hidden) reg.update().catch(() => {});
+        });
+      }).catch(() => {});
+    }
+  } catch (e) {}
+}
+let lastDayKey = dateKey(new Date());
+function boot() {
+  Store.load();
+  renderTopbar();
+  renderDashboard();
+  installPwaBits();
+  PhotoDB.open().then(ok => ok ? refreshPhotoCache() : null).then(() => renderDashboard()).catch(() => {});
+  if (Store.corruptRecovered) {
+    setTimeout(() => Dlg.show({
+      title: 'Data recovered',
+      msg: 'Stored data was corrupted and has been quarantined. The app restarted fresh — you can export the quarantined snapshot from Settings → About.',
+      buttons: [{ label: 'OK', key: 'ok', style: 'btn-primary' }]
+    }), 400);
+  }
+  /* keep "days until" and shot-day state fresh */
+  setInterval(() => {
+    const k = dateKey(new Date());
+    if (k !== lastDayKey) { lastDayKey = k; App.refresh(); }
+  }, 60000);
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden && !Sheet.current) App.refresh();
+  });
+}
+boot();
+</script>
+</body>
+</html>
